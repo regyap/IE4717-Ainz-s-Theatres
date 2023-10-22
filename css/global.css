@@ -1,0 +1,105 @@
+body {
+    background-color: #000000;
+    height: 100px;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/Montserrat/Montserrat-VariableFont_wght.ttf') format('ttf'),
+        url('/Montserrat/Montserrat-Italic-VariableFont_wght.ttf') format('ttf');
+    /* Add more sources if needed */
+    font-weight: normal;
+    font-style: normal;
+}
+
+nav a {
+    text-decoration: none;
+    color: #FBCC97;
+    font-family: monospace;
+    font-size: 14px;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+
+    color: #FBCC97;
+
+
+
+
+}
+
+.navbar .navlinks {
+    padding-top: 70px;
+
+}
+
+.navbar .user img {
+    width: 51px;
+    height: 51px;
+    margin-bottom: -14px;
+
+
+}
+
+.navbar .user {
+    color: white;
+    margin-top: 44px;
+}
+
+.navbar img {
+    width: 150px;
+    height: 150px;
+}
+
+.lol {
+    height: 6vh;
+    width: 180px;
+    color: #FBCC97;
+    background-color: #000000;
+    border: 1px #FBCC97 solid;
+    font-size: 14px;
+    margin-top: 58px;
+
+
+    overflow: hidden;
+    position: relative;
+    transition: 0.5s;
+}
+
+.lol:hover {
+    background-color: #FBCC97;
+    color: #000000;
+}
+
+.lol::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #fff, transparent);
+    transition: left 0.5s, background-color 0.5s, color 0.5s;
+
+}
+
+.lol:hover::before {
+    left: 100%;
+}
+
+
+/* .navbar input:hover {
+
+    color: #000000;
+    background-color: #FBCC97;
+    border: 1px #FBCC97 solid;
+    transition-duration: 0.3s;
+
+
+} */
