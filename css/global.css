@@ -13,7 +13,7 @@ body {
 
 @font-face {
     font-family: Montserrat;
-    src: url('../Montserrat/Montserrat-VariableFont_wght.ttf');
+    src: url('../font/Montserrat-VariableFont_wght.ttf');
   }
 
 nav a {
