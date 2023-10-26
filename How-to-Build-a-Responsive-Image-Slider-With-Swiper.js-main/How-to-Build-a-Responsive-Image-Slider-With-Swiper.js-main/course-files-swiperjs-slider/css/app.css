@@ -1,0 +1,114 @@
+/* Custom properties */
+:root {
+    --black: #151515;
+    --black-90: rgba(21, 21, 21, .9);
+    --black-75: rgba(21, 21, 21, .75);
+    --black-50: rgba(21, 21, 21, .5);
+    --bg-1: #E3CFCF;
+    --bg-2: #E9E9E9;
+    --accent: #E36262;
+    --primary-ff: 'EB Garamond', Georgia, serif;
+    --secondary-ff: 'Montserrat', Helvetica, sans-serif;
+}
+
+/* Typography */
+body {
+    font-family: var(--primary-ff);
+    color: var(--black-90);
+}
+
+h1 {
+    font-size: 58px;
+    line-height: 85px;
+}
+
+h2 {
+    font-size: 45px;
+    line-height: 67px;
+    font-weight: 400;
+}
+
+h3 {
+    font-size: 36px;
+    line-height: 55px;
+    font-weight: 400;
+}
+
+p {
+    font-size: 22px;
+    line-height: 36px;
+    color: var(--black-90);
+}
+
+a {
+    color: var(--black);
+}
+
+a:hover {
+    color: var(--accent);
+}
+
+/* Header */
+#main-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    padding: 10rem 4rem;
+}
+
+#main-header img {
+    max-width: 100%;
+    height: auto;
+}
+
+p.intro {
+    font-family: var(--secondary-ff);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: var(--black-50);
+}
+
+/* Sections */
+.padded {
+    padding: 7.5rem;
+}
+
+#about {
+    background-color: var(--bg-1);
+}
+
+#slider-2 {
+    padding-bottom: 7.5rem;
+}
+
+/* Container */
+.container {
+    max-width: 46rem;
+    margin: auto;
+}
+
+.container.wide {
+    max-width: 100%;
+    padding: 0 4rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--bg-2);
+    padding: 4rem;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsive */
+@media screen and (max-width: 800px) {
+    .padded,
+    #main-header {
+        padding: 4rem;
+    }
+}
