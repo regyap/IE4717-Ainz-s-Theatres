@@ -56,11 +56,29 @@ ol {
   flex-wrap: nowrap;
   justify-content: flex-start;
 }
-
+.seat input[type="checkbox"]{
+  opacity: 0;
+  width: 30px;
+  height: 30px;
+}
+.seat:has(input[type="checkbox"]:checked){
+  background-image: url('../image/seat_white.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.seat:has(input[type="checkbox"]:disabled){
+  background-image: url('../image/seat_grey.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 .seat {
+  background-image: url('../image/seat_orange.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 25px;
+  height: 25px;
   display: flex;
-  flex: 0 0 1px;
-  padding: 1px;
+  margin: 1px;
   position: relative;
   &:nth-child(4) {
     margin-right: 15px;
