@@ -14,7 +14,12 @@ body {
 @font-face {
     font-family: Montserrat;
     src: url('../font/Montserrat-VariableFont_wght.ttf');
-  }
+}
+
+@font-face {
+    font-family: Aoboshi One;
+    src: url('../font/AoboshiOne-Regular.ttf');
+}
 
 nav a {
     text-decoration: none;
@@ -137,5 +142,159 @@ nav a {
 .navlinks:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
+
+}
+
+
+/* footer */
+footer {
+    font-family: Montserrat;
+    font-size: 14px;
+    color: #FBCC97;
+
+}
+
+.footers {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    color: #FBCC97;
+
+    font-family: Montserrat;
+    font-size: 14px;
+
+    height: 60vh;
+
+}
+
+.footers span {
+
+    font-size: 20px;
+    color: white;
+    letter-spacing: 5px;
+
+}
+
+.footersections {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
+
+
+}
+
+.footersections .line {
+
+    width: 23px;
+    height: 1px;
+    background: #FBCC97;
+}
+
+.footersections .contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+
+
+
+}
+
+.footersections .bb {
+    color: white;
+}
+
+.footersections .socialmedia {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.footersections .socialmedia img {
+
+    height: 25px;
+    width: 25px;
+}
+
+.footersections .socialmedia img:hover {
+    /* filter: brightness(30%); */
+    filter: drop-shadow(0px 0px 5px white);
+}
+
+.footersections input[type="text"] {
+    border: 0.5px solid #FBCC97;
+    background: rgba(18, 18, 18, 0.00);
+    color: #FBCC97;
+
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    width: 259px;
+    height: 42px;
+    flex-shrink: 0;
+
+
+
+}
+
+.footersections input[type="text"] {
+    background-color: #000000;
+    color: white;
+
+    transition-duration: 0.3s;
+}
+
+.footersections input[type="submit"] {
+    background-color: #000000;
+    color: #FBCC97;
+    border: 1px #FBCC97 solid;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 259px;
+    height: 42px;
+    transition-duration: 0.3s;
+}
+
+.footersections input[type="submit"]:hover {
+    background-color: #FBCC97;
+    color: #000000;
+    border: 1px #FBCC97 solid;
+
+    transition-duration: 0.3s;
+}
+
+.footerbottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: white;
+}
+
+.footerbottom .footernav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+}
+
+.footerbottom .footernav a {
+    color: #FBCC97;
+    text-decoration: none;
+
+}
+
+.footerbottom .footernav a:hover {
+    color: white;
+    filter: drop-shadow(0px 0px 5px white);
+    transition: 0.5s;
+
 
 }

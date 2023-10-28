@@ -16,7 +16,7 @@ img {
 /* Slideshow container */
 .slideshow-container {
     top: 180px;
-    width: 100vw;
+    width: 99vw;
     height: 526px;
     position: absolute;
 
@@ -154,4 +154,395 @@ img {
     .text {
         font-size: 11px
     }
+}
+
+
+
+
+/* tab */
+.audience {
+    margin-top: 560px;
+    background-image: url(../image/redseat.jpg);
+    /* background-position: 0 70%; */
+    background-size: auto;
+    height: 200px;
+    width: auto;
+}
+
+
+
+
+
+.tabSection {
+    /* margin-top: 570px; */
+    margin-top: 10px;
+
+    color: white;
+
+    padding-bottom: 100px;
+}
+
+.tablinks {
+    color: white;
+}
+
+/* Style the tab */
+.tab {
+
+    overflow: hidden;
+    border-bottom: 1px solid #FBCC97;
+    color: white;
+    /* background-color: #f1f1f1; */
+
+    margin-left: auto;
+    margin-right: auto;
+
+
+
+
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: 1px solid #FBCC97;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+
+    font-family: Montserrat;
+    font-size: 14px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #FBCC97;
+    color: black;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #FBCC97;
+    color: black;
+    border: 1px solid #FBCC97;
+}
+
+/* Style the tab content */
+.tabcontent {
+    /* display: none; */
+    padding: 6px 12px;
+    margin-left: auto;
+    margin-right: auto;
+
+
+    color: white;
+    /* border: 1px solid #FBCC97; */
+    border-top: none;
+
+    height: fit-content;
+    width: fit-content;
+
+
+}
+
+.tabItems {
+
+    margin-left: auto;
+    margin-right: auto;
+    width: 80vw;
+    height: fit-content;
+}
+
+
+.tabcontent h3 {
+    font-family: Aoboshi One;
+    font-size: 30px;
+
+}
+
+
+.tabcontent p {
+    color: white;
+}
+
+.nowshowingform {
+    display: flex;
+    flex-direction: row;
+}
+
+.nowshowingform select {
+    width: 16%;
+    height: 100%;
+    background-color: black;
+    border: 1px solid #FBCC97;
+    color: white;
+    font-family: Montserrat;
+    font-size: 14px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* margin-left: 10px; */
+    margin-right: 10px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.nowshowingform p {
+    margin-top: 20px;
+    font-family: Montserrat;
+    font-size: 14px;
+
+}
+
+.nowshowingform .shift {
+    margin-left: 10px;
+
+}
+
+
+
+.movieContent {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15%, 1fr));
+    /* Adjust the width as needed */
+    row-gap: 10px;
+    column-gap: 150px;
+
+    margin-right: 100px;
+
+
+
+    width: 80vw;
+    padding-right: 100px;
+
+    height: auto;
+
+}
+
+
+.movie {
+    width: 300px;
+    height: 400px;
+    background-color: black;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+
+
+
+    cursor: pointer;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.movie img {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    border: 1px solid #FBCC97;
+    border-bottom: none;
+
+}
+
+.movieInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Montserrat;
+    font-size: 10px;
+
+    border: 0.5px solid #FBCC97;
+    border-top: none;
+
+
+
+
+}
+
+.movieInfo p {
+    margin: 0;
+    padding: 0;
+
+    color: #FBCC97;
+    padding-bottom: 5px;
+
+}
+
+.movieInfo .title {
+    font-family: Montserrat;
+    font-size: 14px;
+    padding-top: 10px;
+}
+
+/* about us */
+.aboutus,
+.cafeandbar {
+    background: linear-gradient(rgba(0, 0, 0, 0.99), rgba(0, 0, 0, 0.9)), url(../image/lines.svg);
+    background-color: black;
+    background-size: cover;
+    background-position: 50%;
+    background-attachment: fixed;
+    /* filter: brightness(10%); */
+    height: 80vh;
+    width: auto;
+
+    color: white;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding-left: 20vw;
+
+
+
+}
+
+.aboutus img {
+    height: 66vh;
+    width: 18vw;
+    object-fit: cover;
+    padding-left: 20px;
+    padding-top: 100px;
+}
+
+.aboutus .glassimg {
+    height: 72vh;
+}
+
+.aboutus .bathimg {}
+
+.aboutuscontent {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 100px;
+
+
+    font-family: Montserrat;
+    font-size: 36px;
+
+    padding-left: 30px;
+    padding-top: 40px;
+}
+
+.aboutuscontent p {
+    font-size: 14px;
+    margin-right: 400px;
+    margin-top: -30px;
+}
+
+.cafeandbar {
+    margin-left: -300px;
+    padding-left: 550px;
+    padding-right: 550px;
+
+    background-position: 60%;
+
+}
+
+.cafeandbar img {
+    height: 66vh;
+    width: 18vw;
+    object-fit: cover;
+    padding-left: 20px;
+    padding-top: 100px;
+}
+
+.cafeandbarcontent {
+
+    font-family: Montserrat;
+    font-size: 36px;
+
+    margin-left: -80px;
+    padding-left: 100px;
+    padding-right: 100px;
+
+    justify-content: center;
+
+
+
+
+}
+
+
+.cafeandbarcontent p,
+h1 {
+    padding-top: 130px;
+    /* margin-left: -100px; */
+
+}
+
+.cafeandbarcontent p {
+    margin-top: -150px;
+    font-size: 14px;
+    width: 300px;
+}
+
+.cafeandbar #cafek {
+    margin-right: -50px;
+}
+
+.lounge {
+
+    background: linear-gradient(rgba(0, 0, 0, 0.99), rgba(0, 0, 0, 0.9)), url(../image/lines.svg);
+    background-color: black;
+    background-size: cover;
+    background-position: 90%;
+    background-attachment: fixed;
+    /* filter: brightness(10%); */
+    height: 80vh;
+    width: auto;
+
+    color: white;
+
+
+
+
+}
+
+.loungesection {
+    display: flex;
+
+    flex-direction: row;
+    justify-content: center;
+
+    margin-left: 270px;
+    margin-right: 270px;
+    width: 1000px;
+    padding-top: 100px;
+}
+
+
+.lounge img {
+    height: 57vh;
+    width: 67vw;
+}
+
+.loungecontent {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: -40px;
+    padding-left: 20px;
+    font-family: Montserrat;
+
+}
+
+.loungecontent p {
+    margin-top: -30px;
+    font-size: 14px;
+}
+
+.loungecontent h1 {
+
+    font-size: 60px;
 }
