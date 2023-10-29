@@ -61,6 +61,11 @@ ol {
   width: 30px;
   height: 30px;
 }
+.seat:hover{
+  background-image: url('../image/seat_white.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 .seat:has(input[type="checkbox"]:checked){
   background-image: url('../image/seat_white.png');
   background-repeat: no-repeat;
