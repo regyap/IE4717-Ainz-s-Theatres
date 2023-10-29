@@ -14,6 +14,21 @@
   });
 </script>
 
+<?php
+        $conn=mysqli_connect("localhost","root","" ,"IE4717_ainzs_theatres");
+    // Check connection
+        if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+        }
+        $sql_select="SELECT * FROM movie where releaseDate<=DATE_ADD(CURDATE(), INTERVAL -7 DAY)";
+        $nowShowing = $conn->query($sql_select);
+
+        $sql_select="SELECT * FROM movie where releaseDate>=DATE_ADD(CURDATE(), INTERVAL -7 DAY)";
+        $comingSoon = $conn->query($sql_select);
+
+        $conn->close();
+    ?>
+
 <body>
   <nav class="navbar">
     <a href="login.html" class="user"><img src="image/login.png">Hello, Ainz</a>
@@ -32,7 +47,7 @@
 
       <div class="mySlides fade">
         <div class="numbertext">1 / 3</div>
-        <img src="image/opppenheimer.webp" alt="slide1">
+        <img src="image/oppenheimer.webp" alt="slide1">
 
 
         <!-- <div id="slide1"></div> -->
@@ -41,7 +56,7 @@
 
       <div class="mySlides fade">
         <div class="numbertext">2 / 3</div>
-        <img src="image/opppenheimer.webp" alt="slide2">
+        <img src="image/oppenheimer.webp" alt="slide2">
 
         <!--                    <div id="slide2"></div>-->
 
@@ -49,7 +64,7 @@
 
       <div class="mySlides fade">
         <div class="numbertext">3 / 3</div>
-        <img src="image/opppenheimer.webp" alt="slide3">
+        <img src="image/oppenheimer.webp" alt="slide3">
         <!--                    <div id="slide3"></div>-->
 
       </div>
@@ -106,78 +121,23 @@
           <p> that's happening this week</p>
 
         </form>
+
         <div class="movieContent">
+        <?php
+          while($row = $nowShowing->fetch_assoc()){
+        ?>
           <div class="movie">
-            <img src="image/movies/oppenheimer.webp" alt="movie1">
+            <img src="image/movies/<?php echo $row["image"] ?>" alt="movie1">
             <div class="movieInfo">
-              <p class="title">OPPENHEIMER</p>
-              <p>2h 30min | English | PG13</p>
-              <p>Adventure | Comedy | Fantasy</p>
+              <p class="title"><?php echo $row["title"] ?></p>
+              <p><?php echo $row["duration"] ?>min | <?php echo $row["viewerDiscretion"] ?></p>
+              <p><?php echo $row["genre"] ?></p>
               <br>
             </div>
           </div>
-          <div class="movie">
-            <img src="image/opppenheimer.webp" alt="movie1">
-            <div class="movieInfo">
-              <p class="title">OPPENHEIMER</p>
-              <p>2h 30min | DRAMA | English | PG13</p>
-              <br>
-
-            </div>
-          </div>
-          <div class="movie">
-            <img src="image/opppenheimer.webp" alt="movie2">
-            <div class="movieInfo">
-              <p class="title">OPPENHEIMER</p>
-              <p>2h 30min | DRAMA | English | PG13</p>
-
-              <br>
-
-            </div>
-          </div>
-          <div class="movie">
-            <img src="image/opppenheimer.webp" alt="movie3">
-            <div class="movieInfo">
-              <p class="title">OPPENHEIMER</p>
-              <p>2h 30min | DRAMA | English | PG13</p>
-
-
-            </div>
-          </div>
-
-
-          <div class="movie">
-            <img src="image/opppenheimer.webp" alt="movie3">
-            <div class="movieInfo">
-              <p class="title">OPPENHEIMER</p>
-              <p>2h 30min | DRAMA | English | PG13</p>
-
-
-            </div>
-          </div>
-
-
-          <div class="movie">
-            <img src="image/opppenheimer.webp" alt="movie3">
-            <div class="movieInfo">
-              <p class="title">OPPENHEIMER</p>
-              <p>2h 30min | DRAMA | English | PG13</p>
-
-
-
-            </div>
-          </div>
-
-
-          <div class="movie">
-            <img src="image/opppenheimer.webp" alt="movie3">
-            <div class="movieInfo">
-              <p class="title">OPPENHEIMER</p>
-              <p>2h 30min | DRAMA | English | PG13</p>
-
-
-            </div>
-          </div>
+        <?php
+          }
+        ?>
         </div>
       </div>
     </div>
@@ -186,17 +146,21 @@
       <div class="tabItems">
         <h3>COMING SOON</h3>
         <div class="movieContent">
+        <?php
+          while($row = $comingSoon->fetch_assoc()){
+        ?>
           <div class="movie">
-            <img src="image/opppenheimer.webp" alt="movie1">
+            <img src="image/movies/<?php echo $row["image"] ?>" alt="movie1">
             <div class="movieInfo">
-              <p class="title">OPPENHEIMER</p>
-              <p>2h 30min | DRAMA | English | PG13</p>
-              <p>Adventure | Comedy | Fantasy</p>
+              <p class="title"><?php echo $row["title"] ?></p>
+              <p><?php echo $row["duration"] ?>min | <?php echo $row["viewerDiscretion"] ?></p>
+              <p><?php echo $row["genre"] ?></p>
               <br>
-
-
             </div>
           </div>
+        <?php
+          }
+        ?>
         </div>
 
       </div>
