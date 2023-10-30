@@ -23,10 +23,15 @@
     </nav>
 
     <div id="content">
-      <div class="bookingDetails"></div>
+      <div class="bookingDetails">
+        <div class="location"><img src="image/location.png"><span>AMK Hub</span></div>
+        <div class="movie">BARBIE <span class="discretion">PG13</span></div>
+        <div class="date">TUE 19 Sept</div>
+        <div class="time">09:25</div>
+      </div>
       <div class="title">Select Seats</div>
       <div class="seatsSection">
-        <div class="exit exit--front fuselage"></div>
+        <div class="exit"></div>
         <ol class="cabin fuselage">
           <li class="row row--G">
             <ol class="seats" type="A">
@@ -306,16 +311,16 @@
                 <input type="checkbox" id="B5" name="B5" />
               </li>
               <li class="seat">
-                <input type="checkbox" id="B6" name="B6" />
+                <input type="checkbox" id="B6" name="B6" disabled/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="B7" name="B7" />
+                <input type="checkbox" id="B7" name="B7" disabled/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="B8" name="B8" />
+                <input type="checkbox" id="B8" name="B8" disabled/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="B9" name="B9" />
+                <input type="checkbox" id="B9" name="B9" disabled/>
               </li>
               <li class="seat">
                 <input type="checkbox" id="B10" name="B10" />
@@ -393,13 +398,28 @@
             </ol>
           </li>
         </ol>
-        <div class="exit exit--back fuselage"></div>
-        <div class="screen"></div>
+        <div class="screen">screen</div>
+        <div class="exit"></div>
       </div>
       
-      <div class="legend"></div>
-      <div class="selectedSeatsText"></div>
-      <div class="proceedBtn"></div>
+      <div class="legend">
+        <div>
+          <div class="box1"></div><span>Available</span>
+        </div>
+        <div>
+          <div class="box2"></div><span>Not available</span>
+        </div>
+        <div>
+          <div class="box3"></div><span>Selected</span>
+        </div>
+      </div>
+      <div class="selectedSeatsText">
+        <span>Seats selected:</span><br />
+        <span>F8, F9</span>
+      </div>
+      <div class="proceedBtn">
+        <input type="submit" value="Proceed to payment">
+      </div>
     </div>
   </body>
 </html>
