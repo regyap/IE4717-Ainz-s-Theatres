@@ -1,15 +1,126 @@
-.moviedetails {
+.moviedetailpagecss {
     background-color: #121212;
-    height: 100vh;
+    height: auto;
     width: auto;
 
-    font-family: Ao;
+    font-family: Montserrat;
+    color: white;
+}
+
+.moviedetails {
+
+    margin-left: 150px;
 }
 
 .moviedetails h1 {
     color: #FFF;
     font-family: Montserrat;
     font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.discretion {
+    border: 0.3px solid #fbcc97;
+    padding: 1px;
+    font-size: 10px;
+    background-color: black;
+    color: #fbcc97;
+}
+
+.moviecontentandposter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.moviecontentandposter img {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    border: 1px solid #fbcc97;
+
+
+}
+
+.allcontent {
+    display: flex;
+    flex-direction: row;
+
+
+}
+
+table {
+    width: 39%;
+
+}
+
+.table-row .heading {
+    width: 30%;
+    vertical-align: top;
+    padding-top: 17px;
+}
+
+.flextableanddiv {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.movieinfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+    margin-left: 45px;
+
+}
+
+.movieinfoparts {
+    display: flex;
+    flex-direction: column;
+
+    width: 200px;
+
+
+
+}
+
+.movieinfoparts2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 35%;
+
+
+}
+
+.moviecontent {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+
+    margin-bottom: 20px;
+    margin-left: 120px;
+
+
+
+    font-size: 14px;
+}
+
+.moviecontent .synopsis {
+    margin-right: 150px;
+    margin-left: -120px;
+}
+
+.moviecontent h3 {
+    color: #FBCC97;
+    font-family: Montserrat;
+    font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;

@@ -135,6 +135,7 @@ img {
 }
 
 @media only screen and (max-width: 300px) {
+
   .prev,
   .next,
   .text {
@@ -271,17 +272,18 @@ img {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15%, 1fr));
   /* Adjust the width as needed */
-  row-gap: 120px;
+  row-gap: 60px;
   column-gap: 150px;
   margin-right: 100px;
   width: 80vw;
   padding-right: 100px;
   height: auto;
+
 }
 
 .movie {
   width: 300px;
-  height: 400px;
+  height: 500px;
   background-color: black;
 
   margin-top: 10px;
@@ -309,14 +311,17 @@ img {
   align-items: center;
   font-family: Montserrat;
   font-size: 10px;
-  border: 0.5px solid #fbcc97;
+  border: 1px solid #fbcc97;
   border-top: none;
+  height: 120px;
+
+
 }
 
 .movieInfo p {
   margin: 0;
   padding: 0;
-text-align: center;
+  text-align: center;
   color: #fbcc97;
   padding-bottom: 5px;
 }
@@ -363,8 +368,7 @@ text-align: center;
   height: 72vh;
 }
 
-.aboutus .bathimg {
-}
+.aboutus .bathimg {}
 
 .aboutuscontent {
   display: flex;
