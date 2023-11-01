@@ -1,0 +1,16 @@
+.moviedetails {
+    background-color: #121212;
+    height: 100vh;
+    width: auto;
+
+    font-family: Ao;
+}
+
+.moviedetails h1 {
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

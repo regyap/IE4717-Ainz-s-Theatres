@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ainz's Theatres</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/movieDetails.css" />
+</head>
+
+
+
+<body>
+    <nav class="navbar">
+        <a href="login.html" class="user"><img src="image/login.png">Hello, Ainz</a>
+        <br>
+        <a href="#" class="navlinks">NOW SHOWING</a>
+        <a href="#" class="navlinks">COMING SOON</a>
+        <a href="#" id="logo"><img src="image/Asset 1@4x.png"></a>
+        <a href="#" class="navlinks">LOCATION</a>
+        <a href="aboutus.html" class="navlinks">ABOUT US</a>
+        <br>
+        <input type="submit" value="FAST BOOKING" class="lol">
+    </nav>
+
+    <section class="moviedetails">
+        <div class="movietitle">
+            <h1>Movie Title</h1>
+        </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footers">
+            <div class="footersections">
+                <br> <br> <br>
+                <span>CONTACT</span>
+                <br> <br>
+                <div class="line"></div>
+                <br> <br>
+                <div class="contact">
+                    <p>ainztheatres@gmail.com</p>
+                    <p><b> 1234-5678-9012</b></p>
+                </div>
+                <br> <br> <br>
+                <p class="bb">Based in Singapore.<br>Available for sale Worldwide</p>
+
+
+            </div>
+            <div class="footersections">
+                <div class="logofooter">
+                    <img src="./image/Asset 1@4x.png">
+
+                    <div class="socialmedia">
+                        <img src="./image/instagram-symbol.png">
+                        <img src="./image/twitter.png">
+                        <img src="./image/facebook.png">
+                        <img src="./image/pinterest.png">
+                    </div>
+
+                </div><br>
+
+                <p>Your Best Movie Experience</p>
+            </div>
+
+            <div class="footersections">
+                <br> <br> <br>
+                <span>ENJOY EXCLUSIVE PERKS</span>
+                <br> <br>
+                <div class="line"></div>
+                <br> <br>
+                <form>
+                    <input type="text" placeholder="Enter Email"><br>
+                    <input type="submit" value="SIGN UP">
+                </form>
+                <br><br><br><br><br><br><br>
+            </div>
+        </div>
+
+        <div class="footerbottom">
+            <div class="footernav">
+                <a href="#">NOW SHOWING</a>
+                <a href="#">COMING SOON</a>
+                <a href="#">LOCATION</a>
+                <a href="#">ABOUT US</a>
+            </div>
+            <br> <br>
+            <p>© 2021 Ainz's Theatres. All Rights Reserved.</p>
+    </footer>
+
+
+
+
+</body>
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+
+
+
+
+    //tabs
+    function openCity(evt, cityName) {
+        // Declare all variables
+        var i, tabcontent, tablinks;
+
+        // Get all elements with class="tabcontent" and hide them
+        tabcontent = document.getElementsByClassName("tabcontent");
+
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        // Get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+
+</script>
+
+</html>
