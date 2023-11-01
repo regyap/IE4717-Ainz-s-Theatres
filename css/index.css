@@ -1,548 +1,478 @@
 * {
-    box-sizing: border-box
+  box-sizing: border-box;
 }
 
 .mySlides {
-    display: none;
-
-
+  display: none;
 }
 
 img {
-    vertical-align: middle;
+  vertical-align: middle;
 }
-
 
 /* Slideshow container */
 .slideshow-container {
-    top: 180px;
-    width: 99vw;
-    height: 526px;
-    position: absolute;
+  top: 180px;
+  width: 99vw;
+  height: 526px;
+  position: absolute;
 
-    left: 50%;
-    transform: translateX(-50%);
-    margin-left: auto;
-    margin-right: auto;
-
-
-
-
-
-
+  left: 50%;
+  transform: translateX(-50%);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .slideshow-container img {
-    width: 100%;
-    height: 526px;
+  width: 100%;
+  height: 526px;
 
-    object-fit: cover;
-
-
+  object-fit: cover;
 }
 
 .prev,
 .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
 
-    z-index: 3;
-
+  z-index: 3;
 }
 
 /* Position the "next button" to the right */
 .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-    z-index: 10;
+  right: 0;
+  border-radius: 3px 0 0 3px;
+  z-index: 10;
 }
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover,
 .next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 10;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10;
 }
 
-
 .captext {
-    color: white;
-    font-size: 20.3333333px;
-    font-weight: 600;
-    padding-bottom: 100px;
-    padding: 30px;
-    position: absolute;
-    bottom: 0px;
-    width: 95.8%;
-    text-align: right;
-    font-family: Castellar;
-    text-shadow: 2px 2px 6px black;
-    background: rgba(0, 0, 0, 0.4);
-    opacity: 0;
+  color: white;
+  font-size: 20.3333333px;
+  font-weight: 600;
+  padding-bottom: 100px;
+  padding: 30px;
+  position: absolute;
+  bottom: 0px;
+  width: 95.8%;
+  text-align: right;
+  font-family: Castellar;
+  text-shadow: 2px 2px 6px black;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
 }
 
 /* Number text (1/3 etc) */
 .numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
-    opacity: 0;
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+  opacity: 0;
 }
 
 /* The dots/bullets/indicators */
 .dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-    opacity: 0;
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  opacity: 0;
 }
 
 .active,
 .dot:hover {
-    background-color: #717171;
+  background-color: #717171;
 }
 
 /* Fading animation */
 .fade {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
 }
 
 @-webkit-keyframes fade {
-    from {
-        opacity: .4
-    }
+  from {
+    opacity: 0.4;
+  }
 
-    to {
-        opacity: 1
-    }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fade {
-    from {
-        opacity: .4
-    }
+  from {
+    opacity: 0.4;
+  }
 
-    to {
-        opacity: 1
-    }
+  to {
+    opacity: 1;
+  }
 }
 
 @media only screen and (max-width: 300px) {
-
-    .prev,
-    .next,
-    .text {
-        font-size: 11px
-    }
+  .prev,
+  .next,
+  .text {
+    font-size: 11px;
+  }
 }
-
-
-
 
 /* tab */
 .audience {
-    margin-top: 560px;
-    background-image: url(../image/redseat.jpg);
-    /* background-position: 0 70%; */
-    background-size: auto;
-    height: 200px;
-    width: auto;
+  margin-top: 560px;
+  background-image: url(../image/redseat.jpg);
+  /* background-position: 0 70%; */
+  background-size: auto;
+  height: 200px;
+  width: auto;
 }
 
-
-
-
-
 .tabSection {
-    /* margin-top: 570px; */
-    margin-top: 10px;
+  /* margin-top: 570px; */
+  margin-top: 10px;
 
-    color: white;
+  color: white;
 
-    padding-bottom: 100px;
+  padding-bottom: 100px;
 }
 
 .tablinks {
-    color: white;
+  color: white;
 }
 
 /* Style the tab */
 .tab {
+  overflow: hidden;
+  border-bottom: 1px solid #fbcc97;
+  color: white;
+  /* background-color: #f1f1f1; */
 
-    overflow: hidden;
-    border-bottom: 1px solid #FBCC97;
-    color: white;
-    /* background-color: #f1f1f1; */
-
-    margin-left: auto;
-    margin-right: auto;
-
-
-
-
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Style the buttons that are used to open the tab content */
 .tab button {
-    background-color: inherit;
-    float: left;
-    border: 1px solid #FBCC97;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
+  background-color: inherit;
+  float: left;
+  border: 1px solid #fbcc97;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
 
-    font-family: Montserrat;
-    font-size: 14px;
+  font-family: Montserrat;
+  font-size: 14px;
 }
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-    background-color: #FBCC97;
-    color: black;
+  background-color: #fbcc97;
+  color: black;
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
-    background-color: #FBCC97;
-    color: black;
-    border: 1px solid #FBCC97;
+  background-color: #fbcc97;
+  color: black;
+  border: 1px solid #fbcc97;
 }
 
 /* Style the tab content */
 .tabcontent {
-    /* display: none; */
-    padding: 6px 12px;
-    margin-left: auto;
-    margin-right: auto;
+  /* display: none; */
+  padding: 6px 12px;
+  margin-left: auto;
+  margin-right: auto;
 
+  color: white;
+  /* border: 1px solid #FBCC97; */
+  border-top: none;
 
-    color: white;
-    /* border: 1px solid #FBCC97; */
-    border-top: none;
-
-    height: fit-content;
-    width: fit-content;
-
-
+  height: fit-content;
+  width: fit-content;
 }
 
 .tabItems {
-
-    margin-left: auto;
-    margin-right: auto;
-    width: 80vw;
-    height: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80vw;
+  height: fit-content;
 }
-
 
 .tabcontent h3 {
-    font-family: Aoboshi One;
-    font-size: 30px;
-
+  font-family: Aoboshi One;
+  font-size: 30px;
 }
 
-
 .tabcontent p {
-    color: white;
+  color: white;
 }
 
 .nowshowingform {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .nowshowingform select {
-    width: 16%;
-    height: 100%;
-    background-color: black;
-    border: 1px solid #FBCC97;
-    color: white;
-    font-family: Montserrat;
-    font-size: 14px;
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    /* margin-left: 10px; */
-    margin-right: 10px;
-    border-radius: 5px;
-    outline: none;
-    cursor: pointer;
+  width: 16%;
+  height: 100%;
+  background-color: black;
+  border: 1px solid #fbcc97;
+  color: white;
+  font-family: Montserrat;
+  font-size: 14px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* margin-left: 10px; */
+  margin-right: 10px;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
 }
 
 .nowshowingform p {
-    margin-top: 20px;
-    font-family: Montserrat;
-    font-size: 14px;
-
+  margin-top: 20px;
+  font-family: Montserrat;
+  font-size: 14px;
 }
 
 .nowshowingform .shift {
-    margin-left: 10px;
-
+  margin-left: 10px;
 }
-
-
 
 .movieContent {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15%, 1fr));
-    /* Adjust the width as needed */
-    row-gap: 10px;
-    column-gap: 150px;
-
-    margin-right: 100px;
-
-
-
-    width: 80vw;
-    padding-right: 100px;
-
-    height: auto;
-
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15%, 1fr));
+  /* Adjust the width as needed */
+  row-gap: 120px;
+  column-gap: 150px;
+  margin-right: 100px;
+  width: 80vw;
+  padding-right: 100px;
+  height: auto;
 }
 
-
 .movie {
-    width: 300px;
-    height: 400px;
-    background-color: black;
+  width: 300px;
+  height: 400px;
+  background-color: black;
 
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
 
+  cursor: pointer;
 
-
-    cursor: pointer;
-
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .movie img {
-    width: 300px;
-    height: 400px;
-    object-fit: cover;
-    border: 1px solid #FBCC97;
-    border-bottom: none;
-
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  border: 1px solid #fbcc97;
+  border-bottom: none;
 }
 
 .movieInfo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: Montserrat;
-    font-size: 10px;
-
-    border: 0.5px solid #FBCC97;
-    border-top: none;
-
-
-
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Montserrat;
+  font-size: 10px;
+  border: 0.5px solid #fbcc97;
+  border-top: none;
 }
 
 .movieInfo p {
-    margin: 0;
-    padding: 0;
-
-    color: #FBCC97;
-    padding-bottom: 5px;
-
+  margin: 0;
+  padding: 0;
+text-align: center;
+  color: #fbcc97;
+  padding-bottom: 5px;
 }
 
 .movieInfo .title {
-    font-family: Montserrat;
-    font-size: 14px;
-    padding-top: 10px;
+  font-family: Montserrat;
+  font-size: 14px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 /* about us */
 .aboutus,
 .cafeandbar {
-    background: linear-gradient(rgba(0, 0, 0, 0.99), rgba(0, 0, 0, 0.9)), url(../image/lines.svg);
-    background-color: black;
-    background-size: cover;
-    background-position: 50%;
-    background-attachment: fixed;
-    /* filter: brightness(10%); */
-    height: 80vh;
-    width: auto;
+  background: linear-gradient(rgba(0, 0, 0, 0.99), rgba(0, 0, 0, 0.9)),
+    url(../image/lines.svg);
+  background-color: black;
+  background-size: cover;
+  background-position: 50%;
+  background-attachment: fixed;
+  /* filter: brightness(10%); */
+  height: 80vh;
+  width: auto;
 
-    color: white;
+  color: white;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
-    padding-left: 20vw;
-
-
-
+  padding-left: 20vw;
 }
 
 .aboutus img {
-    height: 66vh;
-    width: 18vw;
-    object-fit: cover;
-    padding-left: 20px;
-    padding-top: 100px;
+  height: 66vh;
+  width: 18vw;
+  object-fit: cover;
+  padding-left: 20px;
+  padding-top: 100px;
 }
 
 .aboutus .glassimg {
-    height: 72vh;
+  height: 72vh;
 }
 
-.aboutus .bathimg {}
+.aboutus .bathimg {
+}
 
 .aboutuscontent {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    margin-top: 100px;
+  margin-top: 100px;
 
+  font-family: Montserrat;
+  font-size: 36px;
 
-    font-family: Montserrat;
-    font-size: 36px;
-
-    padding-left: 30px;
-    padding-top: 40px;
+  padding-left: 30px;
+  padding-top: 40px;
 }
 
 .aboutuscontent p {
-    font-size: 14px;
-    margin-right: 400px;
-    margin-top: -30px;
+  font-size: 14px;
+  margin-right: 400px;
+  margin-top: -30px;
 }
 
 .cafeandbar {
-    margin-left: -300px;
-    padding-left: 550px;
-    padding-right: 550px;
+  margin-left: -300px;
+  padding-left: 550px;
+  padding-right: 550px;
 
-    background-position: 60%;
-
+  background-position: 60%;
 }
 
 .cafeandbar img {
-    height: 66vh;
-    width: 18vw;
-    object-fit: cover;
-    padding-left: 20px;
-    padding-top: 100px;
+  height: 66vh;
+  width: 18vw;
+  object-fit: cover;
+  padding-left: 20px;
+  padding-top: 100px;
 }
 
 .cafeandbarcontent {
+  font-family: Montserrat;
+  font-size: 36px;
 
-    font-family: Montserrat;
-    font-size: 36px;
+  margin-left: -80px;
+  padding-left: 100px;
+  padding-right: 100px;
 
-    margin-left: -80px;
-    padding-left: 100px;
-    padding-right: 100px;
-
-    justify-content: center;
-
-
-
-
+  justify-content: center;
 }
-
 
 .cafeandbarcontent p,
 h1 {
-    padding-top: 130px;
-    /* margin-left: -100px; */
-
+  padding-top: 130px;
+  /* margin-left: -100px; */
 }
 
 .cafeandbarcontent p {
-    margin-top: -150px;
-    font-size: 14px;
-    width: 300px;
+  margin-top: -150px;
+  font-size: 14px;
+  width: 300px;
 }
 
 .cafeandbar #cafek {
-    margin-right: -50px;
+  margin-right: -50px;
 }
 
 .lounge {
+  background: linear-gradient(rgba(0, 0, 0, 0.99), rgba(0, 0, 0, 0.9)),
+    url(../image/lines.svg);
+  background-color: black;
+  background-size: cover;
+  background-position: 90%;
+  background-attachment: fixed;
+  /* filter: brightness(10%); */
+  height: 80vh;
+  width: auto;
 
-    background: linear-gradient(rgba(0, 0, 0, 0.99), rgba(0, 0, 0, 0.9)), url(../image/lines.svg);
-    background-color: black;
-    background-size: cover;
-    background-position: 90%;
-    background-attachment: fixed;
-    /* filter: brightness(10%); */
-    height: 80vh;
-    width: auto;
-
-    color: white;
-
-
-
-
+  color: white;
 }
 
 .loungesection {
-    display: flex;
+  display: flex;
 
-    flex-direction: row;
-    justify-content: center;
+  flex-direction: row;
+  justify-content: center;
 
-    margin-left: 270px;
-    margin-right: 270px;
-    width: 1000px;
-    padding-top: 100px;
+  margin-left: 270px;
+  margin-right: 270px;
+  width: 1000px;
+  padding-top: 100px;
 }
 
-
 .lounge img {
-    height: 57vh;
-    width: 67vw;
+  height: 57vh;
+  width: 67vw;
 }
 
 .loungecontent {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    margin-top: -40px;
-    padding-left: 20px;
-    font-family: Montserrat;
-
+  margin-top: -40px;
+  padding-left: 20px;
+  font-family: Montserrat;
 }
 
 .loungecontent p {
-    margin-top: -30px;
-    font-size: 14px;
+  margin-top: -30px;
+  font-size: 14px;
 }
 
 .loungecontent h1 {
-
-    font-size: 60px;
+  font-size: 60px;
 }

@@ -4,17 +4,62 @@
   box-sizing: border-box;
 }
 html {
-  font-size: 16px;
+  font-size: 12px;
+  font-family: Montserrat;
+  color: white;
+}
+
+#content{
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bookingDetails{
+  width: fit-content;
+}
+.bookingDetails div{
+  padding: 2px;
+}
+.bookingDetails .location{
+  font-family: Aoboshi One;
+}
+.bookingDetails .location img{
+  height: 16px;
+  width: 16px;
+}
+.bookingDetails .location span{
+  padding: 3px;
+  text-align: center;
+}
+.bookingDetails .movie{
+  color: #fbcc97;
+  font-size: 14px;
+}
+.bookingDetails .movie .discretion{
+  border: 0.3px solid #fbcc97;
+  padding: 1px;
+  font-size: 10px;
+}
+
+.title{
+  text-align: center;
+  font-family: Aoboshi One;
+  font-size: 36px;
 }
 
 .seatsSection {
   margin: 20px auto;
   max-width: fit-content;
+  align-items: center;
 }
 
 .exit {
   position: relative;
-  height: 50px;
+  height: 20px;
+  margin-bottom: 20px;
   &:before,
   &:after {
     content: "EXIT";
@@ -24,7 +69,7 @@ html {
     font-family: "Arial Narrow", Arial, sans-serif;
     display: block;
     position: absolute;
-    background: green;
+    background: rgb(1, 74, 1);
     color: white;
     top: 50%;
     transform: translate(0, -50%);
@@ -37,17 +82,10 @@ html {
   }
 }
 
-.screen {
-
-}
-
 ol {
   list-style: none;
   padding: 0;
   margin: 0;
-}
-
-.row {
 }
 
 .seats {
@@ -60,6 +98,12 @@ ol {
   opacity: 0;
   width: 30px;
   height: 30px;
+}
+.seat:hover{
+  background-image: url('../image/seat_white.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: 0.5s;
 }
 .seat:has(input[type="checkbox"]:checked){
   background-image: url('../image/seat_white.png');
@@ -91,141 +135,68 @@ ol {
     display: none;
     background: url("../image/seat_orange.png");
   }
-  input[type="checkbox"]:checked {
-    + label {
-      background: #bada55;
-      -webkit-animation-name: rubberBand;
-      animation-name: rubberBand;
-      animation-duration: 300ms;
-      animation-fill-mode: both;
-    }
-  }
-  input[type="checkbox"]:disabled {
-    + label {
-      background: #dddddd;
-      text-indent: -9999px;
-      overflow: hidden;
-      &:after {
-        content: "X";
-        text-indent: 0;
-        position: absolute;
-        top: 4px;
-        left: 50%;
-        transform: translate(-50%, 0%);
-      }
-      &:hover {
-        box-shadow: none;
-        cursor: not-allowed;
-      }
-    }
-  }
-  label {
-    display: block;
-    position: relative;
-    width: 100%;
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-    line-height: 1.5rem;
-    padding: 4px 0;
-    background: #f42536;
-    border-radius: 5px;
-    animation-duration: 300ms;
-    animation-fill-mode: both;
-
-    &:before {
-      content: "";
-      position: absolute;
-      width: 75%;
-      height: 75%;
-      top: 1px;
-      left: 50%;
-      transform: translate(-50%, 0%);
-      background: rgba(255, 255, 255, 0.4);
-      border-radius: 3px;
-    }
-    &:hover {
-      cursor: pointer;
-      box-shadow: 0 0 0px 2px #5c6aff;
-    }
-  }
 }
 
-@-webkit-keyframes rubberBand {
-  0% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-  }
-
-  30% {
-    -webkit-transform: scale3d(1.25, 0.75, 1);
-    transform: scale3d(1.25, 0.75, 1);
-  }
-
-  40% {
-    -webkit-transform: scale3d(0.75, 1.25, 1);
-    transform: scale3d(0.75, 1.25, 1);
-  }
-
-  50% {
-    -webkit-transform: scale3d(1.15, 0.85, 1);
-    transform: scale3d(1.15, 0.85, 1);
-  }
-
-  65% {
-    -webkit-transform: scale3d(0.95, 1.05, 1);
-    transform: scale3d(0.95, 1.05, 1);
-  }
-
-  75% {
-    -webkit-transform: scale3d(1.05, 0.95, 1);
-    transform: scale3d(1.05, 0.95, 1);
-  }
-
-  100% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-  }
+.screen{
+  border-top: 1px solid #fbcc97;
+  text-align: center;
+  width: 80%;
+  color: #fbcc97;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
 }
 
-@keyframes rubberBand {
-  0% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-  }
-
-  30% {
-    -webkit-transform: scale3d(1.25, 0.75, 1);
-    transform: scale3d(1.25, 0.75, 1);
-  }
-
-  40% {
-    -webkit-transform: scale3d(0.75, 1.25, 1);
-    transform: scale3d(0.75, 1.25, 1);
-  }
-
-  50% {
-    -webkit-transform: scale3d(1.15, 0.85, 1);
-    transform: scale3d(1.15, 0.85, 1);
-  }
-
-  65% {
-    -webkit-transform: scale3d(0.95, 1.05, 1);
-    transform: scale3d(0.95, 1.05, 1);
-  }
-
-  75% {
-    -webkit-transform: scale3d(1.05, 0.95, 1);
-    transform: scale3d(1.05, 0.95, 1);
-  }
-
-  100% {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-  }
+.legend div{
+  margin: 1px;
+  display: flex;
+  flex-direction: row;
+}
+.legend .box1{
+  height: 10px;
+  width: 10px;
+  background-color: #fbcc97;
+  margin-right: 7px;
+}
+.legend .box2{
+  height: 10px;
+  width: 10px;
+  background-color: #717171;
+  margin-right: 7px;
+}
+.legend .box3{
+  height: 10px;
+  width: 10px;
+  background-color: white;
+  margin-right: 7px;
 }
 
-.rubberBand {
-  -webkit-animation-name: rubberBand;
-  animation-name: rubberBand;
+.selectedSeatsText {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+.proceedBtn {
+  margin-left: auto;
+  margin-right: auto;
+}
+.proceedBtn input{
+  text-align: center;
+  border: 1px solid #fbcc97;
+  color: #fbcc97;
+  background-color: black;
+  font-family: Montserrat;
+  font-size: 11px;
+  padding: 6px;
+  padding-left: 22px;
+  padding-right: 22px;
+}
+.proceedBtn input:hover{
+  text-align: center;
+  border: 1px solid #fbcc97;
+  color: black;
+  background-color: #fbcc97;
+  transition: 0.5s;
 }
