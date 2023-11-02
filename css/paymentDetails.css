@@ -1,26 +1,134 @@
-#paymentSlip{
-    width: 60%;
-    min-width: 800px;
-    height: 1000px;
-    border: 1px solid #fbcc97;
-    margin-top: 40px;
-    margin-left: auto;
-    margin-right: auto;
+#paymentSlip {
+  width: 80%;
+  min-width: 800px;
+  height: 1000px;
+  border: 1px solid #fbcc97;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  font-size: 12px;
 }
 
-.title{
-    font-family: Aoboshi One;
+.title {
+  font-family: Aoboshi One;
+  font-size: 36px;
+  color: white;
+  padding: 16px;
+}
+
+.middleLine {
+  width: 90%;
+}
+
+#section1, #section2, #section3{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+
+#section1 .amountInfo, #section2 .userPaymentDetails{
+    width: 100%;
+}
+#section1 .amountInfo tr,td{
+    padding: 16px;
+}
+#section1 .amountInfo td div{
+    /* padding-bottom: 2px; */
+}
+#section1 .amountInfo .row1 img {
+  width: 140px;
+  height: 210px;
+  object-fit: cover;
+  border: 1px solid #fbcc97;
+}
+
+#discretion{
+    border: 1px solid white;
+    height: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 6px;
+    font-size: 10px;
+    padding: 1px;
+}
+#movieTitle{
     font-size: 36px;
-    color: white;
+}
+#section1 .amountInfo .movie{
+    display: flex;
+    flex-direction: row;
+}
+.row1 .col2 div{
+    margin-top: 12px;
+    margin-bottom: 12px;
 }
 
-.middleLine{
-    width: 90%;
+.col1{
+    color: #fbcc97;
+    text-align: right;
+    
+    width: 140px;
+}
+.row2 .col1,.row3 .col1{
+    vertical-align: text-top;
+}
+.col2{
+    text-align: left;
+    padding-left: 42px;
+}
+.col3{
+    text-align: left;
+    vertical-align: text-top;
 }
 
-#section1{
-    width: 80%;
+.amtLBL{
+    color: #5A5A5A;
+}
+.horizontalLine{
+    height: fit-content;
+    padding-bottom: 0px;
+}
+.amtLabelRow td{
+    height: fit-content;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+#section2 .userPaymentDetails{
+    color: #fbcc97;
+}
+#section2 .userPaymentDetails .subLabel{
+    text-align: right;
+}
+#section2 .userPaymentDetails .label{
+    text-align: right;
+    vertical-align: top;
+    width: 25%;
+}
+#section2 .userPaymentDetails .textbox input{
+    width: 70%;
+}
+#section3 .button{
+    width: 30%;
+    min-width: 160px;
+    padding: 6px;
+    font-size: 12px;
+    margin: 4px;
+}
+#section3 button{
+    background-color: black;
+    color: #fbcc97;
+    border: 1px solid #fbcc97;
+}
+#section3 input{
+    background-color: #fbcc97;
+    color: black;
+    border: 1px solid #fbcc97;
+}
+#section3 .buttonsContainer{
+    width: fit-content;
     margin-left: auto;
     margin-right: auto;
-    padding: 20px;
 }
