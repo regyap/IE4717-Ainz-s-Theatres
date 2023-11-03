@@ -6,7 +6,18 @@
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/seatSelection.css" />
   </head>
+  <script>
+    var selectedSeats = '';
 
+    function selectSeat(){
+      let checkboxes = document.querySelectorAll('input[name="seatInput"]:checked');
+            let values = [];
+            checkboxes.forEach((checkbox) => {
+                values.push(checkbox.value);
+            });
+            document.getElementById("selectedSeatNumbers").innerHTML = values;
+    }  
+  </script>
   <body>
     <nav class="navbar">
       <a href="login.html" class="user"
@@ -36,364 +47,364 @@
           <li class="row row--G">
             <ol class="seats" type="A">
               <li class="seat">
-                <input type="checkbox" id="G1" name="G1" />
+                <input type="checkbox" name="seatInput" value="G1" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="G2" name="G2" />
+                <input type="checkbox"  name="seatInput" value="G2" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="G3" name="G3" />
+                <input type="checkbox" name="seatInput" value="G3" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="G4" name="G4" />
+                <input type="checkbox" name="seatInput" value="G4" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="G5" name="G5" />
+                <input type="checkbox" name="seatInput" value="G5" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="G6" name="G6" />
+                <input type="checkbox" name="seatInput" value="G6" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="G7" name="G7" />
+                <input type="checkbox" name="seatInput" value="G7" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="G8" name="G8" />
+                <input type="checkbox" name="seatInput" value="G8" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="G9" name="G9" />
+                <input type="checkbox" name="seatInput" value="G9" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="G10" name="G10" />
+                <input type="checkbox" name="seatInput" value="G10" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="G11" name="G11" />
+                <input type="checkbox" name="seatInput" value="G11" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="G12" name="G12" />
+                <input type="checkbox" name="seatInput" value="G12" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="G13" name="G13" />
+                <input type="checkbox" name="seatInput" value="G13" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="G14" name="G14" />
+                <input type="checkbox" name="seatInput" value="G14" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="G15" name="G15" />
+                <input type="checkbox" name="seatInput" value="G15" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="G16" name="G16" />
+                <input type="checkbox" name="seatInput" value="G16" onclick="selectSeat();"/>
               </li>
             </ol>
           </li>
           <li class="row row--F">
             <ol class="seats" type="A">
               <li class="seat">
-                <input type="checkbox" id="F1" name="F1" />
+                <input type="checkbox" value="F1" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="F2" name="F2" />
+                <input type="checkbox" value="F2" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="F3" name="F3" />
+                <input type="checkbox" value="F3" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="F4" name="F4" />
+                <input type="checkbox" value="F4" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="F5" name="F5" />
+                <input type="checkbox" value="F5" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="F6" name="F6" />
+                <input type="checkbox" value="F6" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="F7" name="F7" />
+                <input type="checkbox" value="F7" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="F8" name="F8" />
+                <input type="checkbox" value="F8" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="F9" name="F9" />
+                <input type="checkbox" value="F9" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="F10" name="F10" />
+                <input type="checkbox" value="F10" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="F11" name="F11" />
+                <input type="checkbox" value="F11" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="F12" name="F12" />
+                <input type="checkbox" value="F12" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="F13" name="F13" />
+                <input type="checkbox" value="F13" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="F14" name="F14" />
+                <input type="checkbox" value="F14" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="F15" name="F15" />
+                <input type="checkbox" value="F15" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="F16" name="F16" />
+                <input type="checkbox" value="F16" name="seatInput" onclick="selectSeat();"/>
               </li>
             </ol>
           </li>
           <li class="row row--E">
             <ol class="seats" type="A">
               <li class="seat">
-                <input type="checkbox" id="E1" name="E1" />
+                <input type="checkbox" value="E1" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="E2" name="E2" />
+                <input type="checkbox" value="E2" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="E3" name="E3" />
+                <input type="checkbox" value="E3" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="E4" name="E4" />
+                <input type="checkbox" value="E4" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="E5" name="E5" />
+                <input type="checkbox" value="E5" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="E6" name="E6" />
+                <input type="checkbox" value="E6" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="E7" name="E7" />
+                <input type="checkbox" value="E7" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="E8" name="E8" />
+                <input type="checkbox" value="E8" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="E9" name="E9" />
+                <input type="checkbox" value="E9" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="E10" name="E10" />
+                <input type="checkbox" value="E10" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="E11" name="E11" />
+                <input type="checkbox" value="E11" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="E12" name="E12" />
+                <input type="checkbox" value="E12" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="E13" name="E13" />
+                <input type="checkbox" value="E13" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="E14" name="E14" />
+                <input type="checkbox" value="E14" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="E15" name="E15" />
+                <input type="checkbox" value="E15" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="E16" name="E16" />
+                <input type="checkbox" value="E16" name="seatInput" onclick="selectSeat();"/>
               </li>
             </ol>
           </li>
           <li class="row row--D">
             <ol class="seats" type="A">
               <li class="seat">
-                <input type="checkbox" id="D1" name="D1" />
+                <input type="checkbox" value="D1" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="D2" name="D2" />
+                <input type="checkbox" value="D2" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="D3" name="D3" />
+                <input type="checkbox" value="D3" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="D4" name="D4" />
+                <input type="checkbox" value="D4" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="D5" name="D5" />
+                <input type="checkbox" value="D5" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="D6" name="D6" />
+                <input type="checkbox" value="D6" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="D7" name="D7" />
+                <input type="checkbox" value="D7" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="D8" name="D8" />
+                <input type="checkbox" value="D8" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="D9" name="D9" />
+                <input type="checkbox" value="D9" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="D10" name="D10" />
+                <input type="checkbox" value="D10" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="D11" name="D11" />
+                <input type="checkbox" value="D11" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="D12" name="D12" />
+                <input type="checkbox" value="D12" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="D13" name="D13" />
+                <input type="checkbox" value="D13" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="D14" name="D14" />
+                <input type="checkbox" value="D14" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="D15" name="D15" />
+                <input type="checkbox" value="D15" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="D16" name="D16" />
+                <input type="checkbox" value="D16" name="seatInput" onclick="selectSeat();"/>
               </li>
             </ol>
           </li>
           <li class="row row--C">
             <ol class="seats" type="A">
               <li class="seat">
-                <input type="checkbox" id="C1" name="C1" />
+                <input type="checkbox" value="C1" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="C2" name="C2" />
+                <input type="checkbox" value="C2" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="C3" name="C3" />
+                <input type="checkbox" value="C3" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="C4" name="C4" />
+                <input type="checkbox" value="C4" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="C5" name="C5" />
+                <input type="checkbox" value="C5" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="C6" name="C6" />
+                <input type="checkbox" value="C6" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="C7" name="C7" />
+                <input type="checkbox" value="C7" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="C8" name="C8" />
+                <input type="checkbox" value="C8" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="C9" name="C9" />
+                <input type="checkbox" value="C9" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="C10" name="C10" />
+                <input type="checkbox" value="C10" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="C11" name="11" />
+                <input type="checkbox" value="11" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="C12" name="C12" />
+                <input type="checkbox" value="C12" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="C13" name="C13" />
+                <input type="checkbox" value="C13" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="C14" name="C14" />
+                <input type="checkbox" value="C14" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="C15" name="C15" />
+                <input type="checkbox" value="C15" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="C16" name="C16" />
+                <input type="checkbox" value="C16" name="seatInput" onclick="selectSeat();"/>
               </li>
             </ol>
           </li>
           <li class="row row--B">
             <ol class="seats" type="A">
               <li class="seat">
-                <input type="checkbox" id="B1" name="B1" />
+                <input type="checkbox" value="B1" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="B2" name="B2" />
+                <input type="checkbox" value="B2" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="B3" name="B3" />
+                <input type="checkbox" value="B3" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="B4" name="B4" />
+                <input type="checkbox" value="B4" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="B5" name="B5" />
+                <input type="checkbox" value="B5" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="B6" name="B6" disabled/>
+                <input type="checkbox" value="B6" name="seatInput" disabled/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="B7" name="B7" disabled/>
+                <input type="checkbox" value="B7" name="seatInput" disabled/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="B8" name="B8" disabled/>
+                <input type="checkbox" value="B8" name="seatInput" disabled/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="B9" name="B9" disabled/>
+                <input type="checkbox" value="B9" name="seatInput" disabled/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="B10" name="B10" />
+                <input type="checkbox" value="B10" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="B11" name="B11" />
+                <input type="checkbox" value="B11" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="B12" name="B12" />
+                <input type="checkbox" value="B12" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="B13" name="B13" />
+                <input type="checkbox" value="B13" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="A14" name="A14" />
+                <input type="checkbox" value="B14" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="A15" name="A15" />
+                <input type="checkbox" value="B15" name="seatInput" onclick="selectSeat();"/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="A16" name="A16" />
+                <input type="checkbox" value="B16" name="seatInput" onclick="selectSeat();"/>
               </li>
             </ol>
           </li>
           <li class="row row--A">
             <ol class="seats" type="A">
               <li class="seat">
-                <input type="checkbox" id="A1" name="A1" disabled/>
+                <input type="checkbox" value="A1" name="seatInput" disabled/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="A2" name="A2" disabled/>
+                <input type="checkbox" value="A2" name="seatInput" disabled/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="A3" name="A3" disabled/>
+                <input type="checkbox" value="A3" name="seatInput" disabled/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="A4" name="A4" disabled/>
+                <input type="checkbox" value="A4" name="seatInput" disabled/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="A5" name="A5" disabled/>
+                <input type="checkbox" value="A5" name="seatInput" disabled/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="A6" name="A6" disabled/>
+                <input type="checkbox" value="A6" name="seatInput" disabled/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="A7" name="A7" disabled/>
+                <input type="checkbox" value="A7" name="seatInput" disabled/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="A8" name="A8" disabled/>
+                <input type="checkbox" value="A8" name="seatInput" disabled/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="A9" name="A9" disabled/>
+                <input type="checkbox" value="A9" name="seatInput" disabled/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="A10" name="A10" disabled/>
+                <input type="checkbox" value="A10" name="seatInput" disabled/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="A11" name="A11" disabled/>
+                <input type="checkbox" value="A11" name="seatInput" disabled/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="A12" name="A12" disabled/>
+                <input type="checkbox" value="A12" name="seatInput" disabled/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="A13" name="A13" disabled/>
+                <input type="checkbox" value="A13" name="seatInput" disabled/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="A14" name="A14" disabled/>
+                <input type="checkbox" value="A14" name="seatInput" disabled/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="A15" name="A15" disabled/>
+                <input type="checkbox" value="A15" name="seatInput" disabled/>
               </li>
               <li class="seat">
-                <input type="checkbox" id="A16" name="A16" disabled/>
+                <input type="checkbox" value="A16" name="seatInput" disabled/>
               </li>
             </ol>
           </li>
@@ -415,7 +426,7 @@
       </div>
       <div class="selectedSeatsText">
         <span>Seats selected:</span><br />
-        <span>F8, F9</span>
+        <span id="selectedSeatNumbers">F8, F9</span>
       </div>
       <div class="proceedBtn">
         <input type="submit" value="Proceed to payment">
