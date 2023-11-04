@@ -12,6 +12,10 @@
   document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("defaultOpen").click();
   });
+
+  function selectMovie(index) {
+      location.href = 'movieDetails.html?id='+index;
+  }
 </script>
 
 <?php
@@ -111,7 +115,7 @@
           <p> at</p>
 
           <label for="cars"></label>
-          <select id="cars" name="cars" class="shift">
+          <select id="cars1" name="cars" class="shift">
             <option value="volvo">EVERYWHERE</option>
             <option value="saab">Saab</option>
             <option value="fiat">Fiat</option>
@@ -126,7 +130,7 @@
         <?php
           while($row = $nowShowing->fetch_assoc()){
         ?>
-          <div class="movie">
+          <div class="movie" onclick="selectMovie('<?php echo $row['id'] ?>');">
             <img src="image/movies/<?php echo $row["image"] ?>" alt="movie1">
             <div class="movieInfo">
               <p class="title"><?php echo $row["title"] ?></p>
@@ -149,7 +153,7 @@
         <?php
           while($row = $comingSoon->fetch_assoc()){
         ?>
-          <div class="movie">
+          <div class="movie" onclick="selectMovie('<?php echo $row['id'] ?>');">
             <img src="image/movies/<?php echo $row["image"] ?>" alt="movie1">
             <div class="movieInfo">
               <p class="title"><?php echo $row["title"] ?></p>
