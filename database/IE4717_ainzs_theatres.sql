@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 29, 2023 at 09:14 AM
+-- Generation Time: Nov 04, 2023 at 09:24 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -39,12 +39,12 @@ CREATE TABLE `location` (
 --
 
 INSERT INTO `location` (`id`, `name`, `address`, `image`) VALUES
-(1, 'AZT Funan', '107 North Bridge road, #05-01, Funan Mall, Singapore 179105', 'location_funan.jpg'),
-(2, 'AZT Vivo', '1 HarbourFront Walk, #02-30, VivoCity, Singapore 098585', 'location_vivo.jpg'),
-(3, 'AZT Tiong Bahru Plaza', '302 Tiong Bahru Road, #04-105, Tiong Bahru Plaza, Singapore 168732', 'location_tiongBahru.jpg'),
-(4, 'AZT Bugis+', '201 Victoria Street #05-01 Bugis+ Singapore 188067', 'location_bugis.jpg'),
-(5, 'AZT Bedok', '445 Bedok North Street 1, #04-01, Djitsun Mall Bedok, Singapore 469661', 'location_bedok.jpg'),
-(6, 'AZT Tampines', '4 Tampines Central, #04-17/18, Tampines Mall Shopping Centre, Singapore 529510', 'location_tampines.jpg');
+(1, 'AZT Funan', '107 North Bridge road, #05-01, Funan Mall, Singapore 179105', 'funan.webp'),
+(2, 'AZT Vivo', '1 HarbourFront Walk, #02-30, VivoCity, Singapore 098585', 'vivo.jpeg'),
+(3, 'AZT Tiong Bahru Plaza', '302 Tiong Bahru Road, #04-105, Tiong Bahru Plaza, Singapore 168732', 'tiongBahru.jpeg'),
+(4, 'AZT Bugis+', '201 Victoria Street #05-01 Bugis+ Singapore 188067', 'bugis.jpeg'),
+(5, 'AZT Bedok', '445 Bedok North Street 1, #04-01, Djitsun Mall Bedok, Singapore 469661', 'bedok.jpeg'),
+(6, 'AZT Tampines', '4 Tampines Central, #04-17/18, Tampines Mall Shopping Centre, Singapore 529510', 'tampines.jpeg');
 
 -- --------------------------------------------------------
 
