@@ -39,6 +39,13 @@
   function selectMovie(index) {
       location.href = 'movieDetails.html?id='+index;
   }
+
+  function openFastBooking(){
+    document.getElementById("fastBookingPopup").style.display = "block";
+  }
+  function closeFastBooking(){
+    document.getElementById("fastBookingPopup").style.display = "none";
+  }
 </script>
 
 <?php
@@ -87,7 +94,7 @@
     <a href="#" class="navlinks">LOCATION</a>
     <a href="aboutus.html" class="navlinks">ABOUT US</a>
     <br>
-    <input type="submit" value="FAST BOOKING" class="lol">
+    <input type="submit" value="FAST BOOKING" class="lol" onclick="openFastBooking();">
   </nav>
 
   <section class="slideshow">
@@ -319,8 +326,28 @@
       <p>© 2021 Ainz's Theatres. All Rights Reserved.</p>
   </footer>
 
-
-
+    <!-- -----------------FAST BOOKING POPUP-------------------- -->
+    <div id="fastBookingPopup">
+      <div class="FB_Card">
+        <div class="FB_close" onclick="closeFastBooking();">X</div>
+        <div class="FB_title">FAST BOOKING</div>
+        <form class="FB_form">
+            <select id="FB_location" name="FB_location">
+              <option value="0">LOCATION</option>
+              <option value="">FUNANan</option>
+            </select>
+            <select id="FB_movie" name="FB_movie">
+              <option value="0">MOVIE</option>
+              <option value="">FUNANan</option>
+            </select>
+            <select id="FB_time" name="FB_time">
+              <option value="0">TIMING</option>
+              <option value="">FUNANan</option>
+            </select>
+          <input type="submit" class="FB_booknow" value="BOOK NOW">
+        </form>
+      </div>
+    </div>
 
 </body>
 <script>
