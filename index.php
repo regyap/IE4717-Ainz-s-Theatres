@@ -10,23 +10,74 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("defaultOpen").click();
+    var defaultOpenElement = document.getElementById("defaultOpen");
+    if (defaultOpenElement) {
+        defaultOpenElement.click();
+    }
+
+    // set filter previously selected values
+    var urlString = window.location.href;
+    console.log(urlString);
+    console.log(window.location.href);
+    var paramString = window.location.href.split('/#')[0];
+    paramString = paramString.split('?')[1];
+    let urlParams = new URLSearchParams(paramString);
+    var movieId = urlParams.get('movie');
+    var locationId = urlParams.get('location');
+    if(movieId != null && locationId != null){
+      document.getElementById("movieFilterSelect").value = movieId;
+      document.getElementById("locationFilterSelect").value = locationId;
+    }
   });
+
+  function selectFilter(){
+    var movieId = document.getElementById("movieFilterSelect").value;
+    var locationId = document.getElementById("locationFilterSelect").value;
+    location.href = '?movie='+movieId+'&location='+locationId+'/#nowShowingSection';
+  }
 
   function selectMovie(index) {
       location.href = 'movieDetails.php?movieID='+index;
   }
+
+  function openFastBooking(){
+    document.getElementById("fastBookingPopup").style.display = "block";
+  }
+  function closeFastBooking(){
+    document.getElementById("fastBookingPopup").style.display = "none";
+  }
 </script>
 
 <?php
+        $movieId = intval($_GET['movie']);
+        $locationId = intval($_GET['location']);
+
         $conn=mysqli_connect("localhost","root","" ,"IE4717_ainzs_theatres");
     // Check connection
         if ($conn->connect_error) {
           die("Connection failed: " . $conn->connect_error);
         }
-        $sql_select="SELECT * FROM movie where releaseDate<=DATE_ADD(CURDATE(), INTERVAL -7 DAY)";
-        $nowShowing = $conn->query($sql_select);
 
+        $sql_select="SELECT id, title FROM movie where releaseDate<=DATE_ADD(CURDATE(), INTERVAL -7 DAY)";
+        $movieFilter = $conn->query($sql_select);
+
+        $sql_select="SELECT id, name FROM location";
+        $locations = $conn->query($sql_select);
+
+        if($movieId!=0 && $locationId==0){
+          $sql_select="SELECT * FROM movie where id=".$movieId." AND (releaseDate<=DATE_ADD(CURDATE(), INTERVAL -7 DAY))";
+          $nowShowing = $conn->query($sql_select);
+        }else if($movieId==0 && $locationId!=0){
+          $sql_select="SELECT DISTINCT M.* FROM movie as M JOIN screening as S ON M.id=S.movieId where S.locationId=".$locationId." AND S.timing>DATE_ADD(CURDATE(), INTERVAL -7 DAY) AND (releaseDate<=DATE_ADD(CURDATE(), INTERVAL -7 DAY))";
+          $nowShowing = $conn->query($sql_select);
+        }else if($movieId!=0 && $locationId!=0){
+          $sql_select="SELECT DISTINCT M.* FROM movie as M JOIN screening as S ON M.id=S.movieId where M.id=".$movieId." AND S.locationId=".$locationId." AND S.timing>DATE_ADD(CURDATE(), INTERVAL -7 DAY) AND (releaseDate<=DATE_ADD(CURDATE(), INTERVAL -7 DAY))";
+          $nowShowing = $conn->query($sql_select);
+        }else{
+          $sql_select="SELECT * FROM movie where releaseDate<=DATE_ADD(CURDATE(), INTERVAL -7 DAY)";
+          $nowShowing = $conn->query($sql_select);
+        }
+        
         $sql_select="SELECT * FROM movie where releaseDate>=DATE_ADD(CURDATE(), INTERVAL -7 DAY)";
         $comingSoon = $conn->query($sql_select);
 
@@ -39,11 +90,11 @@
     <br>
     <a href="#" class="navlinks">NOW SHOWING</a>
     <a href="#" class="navlinks">COMING SOON</a>
-    <a href="#" id="logo"><img src="image/Asset 1@4x.png"></a>
-    <a href="#" class="navlinks">LOCATION</a>
+    <a href="index.php" id="logo"><img src="image/Asset 1@4x.png"></a>
+    <a href="locations.php" class="navlinks">LOCATION</a>
     <a href="aboutus.html" class="navlinks">ABOUT US</a>
     <br>
-    <input type="submit" value="FAST BOOKING" class="lol">
+    <input type="submit" value="FAST BOOKING" class="lol" onclick="openFastBooking();">
   </nav>
 
   <section class="slideshow">
@@ -92,34 +143,40 @@
   <section class="tabSection">
     <!-- Tab links -->
     <div class="tab">
-      <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">NOW SHOWING</button>
+      <button class="tablinks" onclick="openCity(event, 'nowShowingSection')" id="defaultOpen">NOW SHOWING</button>
       <button class="tablinks" onclick="openCity(event, 'Paris')">COMING SOON</button>
       <!-- <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button> -->
     </div>
 
     <!-- Tab content -->
-    <div id="London" class="tabcontent">
+    <div id="nowShowingSection" class="tabcontent" >
       <div class="tabItems">
         <h3>NOW SHOWING</h3>
 
 
         <form class="nowshowingform">
-          <label for="cars"></label>
-          <select id="cars" name="cars">
-            <option value="volvo">EVERYTHING</option>
-            <option value="saab">Saab</option>
-            <option value="fiat">Fiat</option>
-            <option value="audi">Audi</option>
+          <select id="movieFilterSelect" name="movieFilterSelect" onchange="selectFilter();">
+            <option value="0">EVERYTHING</option>
+            <?php
+              while($row = $movieFilter->fetch_assoc()){
+            ?>
+            <option value="<?php echo $row['id'] ?>"><?php echo $row['title'] ?></option>
+            <?php
+              }
+            ?>
           </select>
 
           <p> at</p>
 
-          <label for="cars"></label>
-          <select id="cars1" name="cars" class="shift">
-            <option value="volvo">EVERYWHERE</option>
-            <option value="saab">Saab</option>
-            <option value="fiat">Fiat</option>
-            <option value="audi">Audi</option>
+          <select id="locationFilterSelect" name="locationFilterSelect" class="shift" onchange="selectFilter();">
+            <option value="0">EVERYWHERE</option>
+            <?php
+              while($row = $locations->fetch_assoc()){
+            ?>
+            <option value="<?php echo $row['id'] ?>"><?php echo $row['name'] ?></option>
+            <?php
+              }
+            ?>
           </select>
 
           <p> that's happening this week</p>
@@ -269,8 +326,28 @@
       <p>© 2021 Ainz's Theatres. All Rights Reserved.</p>
   </footer>
 
-
-
+    <!-- -----------------FAST BOOKING POPUP-------------------- -->
+    <div id="fastBookingPopup">
+      <div class="FB_Card">
+        <div class="FB_close" onclick="closeFastBooking();">X</div>
+        <div class="FB_title">FAST BOOKING</div>
+        <form class="FB_form">
+            <select id="FB_location" name="FB_location">
+              <option value="0">LOCATION</option>
+              <option value="">FUNANan</option>
+            </select>
+            <select id="FB_movie" name="FB_movie">
+              <option value="0">MOVIE</option>
+              <option value="">FUNANan</option>
+            </select>
+            <select id="FB_time" name="FB_time">
+              <option value="0">TIMING</option>
+              <option value="">FUNANan</option>
+            </select>
+          <input type="submit" class="FB_booknow" value="BOOK NOW">
+        </form>
+      </div>
+    </div>
 
 </body>
 <script>
@@ -288,17 +365,17 @@
   function showSlides(n) {
     var i;
     var slides = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("dot");
+    // var dots = document.getElementsByClassName("dot");
     if (n > slides.length) { slideIndex = 1 }
     if (n < 1) { slideIndex = slides.length }
     for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
     }
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-    }
+    // for (i = 0; i < dots.length; i++) {
+    //   dots[i].className = dots[i].className.replace(" active", "");
+    // }
     slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
+    // dots[slideIndex - 1].className += " active";
   }
 
 

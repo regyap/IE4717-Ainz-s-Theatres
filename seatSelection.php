@@ -15,9 +15,46 @@
             checkboxes.forEach((checkbox) => {
                 values.push(checkbox.value);
             });
+            document.getElementById("form_selectedSeats").value = values;
+            document.getElementById("form_numberOfSeats").value = values.length;
             document.getElementById("selectedSeatNumbers").innerHTML = values;
+            console.log(document.getElementById("form_selectedSeats").value);
+            console.log(document.getElementById("form_numberOfSeats").value);
     }  
+
+    function checkValid(){
+      var number = document.getElementById("form_numberOfSeats").value;
+      if(number<=0 || number==null){
+        alert('Please select at least 1 seat before proceeding');
+      }
+    }
   </script>
+
+  <?php
+
+      $screeningId = intval($_GET['screeningId']);
+
+      $conn=mysqli_connect("localhost","root","" ,"IE4717_ainzs_theatres");
+      // Check connection
+      if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+      }
+
+      $sql_select="SELECT S.id, DAYNAME(S.timing) as dayName, DAY(S.timing) as day, MONTHNAME(S.timing) as monthName, HOUR(S.timing) as hour, MINUTE(S.timing) as minute, M.title as movieTitle, M.viewerDiscretion, L.name AS locationName FROM screening AS S JOIN movie AS M ON S.movieId = M.id JOIN location AS L ON S.locationId = L.id WHERE S.id = ".$screeningId;
+      $selectionDetails = $conn->query($sql_select);
+      $row = $selectionDetails->fetch_assoc();
+      $id = $row['id'];
+      $dayName = strtoupper(substr($row['dayName'], 0, 3));
+      $day = $row['day'];
+      $monthName = strtoupper(substr($row['monthName'], 0, 3));
+      $hour = $row['hour'];
+      $minute = $row['minute'];
+      $movieTitle = $row['movieTitle'];
+      $viewerDiscretion = $row['viewerDiscretion'];
+      $locationName = $row['locationName'];
+  
+  ?>
+
   <body>
     <nav class="navbar">
       <a href="login.html" class="user"
@@ -35,10 +72,10 @@
 
     <div id="content">
       <div class="bookingDetails">
-        <div class="location"><img src="image/location.png"><span>AMK Hub</span></div>
-        <div class="movie">BARBIE <span class="discretion">PG13</span></div>
-        <div class="date">TUE 19 Sept</div>
-        <div class="time">09:25</div>
+        <div class="location"><img src="image/location.png"><span><?php echo $locationName ?></span></div>
+        <div class="movie"><?php echo $movieTitle ?> <span class="discretion"><?php echo $viewerDiscretion ?></span></div>
+        <div class="date"><?php echo $dayName ?>, <?php echo $day ?> <?php echo $monthName ?></div>
+        <div class="time"><?php echo $hour ?>:<?php echo $minute ?></div>
       </div>
       <div class="title">Select Seats</div>
       <div class="seatsSection">
@@ -426,11 +463,16 @@
       </div>
       <div class="selectedSeatsText">
         <span>Seats selected:</span><br />
-        <span id="selectedSeatNumbers">F8, F9</span>
+        <span id="selectedSeatNumbers"></span>
       </div>
-      <div class="proceedBtn">
-        <input type="submit" value="Proceed to payment">
-      </div>
+      <form method="post" action="paymentDetails.php" onsubmit="return checkValid()">
+        <input name="form_numberOfSeats" id="form_numberOfSeats" type="number" value="0" hidden>
+        <input name="form_selectedSeats" id="form_selectedSeats" type="text" value="" hidden>
+        <input name="form_screeningId" type="number" value="<?php echo $screeningId ?>" hidden>
+        <div class="proceedBtn">
+          <input type="submit" value="Proceed to payment">
+        </div>
+      </form>
     </div>
   </body>
 </html>
