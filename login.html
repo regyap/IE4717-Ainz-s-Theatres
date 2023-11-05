@@ -22,7 +22,50 @@
         <input type="submit" value="FAST BOOKING" class="lol">
     </nav>
 
-    <section>
+    <section class="boxbg">
+        <div class="box">
+            <div id="profileimg"><img src="image/login.png"></div> <br>
+            <h2>Sign In</h2>
+
+            <form action="login" method="post">
+
+
+                <div>
+                    <input type="text" name="uname" pattern=".{3,}" required autofocus>
+                    <label>Enter username: </label>
+                </div>
+                <div>
+                    <input type="password" name="pass" pattern=".{3,}" required autofocus>
+                    <label> Enter Password: </label>
+                </div>
+
+                <!-- <div id="errormssg">
+                    <%
+                       String p = "";
+                       if(session.getAttribute("cannotlogin") == null || ((String)session.getAttribute("cannotlogin")).isEmpty())
+                       {
+                       p = "";
+                       }
+
+                       else{
+                       p = (String)session.getAttribute("cannotlogin");
+                       }
+
+                       %>   
+
+                        <%= p %>
+                           
+                        <% session.setAttribute("cannotlogin", ""); %>
+                            </div> -->
+                <input type="submit" value="login">
+            </form><br>
+            <p>
+                Don't have an account? <br />
+                Create one
+                <a href="signup.html">here</a>
+            </p>
+
+        </div>
 
 
     </section>

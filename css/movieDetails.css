@@ -329,7 +329,122 @@ p.star {
 
 
 /* locationandtime */
-.tablestart {
+
+.locationandtimetablesection {
+    background-color: #121212;
+    height: auto;
+    width: auto;
+    font-family: Montserrat;
+    color: white;
+    margin-left: 26%;
+    margin-right: 50%;
+}
+
+/* location and time table (LATT)*/
+
+.locationandtimetable {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    /* CHANGE SIZE OF TIME TABLE HERE */
+    width: 810px;
+    color: #FBCC97;
+
+}
+
+/* LATT header*/
+.table-heading {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2px solid white;
+}
+
+.table-heading h1 {
+    font-size: 20px;
+}
+
+.theatre {
+    width: 30%;
+    padding-left: 30px;
+}
+
+.time {
+    width: 70%;
+    align-items: start;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+
+    padding-left: 10px;
+}
+
+/* LATT content */
+.table-row {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0;
+
+    border-bottom: 1px solid #121212;
+    padding-left: 10px;
+
+    color: #DFB587;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    /* font-weight: 400; */
+    line-height: normal;
+
+    padding-right: 10px;
+
+
+}
+
+.row-head {
+    width: 30%;
+    margin: 0;
+    vertical-align: top;
+
+    padding-left: 0px;
+    font-size: 14px;
+    padding-bottom: 0;
+    padding-top: 10px;
+
+
+
+
+
+
+
+}
+
+.boxes {
+    width: 70%;
+    /* padding-top: 22px; */
+    padding-bottom: 0;
+    padding-top: 10px;
+
+}
+
+.box {
+    border: 1px solid #fbcc97;
+    width: 74px;
+    height: 34px;
+    background-color: black;
+    color: #fbcc97;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.box:hover {
+    background-color: #fbcc97;
+    color: black;
+    transition: 0.3s;
+}
+
+/* --FIN LATT css-- */
+/* .tablestart {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
@@ -408,3 +523,5 @@ p.star {
     color: black;
     transition: 0.3s;
 }
+
+*/

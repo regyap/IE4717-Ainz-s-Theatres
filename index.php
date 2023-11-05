@@ -14,7 +14,7 @@
   });
 
   function selectMovie(index) {
-      location.href = 'movieDetails.html?id='+index;
+      location.href = 'movieDetails.php?movieID='+index;
   }
 </script>
 

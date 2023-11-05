@@ -1,0 +1,114 @@
+body{
+    box-sizing:border-box;
+    font-size:14px;
+    background: rgb(255, 244, 244);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.comment-box,
+.post-comment .list{
+    background: rgb(45, 45, 45);
+    /* border-radius:6px; */
+    /* box-shadow: 0 2px 2px black; */
+    color:white;
+}
+
+.comment-section{
+    width: 650px;
+    height:auto;
+    margin: 0 auto;
+}
+
+.post-comment .list{
+    width:100%;
+}
+
+.post-comment .list .user-section{
+    display:flex;
+    padding:8px;
+    overflow:hidden;
+}
+
+.post-comment .list .user img{
+    height:38px;
+    width:38px;
+    margin-right:10px;
+    border-radius:50%;
+}
+
+.comment-section .username{
+    font-weight:500;
+}
+
+.user-comment{
+    width:500px;
+}
+.comment-header{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+.user-meta{
+    display:flex;
+    flex-direction:row;
+}
+.username{
+    padding-right:8px;
+}
+
+.user-comment{
+    display:flex;
+    flex-direction:column;
+    font-size:14px;
+}
+
+
+/* comment box (write comment) */
+
+.comment-box{
+    padding:10px;
+    overflow:hidden;
+}
+
+.comment-box .user{
+    display:flex;
+    width:min-content;
+}
+
+.comment-box .image img{
+    width:24px;
+    height:24px;
+    margin-right:10px;
+    border-radius:50%;
+}
+
+.comment-box textarea{
+    background: rgb(255, 255, 255);
+    width: -webkit-fill-available;
+    height:16px;
+    margin: 10px 0;
+    padding: 10px;
+    resize:inherit;
+    border-radius:5px;
+    border:none;
+    box-shadow: 0 0 0 1px black;
+}
+
+.comment-box textarea:focus-visible{
+    box-shadow:inset 0 0 0 1px skyblue;
+    outline:none;
+}
+
+.comment-box .comment-submit{
+    float:right;
+    padding:6px 10px;
+    border:none;
+    background:skyblue;
+    color:rgb(255, 255, 255);
+    cursor:pointer;
+    border-radius:3px;
+}
+
+.comment-box .comment-submit:hover{
+    background:blue;
+}

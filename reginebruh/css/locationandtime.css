@@ -1,0 +1,63 @@
+body{
+    background-color: #121212;
+    height: auto;
+    width: auto;
+    font-family: Montserrat;
+    color: white;
+}
+
+/* location and time table (LATT)*/
+
+.locationandtimetable{
+    display:flex;
+    flex-direction:column;
+    /* CHANGE SIZE OF TIME TABLE HERE */
+    width:600px;
+    color: #FBCC97;
+}
+
+/* LATT header*/
+.table-heading{
+    display:flex;
+    flex-direction:row;
+    border-bottom: 2px solid white;
+}
+.theatre{
+    width:30%;
+}
+.time{
+    width:70%;
+}
+
+/* LATT content */
+.table-row{
+    display:flex;
+    flex-direction:row;
+    padding: 10px 0;
+}
+.row-head{
+    width:30%;
+}
+.boxes{
+    width:70%;
+    padding-top:22px;
+}
+
+.box{
+    border: 1px solid #fbcc97;
+    width: 60px;
+    height: 24px;
+    background-color: black;
+    color: #fbcc97;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+.box:hover {
+    background-color: #fbcc97;
+    color: black;
+    transition: 0.3s;
+}
+
+/* --FIN LATT css-- */
