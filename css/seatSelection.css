@@ -181,6 +181,7 @@ ol {
 .proceedBtn {
   margin-left: auto;
   margin-right: auto;
+  width: fit-content;
 }
 .proceedBtn input{
   text-align: center;
