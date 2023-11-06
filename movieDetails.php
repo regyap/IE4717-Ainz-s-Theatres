@@ -14,11 +14,6 @@
 //    var dd = String(today.getDate()).padStart(2, '0');
 //    const month = today.toLocaleString('default', { month: 'long' })/January is 0!
 document.addEventListener("DOMContentLoaded", function () {
-    function formatDate(date){
-        const options = { day: 'numeric', month: 'short' };
-        return new Intl.DateTimeFormat('en-US', options).format(date);
-    }
-
     //Get the current date
     const currentDate = new Date();
     const datetimediv = document.getElementsByClassName("dateandtime");
@@ -42,11 +37,10 @@ document.addEventListener("DOMContentLoaded", function () {
         // datetimediv.innerHTML = formatDate(nextDate)+' '
     }
     for (let j = 0; j < datetimediv.length; j++) {
-    const clickedDate = convertDateForSQL(datetimediv[j].textContent.trim());
+        const clickedDate = convertDateForSQL(datetimediv[j].textContent.trim());
 
-
-    // Add a click event listener to each date element
-    datetimediv[j].addEventListener("click", function () {
+        // Add a click event listener to each date element
+        datetimediv[j].addEventListener("click", function () {
         // Get the current URI
         let currentURI = window.location.href;
 
@@ -61,40 +55,44 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Navigate to the new URL
         window.location.href = url;
-    });
-}
-function convertDateForSQL(dateString) {
-    // Assuming dateString is in the format "Nov 5"
-    const [month, day] = dateString.split(' ');
+        });
+    }
+});
+    function convertDateForSQL(dateString) {
+        // Assuming dateString is in the format "Nov 5"
+        const [month, day] = dateString.split(' ');
 
-    // Map month abbreviation to its numeric value (assuming English months)
-    const monthMap = {
-        'Jan': '01', 'Feb': '02', 'Mar': '03', 'Apr': '04', 'May': '05', 'Jun': '06',
-        'Jul': '07', 'Aug': '08', 'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12'
-    };
+        // Map month abbreviation to its numeric value (assuming English months)
+        const monthMap = {
+            'Jan': '01', 'Feb': '02', 'Mar': '03', 'Apr': '04', 'May': '05', 'Jun': '06',
+            'Jul': '07', 'Aug': '08', 'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12'
+        };
 
-    // Get current year as we don't have the year in the dateString
-    const currentYear = new Date().getFullYear();
+        // Get current year as we don't have the year in the dateString
+        const currentYear = new Date().getFullYear();
 
-    // Format the date as "YYYY-MM-DD"
-    const formattedDate = `${currentYear}-${monthMap[month]}-${day.padStart(2, '0')}`;
+        // Format the date as "YYYY-MM-DD"
+        const formattedDate = `${currentYear}-${monthMap[month]}-${day.padStart(2, '0')}`;
 
-    return formattedDate;
-}
+        return formattedDate;
+    }
 
-}
-  
-   
-);
-document.addEventListener("click", function (event) {
+    function formatDate(date){
+        const options = { day: 'numeric', month: 'short' };
+        return new Intl.DateTimeFormat('en-US', options).format(date);
+    }
+
+    document.addEventListener("click", function (event) {
         if (event.target.classList.contains("dateandtime")) {
             // Retrieve the content (date) of the clicked link
             const clickedDate = event.target.textContent.trim();
             console.log("Clicked on link with date:", clickedDate);
         }
-});
+    });
 
-
+    function selectTiming(screeningId){
+        location.href = 'seatSelection.php?screeningId='+screeningId;
+    }
 
 
 </script>
@@ -117,26 +115,21 @@ document.addEventListener("click", function (event) {
           }
 
         // get distinct loc
-        $sql_select_dates = "SELECT DISTINCT(name)
+        $sql_select_dates = "SELECT DISTINCT location.id, location.name
         FROM screening
-        LEFT JOIN location ON location.id = screening.locationId
-        WHERE screening.movieId = ".$movieID." AND DATE(timing) = '".$clickedDate."';";
+        JOIN location ON location.id = screening.locationId
+        WHERE screening.movieId = ".$movieID." AND DATE(screening.timing) = '".$clickedDate."';";
 
         $locationsdata = $conn->query($sql_select_dates);
 
         // get distinct time from distinct loc
-        $sql_select_time="
-        SELECT DISTINCT(name), TIME_FORMAT(timing, '%H:%i') as timeatloc, timing 
-        FROM screening 
-        LEFT JOIN location ON location.id = screening.locationId 
-        WHERE screening.movieId = ".$movieID." AND DATE(timing) = '".$clickedDate."';";
+        // $sql_select_time="
+        // SELECT DISTINCT(name), TIME_FORMAT(timing, '%H:%i') as timeatloc, timing 
+        // FROM screening 
+        // LEFT JOIN location ON location.id = screening.locationId 
+        // WHERE screening.movieId = ".$movieID." AND DATE(timing) = '".$clickedDate."';";
 
-        $datedata = $conn->query($sql_select_time);
-
-
-
-        
-
+        // $datedata = $conn->query($sql_select_time);
     }
     
     if(isset($_GET['movieID'])){
@@ -491,21 +484,19 @@ $firstIteration  = true;
                 <p class="row-head"><?php echo $row2["name"]?></p>
                 <div class="boxes">
                     <?php 
-                    if($locationdata){
+                        $movieID = $_GET['movieID'];
+                        $clickedDate = $_GET['clickedDate'];
+                        $sql_select_time="
+                        SELECT id, TIME_FORMAT(timing, '%H:%i') as timeatloc 
+                        FROM screening WHERE locationId=".$row2["id"]." AND movieId = ".$movieID." AND DATE(timing) = '".$clickedDate."';";
+                        $datedata = $conn->query($sql_select_time);
+
                         while($row3=mysqli_fetch_assoc($datedata)){ 
-                            echo $row3["timing"];
-                            if($row2["name"]==$row3["name"]){
-                                ?>
-                                <input type="submit" value="<?php echo $row3["timeatloc"]?>" id="iwantko" class="box">
-                                <?php
-                            }
+                            // echo $row3["timing"];
+                    ?>
+                                <input value="<?php echo $row3["timeatloc"]?>" id="iwantko" class="box" onclick="selectTiming('<?php echo $row3['id'] ?>');">
+                    <?php
                         }
-                    }
-                    else{
-                        ?>
-                        <input type="submit" value="NA" class="box">
-                        <?php
-                    }
                     ?>
                   
                 </div>
