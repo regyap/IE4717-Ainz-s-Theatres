@@ -27,37 +27,33 @@
             <div id="profileimg"><img src="image/login.png"></div> <br>
             <h2>Sign In</h2>
 
-            <form action="login" method="post">
+            <form action="signin_process.php" method="post">
 
 
                 <div>
-                    <input type="text" name="uname" pattern=".{3,}" required autofocus>
-                    <label>Enter username: </label>
+                    <input type="text" name="usernameforsignin" pattern=".{3,}" required autofocus>
+                    <label>Enter Username: </label>
                 </div>
                 <div>
-                    <input type="password" name="pass" pattern=".{3,}" required autofocus>
+                    <input type="password" name="passwordforsignin" pattern=".{3,}" required autofocus>
                     <label> Enter Password: </label>
                 </div>
 
-                <!-- <div id="errormssg">
-                    <%
-                       String p = "";
-                       if(session.getAttribute("cannotlogin") == null || ((String)session.getAttribute("cannotlogin")).isEmpty())
-                       {
-                       p = "";
-                       }
+                <?php 
+                    if (isset($_GET['status']))
+                    {
+                        if ($_GET['status']=='fail')
+                            echo "Invalid username or password,try again";
+                    }
+                    // if(isset($_SESSION['notsignedinfromcontact'])){
 
-                       else{
-                       p = (String)session.getAttribute("cannotlogin");
-                       }
-
-                       %>   
-
-                        <%= p %>
-                           
-                        <% session.setAttribute("cannotlogin", ""); %>
-                            </div> -->
-                <input type="submit" value="login">
+                    //     if($_SESSION['notsignedinfromcontact']==true){
+                    //         echo "Sign in before you feedback";
+                    //         //                unset($_SESSION['notsignedinfromcontact']);
+                    //     }
+                    // }
+                    ?>
+                <input type="submit" name="submit" value="login">
             </form><br>
             <p>
                 Don't have an account? <br />
