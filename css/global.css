@@ -97,9 +97,9 @@ body {
 }
 
 #login {
-    margin-top: 56px;
+    margin-top: 49px;
     /* vertical-align: middle; */
-
+    padding-right: 100px;
     display: flex;
     flex-direction: row;
 }

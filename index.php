@@ -202,10 +202,10 @@
   
     <br>
     <a href="#nowShowingSection" class="navlinks">NOW SHOWING</a>
-    <a href="#Paris" class="navlinks">COMING SOON</a>
+    <a href="#nowShowingSection" class="navlinks">COMING SOON</a>
     <a href="index.php" id="logo"><img src="image/Asset 1@4x.png"></a>
     <a href="locations.php" class="navlinks">LOCATION</a>
-    <a href="aboutus.html" class="navlinks">ABOUT US</a>
+    <a href="index.php#aboutuscontent" class="navlinks">ABOUT US</a>
     <br>
     <input type="submit" value="FAST BOOKING" class="lol" onclick="openFastBooking();">
   </nav>
@@ -345,7 +345,7 @@
   <section class="aboutus">
     <img src="./image/Glass_Half_Full_6_640_360_81_s_c1.jpg" class="glassimg">
     <img src="./image/bath.jpg" class="bathimg">
-    <div class="aboutuscontent">
+    <div class="aboutuscontent" id="aboutuscontent">
       <h1>HELLO!</h1>
       <p>Introducing the truly unmatched cinematic experience, merging art-house with mouth-watering café and bar menus.
         Fabulously designed interiors. State-of-the-art laser projection technology. <br>Welcome to Ainz.
