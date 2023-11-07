@@ -3,7 +3,7 @@
 
     <head>
         <title>Ainz's Theatres</title>
-        <meta charset="utf-8" />
+        <meta charset="utf-8" / >
         <link rel="stylesheet" href="css/global.css" />
         <link rel="stylesheet" href="css/login.css" />
     </head>
@@ -42,7 +42,7 @@
                 <div id="profileimg"><img src="image/login.png"></div> <br>
                 <h2>Sign In</h2>
 
-                <form action="signin_process.php" method="post">
+                <form action="php/signin_process.php" method="post">
 
 
                     <div>

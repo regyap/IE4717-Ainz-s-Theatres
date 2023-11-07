@@ -99,88 +99,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <?php  
 
-    if(isset($_POST['iwantko'])){
-        $clickedDate = $_POST['iwantko'];
-        echo "<script>console.log('Clicked date from php:', '$iwantko');</script>";
-    }
-    $locationsdata = null;
-    if(isset($_GET['clickedDate'])&&isset($_GET['movieID'])){
-        $movieID = $_GET['movieID'];
-        $clickedDate = $_GET['clickedDate'];
-        echo "<script>console.log('Clicked date from php:', '$clickedDate');</script>";
 
-        $conn=mysqli_connect("localhost","root","" ,"IE4717_ainzs_theatres");
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-          }
-
-        // get distinct loc
-        $sql_select_dates = "SELECT DISTINCT location.id, location.name
-        FROM screening
-        JOIN location ON location.id = screening.locationId
-        WHERE screening.movieId = ".$movieID." AND DATE(screening.timing) = '".$clickedDate."';";
-
-        $locationsdata = $conn->query($sql_select_dates);
-
-        // get distinct time from distinct loc
-        // $sql_select_time="
-        // SELECT DISTINCT(name), TIME_FORMAT(timing, '%H:%i') as timeatloc, timing 
-        // FROM screening 
-        // LEFT JOIN location ON location.id = screening.locationId 
-        // WHERE screening.movieId = ".$movieID." AND DATE(timing) = '".$clickedDate."';";
-
-        // $datedata = $conn->query($sql_select_time);
-    }
     
-    if(isset($_GET['movieID'])){
-        $movieID = $_GET['movieID'];
+    if(isset($_GET['locationId'])&&isset($_GET['clickedDate'])){
+        $clickedDate = $_GET['clickedDate'];
+        $locationId = $_GET['locationId'];
 
     $conn=mysqli_connect("localhost","root","" ,"IE4717_ainzs_theatres");
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
       }
+
+    // for movie from locationid
+    $sql_select_location="SELECT distinct(movie.title),location.id  
+    FROM screening 
+    LEFT JOIN movie ON movie.id = screening.movieId 
+    LEFT JOIN location ON location.id = screening.locationId 
+    WHERE screening.locationId = ".$locationId." AND DATE(screening.timing) = '".$clickedDate."';";
    
-    // $sql_select="select * 
-    // from movie 
-    // left join screening ON movie.id = screening.movieId
-    // left join location on location.id = screening.locationId
-    // left join review on movie.id = review.movieId
-    // where screening.movieId = '$movieID'
-    // LIMIT 1
-    // ;";
- //   for movie details
-    $sql_select="SELECT movie.title, movie.image, movie.duration, movie.viewerDiscretion, movie.viewerDiscretionDescription, movie.sypnosis, movie.director, movie.cast, movie.releaseDate, movie.genre, screening.id, screening.timing
-    FROM movie 
-    LEFT JOIN screening ON movie.id = screening.movieId
-    WHERE movie.id = " . $movieID . "
-    LIMIT 1;";
+     
+    //for 
 
-    // for location
-    $sql_select_location="SELECT movie.title, movie.image, movie.duration, movie.viewerDiscretion, movie.viewerDiscretionDescription, movie.sypnosis, movie.director, movie.cast, movie.releaseDate, movie.genre, screening.id, screening.timing, location.name, location.address, location.image
-    FROM movie
-    LEFT JOIN screening ON movie.id = screening.movieId
-    LEFT JOIN location ON location.id = screening.locationId
-    WHERE screening.movieId = " . $movieID . ";";
+    $moviedata = $conn->query($sql_select_location);
 
-    // for movie details avg rating
-    $sql_select_avg_rating="select movieId, comment, rating, uplaodDateTime, avg(rating)
-    from review
-    where movieId = '$movieID';";
-
-    //   for comment
-    $sql_select_comment="select movieId, comment, rating, uplaodDateTime
-    from review
-    where movieId = '$movieID';";
-
-
-
-    
-    $alldata = $conn->query($sql_select);
-    $locationdata = $conn->query($sql_select_location);
-    $avgratingdata = $conn->query($sql_select_avg_rating);
-    $commentdata = $conn->query($sql_select_comment);
    
-  
+    }
 ?>
 
 <body>
@@ -301,23 +244,24 @@ document.addEventListener("DOMContentLoaded", function () {
         <!-- <form action="movieDetails.php" method="get"> -->
         <section class="locationandtimetablesection">
         <div class="locationandtimetable">
-        <div class="table-heading">
+        <!-- <div class="table-heading">
             <h1 class="theatre">Theatres</h1>
             <h1 class="time">Timing</h1>
-        </div>
+        </div> -->
         <div class="table-content">
-        <?php if(!is_null($locationsdata) && $locationsdata instanceof mysqli_result && mysqli_num_rows($locationsdata) > 0){
-
-        while($row2=mysqli_fetch_assoc($locationsdata)){ ?>
+        <?php
+        //  if(!is_null($locationsdata) && $locationsdata instanceof mysqli_result && mysqli_num_rows($locationsdata) > 0){
+        if(isset($moviedata)){
+        while($row2=mysqli_fetch_assoc($moviedata)){ ?>
             <div class="table-row">
-                <p class="row-head"><?php echo $row2["name"]?></p>
+                <p class="row-head"><?php echo $row2["title"]?></p>
                 <div class="boxes">
                     <?php 
-                        $movieID = $_GET['movieID'];
+                       
                         $clickedDate = $_GET['clickedDate'];
                         $sql_select_time="
                         SELECT id, TIME_FORMAT(timing, '%H:%i') as timeatloc 
-                        FROM screening WHERE locationId=".$row2["id"]." AND movieId = ".$movieID." AND DATE(timing) = '".$clickedDate."';";
+                        FROM screening WHERE locationId=".$row2["id"]." AND DATE(timing) = '".$clickedDate."';";
                         $datedata = $conn->query($sql_select_time);
 
                         while($row3=mysqli_fetch_assoc($datedata)){ 

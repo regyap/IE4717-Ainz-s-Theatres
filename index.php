@@ -95,9 +95,14 @@
       alert('Please select a TIME');
     }
   }
+  function toggleDropdown() {
+    var dropdownContent = document.getElementById("myDropdown");
+    dropdownContent.style.display = (dropdownContent.style.display === "block") ? "none" : "block";
+  }
 </script>
 
 <?php 
+
         if(isset($_GET['movie'])){
           $movieId = intval($_GET['movie']);
         }
@@ -170,7 +175,31 @@
 
 <body>
   <nav class="navbar">
-    <a href="login.html" class="user"><img src="image/login.png">Hello, Ainz</a>
+    <?php
+      session_start();
+      if(isset($_SESSION['login'])=="IsIn"){
+        if(isset($_SESSION['username'])){
+        $username = $_SESSION['username'];
+        
+    ?>
+    
+    <div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Hello <?php echo $username?></button>
+      <div id="myDropdown" class="dropdown-content">
+      
+        <a href="purchaseHistory.php">Purchase History</a>
+        <form action="php/signin_process.php" method="post" id="signout" name="signout">
+        <a href="#" onclick="document.getElementById('signout').submit();">Log out</a>
+        </form>
+      </div>
+  </div>
+
+   
+    <?php  }}else{ ?>
+      <a href="login.php" class="user"><img src="image/login.png">Login</a>
+  <?php }?>
+  
+  
     <br>
     <a href="#" class="navlinks">NOW SHOWING</a>
     <a href="#" class="navlinks">COMING SOON</a>
@@ -518,6 +547,26 @@
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
   }
+
+  /* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
 
 
 </script>
