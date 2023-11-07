@@ -184,7 +184,7 @@
     ?>
     
     <div class="dropdown">
-    <button onclick="myFunction()" class="dropbtn">Hello <?php echo $username?></button>
+    <button onclick="myFunction()" class="dropbtn"><img src="image/login.png" id="dropbtnimg"><p>Hello, <?php echo $username?></p></button>
       <div id="myDropdown" class="dropdown-content">
       
         <a href="purchaseHistory.php">Purchase History</a>
@@ -196,13 +196,13 @@
 
    
     <?php  }}else{ ?>
-      <a href="login.php" class="user"><img src="image/login.png">Login</a>
+      <a href="login.php" class="user" id="login"><img src="image/login.png" ><p>Login</p></a>
   <?php }?>
   
   
     <br>
-    <a href="#" class="navlinks">NOW SHOWING</a>
-    <a href="#" class="navlinks">COMING SOON</a>
+    <a href="#nowShowingSection" class="navlinks">NOW SHOWING</a>
+    <a href="#Paris" class="navlinks">COMING SOON</a>
     <a href="index.php" id="logo"><img src="image/Asset 1@4x.png"></a>
     <a href="locations.php" class="navlinks">LOCATION</a>
     <a href="aboutus.html" class="navlinks">ABOUT US</a>

@@ -21,6 +21,8 @@ img {
   transform: translateX(-50%);
   margin-left: auto;
   margin-right: auto;
+
+
 }
 
 .slideshow-container img {
@@ -28,6 +30,7 @@ img {
   height: 526px;
 
   object-fit: cover;
+  object-position: center top;
 }
 
 .prev,
@@ -481,7 +484,7 @@ h1 {
   font-size: 60px;
 }
 
-#fastBookingPopup{
+#fastBookingPopup {
   display: none;
   position: fixed;
   left: 0;
@@ -490,7 +493,8 @@ h1 {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
 }
-#fastBookingPopup .FB_Card{
+
+#fastBookingPopup .FB_Card {
   background-color: black;
   width: 30%;
   min-width: 482px;
@@ -502,14 +506,16 @@ h1 {
   flex-direction: column;
   padding: 12px;
 }
-#fastBookingPopup .FB_Card .FB_close{
+
+#fastBookingPopup .FB_Card .FB_close {
   position: relative;
   width: fit-content;
   margin-right: 5px;
   color: white;
   cursor: pointer;
 }
-.FB_title{
+
+.FB_title {
   color: white;
   font-family: Aoboshi One;
   font-size: 36px;
@@ -544,7 +550,8 @@ h1 {
   outline: none;
   cursor: pointer;
 }
-.FB_form .FB_booknow{
+
+.FB_form .FB_booknow {
   width: 100%;
   height: 40px;
   margin-top: 6px;
@@ -556,7 +563,8 @@ h1 {
   font-size: 14px;
   cursor: pointer;
 }
-.FB_form .FB_booknow:hover{
+
+.FB_form .FB_booknow:hover {
   color: white;
   filter: drop-shadow(0px 0px 5px #ffffff);
   transition: 0.5s;

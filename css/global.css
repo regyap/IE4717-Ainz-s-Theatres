@@ -24,26 +24,48 @@ body {
     src: url('../font/AoboshiOne-Regular.ttf');
 }
 
+
+
 /* Dropdown Button */
 .dropbtn {
-    background-color: #3498DB;
+    background-color: #000000;
     color: white;
     padding: 16px;
     font-size: 16px;
     border: none;
     cursor: pointer;
+
+    font-family: Montserrat;
+    margin-top: 30px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    align-items: center;
+    z-index: 1;
+}
+
+.dropbtn #dropbtnimg {
+    width: 50px;
+    height: 50px;
+}
+
+.dropbtn p {
+    margin-top: 21px;
 }
 
 /* Dropdown button on hover & focus */
 .dropbtn:hover,
 .dropbtn:focus {
-    background-color: #2980B9;
+    background-color: #000000;
 }
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
     position: relative;
     display: inline-block;
+    z-index: 1;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -72,6 +94,21 @@ body {
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {
     display: block;
+}
+
+#login {
+    margin-top: 56px;
+    /* vertical-align: middle; */
+
+    display: flex;
+    flex-direction: row;
+}
+
+#login p {
+    margin-top: 18px;
+    /* vertical-align: middle; */
+
+
 }
 
 nav a {
@@ -170,13 +207,14 @@ nav a {
 .navlinks {
     display: inline-block;
     position: relative;
-    width: 90px;
+    width: 140px;
     align-items: center;
     align-content: center;
     text-align: center;
 
 
-    margin-bottom: 29px;
+
+    margin-bottom: 24px;
 }
 
 .navlinks::after {
