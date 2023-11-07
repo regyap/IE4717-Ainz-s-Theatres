@@ -422,32 +422,32 @@ $firstIteration  = true;
                         </a>
                     </div>
                     <div class="product">
-                        <a href="test2.html?vid_id='.$video_id;" class="dateandtime">
+                        <a class="dateandtime">
                            
                         </a>
                     </div>
                     <div class="product">
-                        <a href="test2.html?vid_id='.$video_id;" class="dateandtime">
+                        <a class="dateandtime">
                            
                         </a>
                     </div>
                     <div class="product">
-                        <a href="test2.html?vid_id='.$video_id;" class="dateandtime">
+                        <a class="dateandtime">
                            
                         </a>
                     </div>
                     <div class="product">
-                        <a href="test2.html?vid_id='.$video_id;" class="dateandtime">
+                        <a class="dateandtime">
                            
                         </a>
                     </div>
                     <div class="product">
-                        <a href="test2.html?vid_id='.$video_id;" class="dateandtime">
+                        <a class="dateandtime">
                             
                         </a>
                     </div>
                     <div class="product">
-                        <a href="test2.html?vid_id='.$video_id;" class="dateandtime">
+                        <a class="dateandtime">
                             
                         </a>
                     </div>
