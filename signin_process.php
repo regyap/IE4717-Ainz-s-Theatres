@@ -7,19 +7,31 @@ if ($conn->connect_error) {
 }
 
 if (isset($_POST['submit'])) {
-    $username = $_POST["usernameforsignin"];
+    $email = $_POST["emailforsignin"];
     $password = $_POST["passwordforsignin"];
 
     // prepared statements to prevent SQL injection
-    $sqlquery = "SELECT * FROM user WHERE name = ? AND password = ?";
+    $sqlquery = "SELECT * FROM user WHERE email = ? AND password = ?";
     $stmt = $conn->prepare($sqlquery);
-    $stmt->bind_param("ss", $username, $password);
+    $stmt->bind_param("ss", $email, $password);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($result->num_rows >= 1) {
         $_SESSION['login'] = 'IsIn';
-        $_SESSION['username'] = $username;
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            // Access the 'username' column
+            $username = $row['username'];
+            $_SESSION['username'] = $username;
+
+            $email = $row['email'];
+            $_SESSION['email'] = $email;
+
+            $contact = $row['contact'];
+            $_SESSION['contact'] = $contact;
+
+        }
 
         // Redirect
         header('location: index.php');
