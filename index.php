@@ -97,12 +97,22 @@
   }
 </script>
 
-<?php
-        $movieId = intval($_GET['movie']);
+<?php 
+        if(isset($_GET['movie'])){
+          $movieId = intval($_GET['movie']);
+        }
+       
+        if(isset($_GET['location'])){
         $locationId = intval($_GET['location']);
+        }
 
+        if(isset($_GET['fb_movie'])){
         $fb_movie = intval($_GET['fb_movie']);
+        }
+
+        if(isset($_GET['fb_location'])){
         $fb_location = intval($_GET['fb_location']);
+        }
 
         $conn=mysqli_connect("localhost","root","" ,"IE4717_ainzs_theatres");
     // Check connection
@@ -117,6 +127,7 @@
         $fb_locationList = null;
         $fb_screeningList = null;
 
+        if(isset($_GET['fb_movie'])&&isset($_GET['fb_movie'])){
         if($fb_movie!=0 && $fb_location==0){
           $sql_select="SELECT DISTINCT L.* FROM location as L JOIN screening as S ON L.id=S.locationId where S.movieId=".$fb_movie." AND S.timing>DATE_ADD(CURDATE(), INTERVAL -7 DAY)";
           $fb_locationList = $conn->query($sql_select);
@@ -126,9 +137,12 @@
           $sql_select="SELECT DISTINCT id, DAYNAME(timing) as dayName, DAY(timing) as day, MONTHNAME(timing) as monthName, HOUR(timing) as hour, MINUTE(timing) as minute FROM screening where movieId=".$fb_movie." AND locationId=".$fb_location." AND timing>DATE_ADD(CURDATE(), INTERVAL -7 DAY)";
           $fb_screeningList = $conn->query($sql_select);
         }
+      }
 
         $sql_select="SELECT id, name FROM location";
         $locations = $conn->query($sql_select);
+
+        if(isset($_GET['movieId'])&&isset($_GET['locationId'])){
 
         if($movieId!=0 && $locationId==0){
           $sql_select="SELECT * FROM movie where id=".$movieId." AND (releaseDate<=DATE_ADD(CURDATE(), INTERVAL -7 DAY))";
@@ -143,6 +157,10 @@
           $sql_select="SELECT * FROM movie where releaseDate<=DATE_ADD(CURDATE(), INTERVAL -7 DAY)";
           $nowShowing = $conn->query($sql_select);
         }
+      }else{
+        $sql_select="SELECT * FROM movie where releaseDate<=DATE_ADD(CURDATE(), INTERVAL -7 DAY)";
+          $nowShowing = $conn->query($sql_select);
+      }
         
         $sql_select="SELECT * FROM movie where releaseDate>=DATE_ADD(CURDATE(), INTERVAL -7 DAY)";
         $comingSoon = $conn->query($sql_select);
@@ -224,6 +242,7 @@
           <select id="movieFilterSelect" name="movieFilterSelect" onchange="selectFilter();">
             <option value="0">EVERYTHING</option>
             <?php
+
               while($row = $movieFilter->fetch_assoc()){
             ?>
             <option value="<?php echo $row['id'] ?>"><?php echo $row['title'] ?></option>
