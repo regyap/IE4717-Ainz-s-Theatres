@@ -1,0 +1,85 @@
+body {
+  background-color: #121212;
+}
+.navbar {
+  background-color: black;
+}
+
+#slip {
+  width: 80%;
+  min-width: 800px;
+  height: 600px;
+  background-color: white;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  color: black;
+  font-size: 12px;
+}
+#slip .content {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  padding-top: 70px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.title {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+hr {
+  width: 40px;
+  margin-left: 0px;
+}
+
+.scrollView{
+    margin-top: 12px;
+    height: 400px;
+    overflow-y: scroll;
+    padding-right: 24px;
+}
+.scrollView .historyRecord img {
+  width: 100px;
+  height: 140px;
+  object-fit: cover;
+}
+.scrollView .historyRecord {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 12px;
+    
+}
+.scrollView .historyRecord:hover {
+    background-color: gainsboro;
+    
+}
+.scrollView .historyRecord .textContent{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+.scrollView .historyRecord .col1{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.scrollView .historyRecord .col1 span{
+    margin:4px;
+    margin-left: 12px;
+}
+.scrollView .historyRecord .col2{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+.scrollView .historyRecord .col2 .amountPaid{
+    font-weight: bold;
+    margin-top: 45px;
+}

@@ -189,9 +189,9 @@ document.addEventListener("DOMContentLoaded", function () {
         <br>
         <a href="#" class="navlinks">NOW SHOWING</a>
         <a href="#" class="navlinks">COMING SOON</a>
-        <a href="#" id="logo"><img src="image/Asset 1@4x.png"></a>
-        <a href="#" class="navlinks">LOCATION</a>
-        <a href="aboutus.html" class="navlinks">ABOUT US</a>
+        <a href="index.php" id="logo"><img src="image/Asset 1@4x.png"></a>
+        <a href="locations.php" class="navlinks">LOCATION</a>
+        <a href="#" class="navlinks">ABOUT US</a>
         <br>
         <input type="submit" value="FAST BOOKING" class="lol">
     </nav>

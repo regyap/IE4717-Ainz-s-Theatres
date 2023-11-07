@@ -1,0 +1,57 @@
+#content{
+    display: flex;
+    flex-direction: column;
+}
+#content div{
+    width: 100%;
+}
+#content .top{
+    color: white;
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+    align-items: center;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 74px;
+    margin-bottom: 74px;
+}
+
+#content .top img{
+    height: 100px;
+    width: 100px;
+}
+#content .top .text{
+    display: flex;
+    flex-direction: column;
+    margin-left: 12px;
+}
+#content .top .text .title{
+    font-size: 36px;
+    font-family: Aoboshi One;
+}
+
+#content .button{
+    width: 100%;
+    text-align: center;
+}
+#content a{
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid #fbcc97;
+    color: #fbcc97;
+    background-color: black;
+    font-family: Montserrat;
+    font-size: 11px;
+    padding: 6px;
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+  #content a:hover{
+    text-align: center;
+    border: 1px solid #fbcc97;
+    color: black;
+    background-color: #fbcc97;
+    transition: 0.5s;
+  }

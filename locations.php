@@ -8,7 +8,7 @@
   </head>
   <script>
       function selectLocation(index) {
-      location.href = 'timingsOfLocation.html?locationId='+index;
+      location.href = 'timingOfLocations.php?locationId='+index;
       }
   </script>
 
