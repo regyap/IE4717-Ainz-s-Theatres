@@ -15,20 +15,57 @@
         defaultOpenElement.click();
     }
 
-    // set filter previously selected values
+    
     var urlString = window.location.href;
-    console.log(urlString);
-    console.log(window.location.href);
     var paramString = window.location.href.split('/#')[0];
     paramString = paramString.split('?')[1];
     let urlParams = new URLSearchParams(paramString);
+
+    // set filter previously selected values
     var movieId = urlParams.get('movie');
     var locationId = urlParams.get('location');
     if(movieId != null && locationId != null){
       document.getElementById("movieFilterSelect").value = movieId;
       document.getElementById("locationFilterSelect").value = locationId;
     }
+
+    // set fastbooking previously selected values
+    var fb_movieId = urlParams.get('fb_movie');
+    var fb_locationId = urlParams.get('fb_location');
+    if(fb_movieId != null && fb_locationId != null){
+      openFastBooking();
+      document.getElementById("FB_movie").value = fb_movieId;
+      document.getElementById("FB_location").value = fb_locationId;
+    }
   });
+
+//   function waitForElementToExist(selector) {
+//   return new Promise(resolve => {
+//     if (document.querySelector(selector)) {
+//       return resolve(document.querySelector(selector));
+//     }
+
+//     const observer = new MutationObserver(() => {
+//       if (document.querySelector(selector)) {
+//         resolve(document.querySelector(selector));
+//         observer.disconnect();
+//       }
+//     });
+
+//     observer.observe(document.body, {
+//       subtree: true,
+//       childList: true,
+//     });
+//   });
+// }
+
+  // function loadFastBooking(){
+  //   var urlString = window.location.href;
+  //   var paramString = window.location.href.split('/#')[0];
+  //   paramString = paramString.split('?')[1];
+  //   let urlParams = new URLSearchParams(paramString);
+    
+  // }
 
   function selectFilter(){
     var movieId = document.getElementById("movieFilterSelect").value;
@@ -46,11 +83,26 @@
   function closeFastBooking(){
     document.getElementById("fastBookingPopup").style.display = "none";
   }
+
+  function selectFastBooking(){
+    var fb_movieId = document.getElementById("FB_movie").value;
+    var fb_locationId = document.getElementById("FB_location").value;
+    location.href = '?fb_movie='+fb_movieId+'&fb_location='+fb_locationId;
+  }
+  function validateFastBooking(){
+    var fb_screeningId = document.getElementById("FB_time").value;
+    if(fb_screeningId==0){
+      alert('Please select a TIME');
+    }
+  }
 </script>
 
 <?php
         $movieId = intval($_GET['movie']);
         $locationId = intval($_GET['location']);
+
+        $fb_movie = intval($_GET['fb_movie']);
+        $fb_location = intval($_GET['fb_location']);
 
         $conn=mysqli_connect("localhost","root","" ,"IE4717_ainzs_theatres");
     // Check connection
@@ -60,6 +112,20 @@
 
         $sql_select="SELECT id, title FROM movie where releaseDate<=DATE_ADD(CURDATE(), INTERVAL -7 DAY)";
         $movieFilter = $conn->query($sql_select);
+
+        $fb_movieList = $conn->query($sql_select);
+        $fb_locationList = null;
+        $fb_screeningList = null;
+
+        if($fb_movie!=0 && $fb_location==0){
+          $sql_select="SELECT DISTINCT L.* FROM location as L JOIN screening as S ON L.id=S.locationId where S.movieId=".$fb_movie." AND S.timing>DATE_ADD(CURDATE(), INTERVAL -7 DAY)";
+          $fb_locationList = $conn->query($sql_select);
+        }else if($fb_movie!=0 && $fb_location!=0){
+          $sql_select="SELECT DISTINCT L.* FROM location as L JOIN screening as S ON L.id=S.locationId where S.movieId=".$fb_movie." AND S.timing>DATE_ADD(CURDATE(), INTERVAL -7 DAY)";
+          $fb_locationList = $conn->query($sql_select);
+          $sql_select="SELECT DISTINCT id, DAYNAME(timing) as dayName, DAY(timing) as day, MONTHNAME(timing) as monthName, HOUR(timing) as hour, MINUTE(timing) as minute FROM screening where movieId=".$fb_movie." AND locationId=".$fb_location." AND timing>DATE_ADD(CURDATE(), INTERVAL -7 DAY)";
+          $fb_screeningList = $conn->query($sql_select);
+        }
 
         $sql_select="SELECT id, name FROM location";
         $locations = $conn->query($sql_select);
@@ -327,22 +393,52 @@
   </footer>
 
     <!-- -----------------FAST BOOKING POPUP-------------------- -->
-    <div id="fastBookingPopup">
+    <div id="fastBookingPopup" >
       <div class="FB_Card">
         <div class="FB_close" onclick="closeFastBooking();">X</div>
         <div class="FB_title">FAST BOOKING</div>
-        <form class="FB_form">
-            <select id="FB_location" name="FB_location">
-              <option value="0">LOCATION</option>
-              <option value="">FUNANan</option>
-            </select>
-            <select id="FB_movie" name="FB_movie">
+        <form class="FB_form" onsubmit="return validateFastBooking()" method="post" action="php/submitFastBooking.php">
+            <select id="FB_movie" name="FB_movie" onchange="selectFastBooking();">
               <option value="0">MOVIE</option>
-              <option value="">FUNANan</option>
+              <?php
+              while($row = $fb_movieList->fetch_assoc()){
+              ?>
+              <option value="<?php echo $row["id"] ?>"><?php echo $row["title"] ?></option>
+              <?php
+              }
+              ?>
+            </select>
+            <select id="FB_location" name="FB_location" onchange="selectFastBooking();" >
+              <option value="0">LOCATION</option>
+              <?php
+              if($fb_locationList != null){
+                while($row = $fb_locationList->fetch_assoc()){
+              ?>
+              <option value="<?php echo $row["id"] ?>"><?php echo $row["name"] ?></option>
+              <?php
+                }
+              }else{
+              ?>
+              <option value="0">Please select a MOVIE first</option>
+              <?php
+              }
+              ?>
             </select>
             <select id="FB_time" name="FB_time">
-              <option value="0">TIMING</option>
-              <option value="">FUNANan</option>
+              <option value="0">TIME</option>
+              <?php
+              if($fb_screeningList != null){
+                while($row = $fb_screeningList->fetch_assoc()){
+              ?>
+              <option value="<?php echo $row["id"] ?>"><?php echo strtoupper(substr($row['dayName'], 0, 3)) ?>  |  <?php echo $row["day"] ?> <?php echo strtoupper(substr($row['monthName'], 0, 3)) ?>  |  <?php echo $row["hour"] ?>:<?php echo $row["minute"] ?></option>
+              <?php
+                }
+              }else{
+              ?>
+              <option value="0">Please select a MOVIE and LOCATION first</option>
+              <?php
+              }
+              ?>
             </select>
           <input type="submit" class="FB_booknow" value="BOOK NOW">
         </form>
