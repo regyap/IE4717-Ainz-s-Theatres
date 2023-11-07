@@ -10,6 +10,15 @@
     
   </script>
   <?php
+      session_start();
+      if(isset($_SESSION["login"])){
+        if($_SESSION["login"]=='IsIn'){
+          $userId = $_SESSION["userId"];
+          $userEmail = $_SESSION["email"];
+          $userName = $_SESSION["username"];
+          $userContact = $_SESSION["contact"];
+        }
+      }
 
       $numberOfSeats = $_POST['form_numberOfSeats'];
       $selectedSeats = $_POST['form_selectedSeats'];
@@ -153,15 +162,15 @@
             <tr>
               <td class="label" rowspan="3">Contact Information:</td>
               <td class="subLabel">Name</td>
-              <td class="textbox"><input name="form_name" type="text" required/></td>
+              <td class="textbox"><input name="form_name" type="text" value="<?php if(isset($userName)){echo $userName;} ?>" required/></td>
             </tr>
             <tr>
               <td class="subLabel">Email</td>
-              <td class="textbox"><input name="form_email" type="email" required/></td>
+              <td class="textbox"><input name="form_email" type="email" value="<?php if(isset($userEmail)){echo $userEmail;}  ?>" required/></td>
             </tr>
             <tr>
               <td class="subLabel">Contact Number</td>
-              <td class="textbox"><input name="form_contact" type="number" required/></td>
+              <td class="textbox"><input name="form_contact" type="number" value="<?php if(isset($userContact)){echo $userContact;}  ?>" required/></td>
             </tr>
             <tr>
               <td class="label">Choose Your Payment Method:</td>
@@ -191,6 +200,7 @@
         <input name="form_numberOfSeats" type="number" value="<?php echo $numberOfSeats ?>" hidden>
         <input name="form_selectedSeats" type="text" value="<?php echo $selectedSeats ?>" hidden>
         <input name="form_grandTotal" type="text" value="<?php echo $grandTotal ?>" hidden>
+        <input name="form_userId" type="text" value="<?php if(isset($userId)){echo $userId;}else{echo null;} ?>" hidden>
         <section id="section3">
           <div class="buttonsContainer">
             <button class="button">BACK</button>

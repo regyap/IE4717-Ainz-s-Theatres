@@ -433,7 +433,7 @@
       <div class="footernav">
         <a href="#">NOW SHOWING</a>
         <a href="#">COMING SOON</a>
-        <a href="#">LOCATION</a>
+        <a href="">LOCATION</a>
         <a href="#">ABOUT US</a>
       </div>
       <br> <br>

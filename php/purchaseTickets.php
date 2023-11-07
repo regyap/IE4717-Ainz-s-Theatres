@@ -21,13 +21,30 @@ ini_set('display_errors', 1);
         $numberOfSeats = $_POST['form_numberOfSeats'];
         $totalAmount = $_POST['form_grandTotal'];
         $paymentMethod = $_POST['form_paymentMethod'];
+        $userId = $_POST['form_userId'];
         $status = 'success';
 
-        $sql_insert="INSERT INTO payment (screeningId, email, contact, seatNumbers, numberOfSeats, totalAmount, paymentMethod, status) VALUES (?,?,?,?,?,?,?,?)";
-        $stmt1 = $conn->prepare($sql_insert);
-        $stmt1->bind_param('isisidss', $screeningId, $email, $contact, $seatNumbers, $numberOfSeats, $totalAmount, $paymentMethod, $status);
+        if($userId != null){
+            $sql_insert="INSERT INTO payment (screeningId, email, contact, seatNumbers, numberOfSeats, totalAmount, paymentMethod, userId, status) VALUES (?,?,?,?,?,?,?,?,?)";
+            $stmt1 = $conn->prepare($sql_insert);
+            $stmt1->bind_param('isisidsis', $screeningId, $email, $contact, $seatNumbers, $numberOfSeats, $totalAmount, $paymentMethod, $userId, $status);
+        }else{
+            $sql_insert="INSERT INTO payment (screeningId, email, contact, seatNumbers, numberOfSeats, totalAmount, paymentMethod, status) VALUES (?,?,?,?,?,?,?,?)";
+            $stmt1 = $conn->prepare($sql_insert);
+            $stmt1->bind_param('isisidss', $screeningId, $email, $contact, $seatNumbers, $numberOfSeats, $totalAmount, $paymentMethod, $status);
+        }
+
         $result1 = $stmt1->execute();
         $stmt1->close();
+
+        // the message
+        $msg = "Your movie ticket purchase is successful\n use this QR code for entry to theatre:";
+
+        // use wordwrap() if lines are longer than 70 characters
+        $msg = wordwrap($msg,70);
+
+        // send email
+        mail($email,"Ainzs Theatres Payment Confirmation",$msg);
      }
 
 
