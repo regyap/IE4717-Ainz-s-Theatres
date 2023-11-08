@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="css/index.css" />
 </head>
-
+<script src="js/global.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     var defaultOpenElement = document.getElementById("defaultOpen");
@@ -29,43 +29,7 @@
       document.getElementById("locationFilterSelect").value = locationId;
     }
 
-    // set fastbooking previously selected values
-    var fb_movieId = urlParams.get('fb_movie');
-    var fb_locationId = urlParams.get('fb_location');
-    if(fb_movieId != null && fb_locationId != null){
-      openFastBooking();
-      document.getElementById("FB_movie").value = fb_movieId;
-      document.getElementById("FB_location").value = fb_locationId;
-    }
   });
-
-//   function waitForElementToExist(selector) {
-//   return new Promise(resolve => {
-//     if (document.querySelector(selector)) {
-//       return resolve(document.querySelector(selector));
-//     }
-
-//     const observer = new MutationObserver(() => {
-//       if (document.querySelector(selector)) {
-//         resolve(document.querySelector(selector));
-//         observer.disconnect();
-//       }
-//     });
-
-//     observer.observe(document.body, {
-//       subtree: true,
-//       childList: true,
-//     });
-//   });
-// }
-
-  // function loadFastBooking(){
-  //   var urlString = window.location.href;
-  //   var paramString = window.location.href.split('/#')[0];
-  //   paramString = paramString.split('?')[1];
-  //   let urlParams = new URLSearchParams(paramString);
-    
-  // }
 
   function selectFilter(){
     var movieId = document.getElementById("movieFilterSelect").value;
@@ -77,40 +41,11 @@
       location.href = 'movieDetails.php?movieID='+index;
   }
 
-  function openFastBooking(){
-    document.getElementById("fastBookingPopup").style.display = "block";
-  }
-  function closeFastBooking(){
-    document.getElementById("fastBookingPopup").style.display = "none";
-  }
-
-  function selectFastBooking(){
-    var fb_movieId = document.getElementById("FB_movie").value;
-    var fb_locationId = document.getElementById("FB_location").value;
-    location.href = '?fb_movie='+fb_movieId+'&fb_location='+fb_locationId;
-  }
-  function validateFastBooking(){
-    var fb_screeningId = document.getElementById("FB_time").value;
-    if(fb_screeningId==0){
-      alert('Please select a TIME');
-    }
-  }
-  function toggleDropdown() {
-    var dropdownContent = document.getElementById("myDropdown");
-    dropdownContent.style.display = (dropdownContent.style.display === "block") ? "none" : "block";
-  }
 </script>
 
 <?php 
 
-        if(isset($_GET['movie'])){
-          $movieId = intval($_GET['movie']);
-        }
-       
-        if(isset($_GET['location'])){
-        $locationId = intval($_GET['location']);
-        }
-
+    //  FAST BOOKING -------------------------------
         if(isset($_GET['fb_movie'])){
         $fb_movie = intval($_GET['fb_movie']);
         }
@@ -126,8 +61,7 @@
         }
 
         $sql_select="SELECT id, title FROM movie where releaseDate<=DATE_ADD(CURDATE(), INTERVAL -7 DAY)";
-        $movieFilter = $conn->query($sql_select);
-
+        
         $fb_movieList = $conn->query($sql_select);
         $fb_locationList = null;
         $fb_screeningList = null;
@@ -143,11 +77,18 @@
           $fb_screeningList = $conn->query($sql_select);
         }
       }
+      //  FAST BOOKING END -------------------------------
+
+        $sql_select="SELECT id, title FROM movie where releaseDate<=DATE_ADD(CURDATE(), INTERVAL -7 DAY)";
+        $movieFilter = $conn->query($sql_select);
 
         $sql_select="SELECT id, name FROM location";
         $locations = $conn->query($sql_select);
 
-        if(isset($_GET['movieId'])&&isset($_GET['locationId'])){
+        if(isset($_GET['movie'])&&isset($_GET['location'])){
+
+          $movieId = intval($_GET['movie']);
+          $locationId = intval($_GET['location']);
 
         if($movieId!=0 && $locationId==0){
           $sql_select="SELECT * FROM movie where id=".$movieId." AND (releaseDate<=DATE_ADD(CURDATE(), INTERVAL -7 DAY))";
@@ -201,8 +142,8 @@
   
   
     <br>
-    <a href="#nowShowingSection" class="navlinks">NOW SHOWING</a>
-    <a href="#nowShowingSection" class="navlinks">COMING SOON</a>
+    <a href="index.php#nowShowingSection" class="navlinks">NOW SHOWING</a>
+    <a href="index.php#nowShowingSection" class="navlinks">COMING SOON</a>
     <a href="index.php" id="logo"><img src="image/Asset 1@4x.png"></a>
     <a href="locations.php" class="navlinks">LOCATION</a>
     <a href="index.php#aboutuscontent" class="navlinks">ABOUT US</a>
@@ -431,10 +372,10 @@
 
     <div class="footerbottom">
       <div class="footernav">
-        <a href="#">NOW SHOWING</a>
-        <a href="#">COMING SOON</a>
-        <a href="">LOCATION</a>
-        <a href="#">ABOUT US</a>
+        <a href="index.php#nowShowingSection">NOW SHOWING</a>
+        <a href="index.php#nowShowingSection">COMING SOON</a>
+        <a href="locations.php">LOCATION</a>
+        <a href="index.php#aboutuscontent">ABOUT US</a>
       </div>
       <br> <br>
       <p>© 2021 Ainz's Theatres. All Rights Reserved.</p>
