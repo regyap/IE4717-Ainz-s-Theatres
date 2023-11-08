@@ -165,7 +165,7 @@
 
       <div class="mySlides fade">
         <div class="numbertext">2 / 3</div>
-        <img src="image/oppenheimer.webp" alt="slide2">
+        <img src="image/five-nights-at-freddys-banner.webp" alt="slide2">
 
         <!--                    <div id="slide2"></div>-->
 
@@ -173,7 +173,7 @@
 
       <div class="mySlides fade">
         <div class="numbertext">3 / 3</div>
-        <img src="image/oppenheimer.webp" alt="slide3">
+        <img src="image/creationOfTheGods-banner.jpeg" alt="slide3">
         <!--                    <div id="slide3"></div>-->
 
       </div>
