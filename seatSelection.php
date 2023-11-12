@@ -27,21 +27,23 @@
       var number = document.getElementById("form_numberOfSeats").value;
       if(number<=0 || number==null){
         alert('Please select at least 1 seat before proceeding');
+        return false;
+      }else{
+        return true;
       }
     }
 
     function disableSeats(bookedSeatsList){
-      console.log(bookedSeatsList);
-      // console.log(document.getElementsByName("seatInput"));
+      // console.log(bookedSeatsList);
 
       let seatInputs = document.querySelectorAll('input[name="seatInput"]');
-      console.log(seatInputs);
+      // console.log(seatInputs);
       seatInputs.forEach((seatInput) => {
         if(bookedSeatsList.includes(seatInput.value)){
-            console.log("disable");
+            // console.log("disable");
             seatInput.disabled = true;
           }else{
-            console.log("NO disable");
+            // console.log("NO disable");
             seatInput.setAttribute("onclick", "selectSeat();");
           }
       });

@@ -32,6 +32,9 @@ function validateFastBooking() {
   var fb_screeningId = document.getElementById("FB_time").value;
   if (fb_screeningId == 0) {
     alert('Please select a TIME');
+    return false;
+  }else{
+    return true;
   }
 }
 function toggleDropdown() {

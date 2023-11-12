@@ -116,6 +116,7 @@
     padding: 6px;
     font-size: 12px;
     margin: 4px;
+    cursor: pointer;
 }
 #section3 button{
     background-color: black;

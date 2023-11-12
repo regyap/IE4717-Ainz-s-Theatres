@@ -7,7 +7,22 @@
     <link rel="stylesheet" href="css/paymentDetails.css" />
   </head>
   <script>
-    
+    function validatePaymentDetails(){
+      var r = /^[6,8-9]{1}[0-9]{7}$/;
+      var contact = document.getElementById("form_contact").value;
+      // var valid = r.test(contact);
+      if(r.test(contact)) {
+        return true;
+      }
+      else{
+        alert("Please enter a valid contact number (8 digits, starts with 6/8/9)");
+        return false;
+      }
+    }
+
+    function goToPreviousPage(screeningId){
+      location.href = 'seatSelection.php?screeningId='+screeningId;
+    }
   </script>
   <script src="js/global.js"></script>
   <?php
@@ -116,7 +131,7 @@
 
     <div id="content">
       <div id="paymentSlip">
-        <form action="php/purchaseTickets.php" method="post" onsubmit="">
+        <form action="php/purchaseTickets.php" method="post" onsubmit="return validatePaymentDetails();">
         <section id="section1">
           <div class="title">Payment Details</div>
           <table class="amountInfo">
@@ -199,7 +214,7 @@
             </tr>
             <tr>
               <td class="subLabel">Contact Number</td>
-              <td class="textbox"><input name="form_contact" type="number" value="<?php if(isset($userContact)){echo $userContact;}  ?>" required/></td>
+              <td class="textbox"><input id="form_contact" name="form_contact" type="number" value="<?php if(isset($userContact)){echo $userContact;}  ?>" required/></td>
             </tr>
             <tr>
               <td class="label">Choose Your Payment Method:</td>
@@ -232,7 +247,7 @@
         <input name="form_userId" type="text" value="<?php if(isset($userId)){echo $userId;}else{echo null;} ?>" hidden>
         <section id="section3">
           <div class="buttonsContainer">
-            <button class="button">BACK</button>
+            <button class="button" onclick="goToPreviousPage(<?php echo $screeningId ?>);">BACK</button>
           <input class="button" type="submit" value="PAY">
           </div>
         </section>

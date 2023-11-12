@@ -193,6 +193,7 @@ ol {
   padding: 6px;
   padding-left: 22px;
   padding-right: 22px;
+  cursor: pointer;
 }
 .proceedBtn input:hover{
   text-align: center;
