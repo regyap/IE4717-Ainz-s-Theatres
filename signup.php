@@ -147,7 +147,7 @@
                 }
                 ?>
                 <div>
-                    <input type="text" name="email" pattern=".{3,}" required autofocus oninput="validateEmail()" id="email">
+                    <input type="text" name="email" pattern=".{3,}" required autofocus id="email">
                     <label> Email: </label>
                 </div>
                 <div>
