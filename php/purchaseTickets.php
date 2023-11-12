@@ -29,12 +29,16 @@ ini_set('display_errors', 1);
             $stmt1 = $conn->prepare($sql_insert);
             $stmt1->bind_param('isisidsis', $screeningId, $email, $contact, $seatNumbers, $numberOfSeats, $totalAmount, $paymentMethod, $userId, $status);
 
-            $sql_find_user ="select * from user where id = ? limit 1";
+            $sql_find_user ="select id, name, email from user where id = ? limit 1";
             $stmt2 = $conn->prepare($sql_find_user);
             $stmt2->bind_param('i', $userId);
             // Bind the results to variables
             $stmt2->execute();
             $stmt2->store_result();  // The error is still occurring because you are trying to execute another query ($locationList = $conn->query($sql_select_location);) while there are pending results from the previous query executed with a prepared statement ($stmt2->execute();).
+
+             // Bind the result to variables
+            $stmt2->bind_result($resultUserId, $resultName, $resultEmail); /* Add other columns as needed */
+
 
             $sql_select_location="SELECT distinct(movie.title) as title, screening.timing as screentime, location.name as locationName
             from screening
@@ -54,29 +58,36 @@ ini_set('display_errors', 1);
                 $to = $email;
                 $subject = "Ainz Theatres - Ticket Purchase Confirmation";
                 
-                // Email message
-                $message = "Dear $resultName,\r\n\r\n";
-                $message .= "Thank you for choosing Ainz Theatres for your movie experience!\r\n";
-                $message .= "We are pleased to confirm your recent ticket purchase. Below are the details of your transaction:\r\n\r\n";
-                $message .= "Movie: $movieTitle\r\n"; // Replace with the actual movie title
-                $message .= "Date and Time: $screenTime\r\n"; // Replace with the actual screening date and time
-                $message .= "Location: $locationName\r\n";
-                $message .= "Number of Seats: $numberOfSeats\r\n";
-                $message .= "Seat Numbers: $seatNumbers\r\n";
-                $message .= "Total Amount Paid: $$totalAmount\r\n\r\n";
-                $message .= "We look forward to welcoming you to Ainz Theatres. If you have any questions or need further assistance, feel free to contact us.\r\n\r\n";
-                $message .= "Best regards,\r\n";
-                $message .= "Ainz Theatres Team";
-                
-                // Additional headers
-                $headers = 'From: Ainz Theatres <your-email@example.com>' . "\r\n";
-                $headers .= 'Reply-To: your-email@example.com' . "\r\n";
-                $headers .= 'Content-Type: text/plain; charset=UTF-8';
+                    // Base64 encode the image
+            $qrCodeImage = 'https://assets.publishing.service.gov.uk/media/5f5f601ee90e076cdbd9226b/QR_code_image.jpg';
+            $base64QrCode = base64_encode(file_get_contents($qrCodeImage));
+            $qrCodeSrc = $qrCodeImage;
+
+            // Email message
+            $message = "Dear $resultName,<br><br>";
+            $message .= "Thank you for choosing Ainz Theatres for your movie experience!<br>";
+            $message .= "We are pleased to confirm your recent ticket purchase. Below are the details of your transaction:<br><br>";
+            $message .= "Movie: $movieTitle<br>";
+            $message .= "Date and Time: $screenTime<br>";
+            $message .= "Location: $locationName<br>";
+            $message .= "Number of Seats: $numberOfSeats<br>";
+            $message .= "Seat Numbers: $seatNumbers<br>";
+            $message .= "Total Amount Paid: $$totalAmount<br><br><br>";
+            $message .= "<img src='$qrCodeSrc' alt='Ainz Theatres QR Code' width='300'>";
+            $message .= "<br><br>We look forward to welcoming you to Ainz Theatres. If you have any questions or need further assistance, feel free to contact us.<br><br>";
+            $message .= "Best regards,<br>";
+            $message .= "Ainz Theatres Team";
+
+            // Additional headers
+            $headers = 'From: Ainz Theatres <your-email@example.com>' . "\r\n";
+            $headers .= 'Reply-To: your-email@example.com' . "\r\n";
+            $headers .= 'Content-Type: text/HTML; charset=UTF-8';
                 
                 // Send the email
                 mail($to, $subject, $message, $headers);
                 
             }
+            $stmt2->close();
 
           
 
@@ -99,27 +110,33 @@ ini_set('display_errors', 1);
                 $screenTime = $row['screentime'];
                 $locationName = $row['locationName'];
 
-                $to      = 'f32ee@localhost';
+                $to      = $email   ;
                 $subject = "Ainz Theatres - Ticket Purchase Confirmation";
                 
-                // Email message
-                $message = "Dear Anon,\r\n\r\n";
-                $message .= "Thank you for choosing Ainz Theatres for your movie experience!\r\n";
-                $message .= "We are pleased to confirm your recent ticket purchase. Below are the details of your transaction:\r\n\r\n";
-                $message .= "Movie: $movieTitle\r\n"; // Replace with the actual movie title
-                $message .= "Date and Time: $screenTime\r\n"; // Replace with the actual screening date and time
-                $message .= "Location: $locationName\r\n";
-                $message .= "Number of Seats: $numberOfSeats\r\n";
-                $message .= "Seat Numbers: $seatNumbers\r\n";
-                $message .= "Total Amount Paid: $$totalAmount\r\n\r\n";
-                $message .= "We look forward to welcoming you to Ainz Theatres. If you have any questions or need further assistance, feel free to contact us.\r\n\r\n";
-                $message .= "Best regards,\r\n";
-                $message .= "Ainz Theatres Team";
-                
-                // Additional headers
-                $headers = 'From: Ainz Theatres <your-email@example.com>' . "\r\n";
-                $headers .= 'Reply-To: your-email@example.com' . "\r\n";
-                $headers .= 'Content-Type: text/plain; charset=UTF-8';
+             // Base64 encode the image
+             $qrCodeImage = 'https://assets.publishing.service.gov.uk/media/5f5f601ee90e076cdbd9226b/QR_code_image.jpg';
+             $base64QrCode = base64_encode(file_get_contents($qrCodeImage));
+             $qrCodeSrc = $qrCodeImage;
+ 
+             // Email message
+             $message = "Dear Anon,<br><br>";
+             $message .= "Thank you for choosing Ainz Theatres for your movie experience!<br>";
+             $message .= "We are pleased to confirm your recent ticket purchase. Below are the details of your transaction:<br><br>";
+             $message .= "Movie: $movieTitle<br>";
+             $message .= "Date and Time: $screenTime<br>";
+             $message .= "Location: $locationName<br>";
+             $message .= "Number of Seats: $numberOfSeats<br>";
+             $message .= "Seat Numbers: $seatNumbers<br>";
+             $message .= "Total Amount Paid: $$totalAmount<br><br><br>";
+             $message .= "<img src='$qrCodeSrc' alt='Ainz Theatres QR Code' width='300'>";
+             $message .= "<br><br>We look forward to welcoming you to Ainz Theatres. If you have any questions or need further assistance, feel free to contact us.<br><br>";
+             $message .= "Best regards,<br>";
+             $message .= "Ainz Theatres Team";
+ 
+             // Additional headers
+             $headers = 'From: Ainz Theatres <your-email@example.com>' . "\r\n";
+             $headers .= 'Reply-To: your-email@example.com' . "\r\n";
+             $headers .= 'Content-Type: text/HTML; charset=UTF-8';
                 
                 // Send the email
                 mail($to, $subject, $message, $headers);
@@ -129,7 +146,7 @@ ini_set('display_errors', 1);
 
         $result1 = $stmt1->execute();
         $stmt1->close();
-        $stmt2->close();
+    
     }
 
     //     // the message
