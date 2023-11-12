@@ -15,7 +15,7 @@
         return true;
       }
       else{
-        alert("Please enter a valid contact number (8 digits, starts with 6/8/9)");
+        alert("Please enter a valid contact number (8 digits and starts with 6/8/9)");
         return false;
       }
     }

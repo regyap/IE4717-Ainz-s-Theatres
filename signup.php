@@ -10,37 +10,41 @@
 <script src="js/global.js"></script>
 <script>
         function validateEmail() {
-        const emailInput = document.getElementById("emailInput").value;
-        console.log(emailInput)
-        const resultMessage = document.getElementById("resultMessage");
-        const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        console.log("Pattern test result:", pattern.test(emailInput));
-
-        if (pattern.test(emailInput)) {
-            console.log("Email is valid")
-            resultMessage.innerHTML = "Email is valid";
-        } else {
-            resultMessage.innerHTML = "Email is not valid";
-        }
+        
         }
         function signup_validate()
+        {
+            var pw = document.getElementById('pass');
+            var cfpw = document.getElementById('confirmpass');
+
+            if(pw.value != cfpw.value)
             {
-                var pw = document.getElementById('password');
-                var cfpw = document.getElementById('confirmpassword');
+                alert("Passwords do not match. Please re-enter");
+                document.getElementById('pass').value = "";
+                document.getElementById('confirmpass') = "";
+                return false;
+            }else{
+              var emailInput = document.getElementById("email").value;
+              var pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-                if(pw.value != cfpw.value)
-                {
-                    resultMessage.innerHTML = "Password Not Matched";
-                    return false;
+              if (!pattern.test(emailInput)) {
+                document.getElementById('email').value = "";
+                alert("Email is invalid. Please re-enter");
+              }else{
+                var r = /^[6,8-9]{1}[0-9]{7}$/;
+                var contact = document.getElementById("contact").value;
+                if(r.test(contact)) {
+                  return true;
                 }
-                else
-                {
-                    return true;
-
+                else{
+                  document.getElementById('contact').value = "";
+                  alert("Please enter a valid contact number (8 digits and starts with 6/8/9)");
+                  return false;
                 }
+              }
             }
+        }
 
-        function
 </script>
 
 <?php
@@ -130,33 +134,41 @@
             <p>Don't have an account?
                 Create an account here or <a href="login.php">log in</a></p>
             <h3>Create account here</h3><br>
-            <form action="login" method="post">
+            <form action="php/insertUser.php" method="post" onsubmit="return signup_validate();">
 
-
+                <?php 
+                if(isset($_GET['status'])){
+                  if($_GET['status']=='fail'){
+                    $errorMessage = "Email is already registered.";
+                  }
+                ?>
+                <div style="color: red; font-family: Montserrat; margin-bottom:16px;"><?php echo $errorMessage ?></div>
+                <?php
+                }
+                ?>
                 <div>
-                    <input type="text" name="email" pattern=".{3,}" required autofocus oninput="validateEmail()" id="emailInput">
+                    <input type="text" name="email" pattern=".{3,}" required autofocus oninput="validateEmail()" id="email">
                     <label> Email: </label>
                 </div>
                 <div>
-                    <input type="text" name="name" pattern=".{3,}" required autofocus id="nameInput">
+                    <input type="text" name="name" pattern=".{3,}" required autofocus id="name">
                     <label> Name: </label>
                   
                 </div>
-                <div>  <input type="text" name="contactno" pattern=".{3,}" required autofocus  id="contactnoInput">
+                <div>  <input type="text" name="contact" pattern=".{3,}" required autofocus  id="contact">
                     <label> Contact Number: </label>
                  
                 </div>
                 <div>
-                    <input type="password" name="pass" pattern=".{3,}" required autofocus id="password">
+                    <input type="password" id="pass" name="pass" pattern=".{3,}" required autofocus>
                     <label> Enter Password: </label>
                 </div>
                 <div>
-                    <input type="password" name="confirmpass" pattern=".{3,}" required autofocus id="confirmpassword">
+                    <input type="password" id="confirmpass" name="confirmpass" pattern=".{3,}" required autofocus>
                     <label> Confirm Password: </label>
                 </div>
 
 
-                <div id="resultMessage"></div>
                 <input type="submit" value="register">
             </form><br>
         

@@ -33,7 +33,7 @@ color: blue;
     background-position: cover;
     background-repeat: no-repeat;
     background-color: #121212;
-    height: 90vh;
+    height: 72vh;
 }
 
 .box {
@@ -51,7 +51,7 @@ color: blue;
     font-size: 14px;
     color: #FBCC97;
     background-color: black;
-
+    margin-top: 60px;
 }
 
 .box h2,
