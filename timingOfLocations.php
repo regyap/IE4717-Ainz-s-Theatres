@@ -309,6 +309,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="table-content">
         <?php
         //  if(!is_null($locationsdata) && $locationsdata instanceof mysqli_result && mysqli_num_rows($locationsdata) > 0){
+            if(isset($moviedata)){
             if(!is_null($moviedata) && $moviedata instanceof mysqli_result && mysqli_num_rows($moviedata) > 0){
         while($row2=mysqli_fetch_assoc($moviedata)){ ?>
             <div class="table-row">
@@ -344,6 +345,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
             </div>
             <?php }}}else{?>
+                <div class="table-row">
+                <p class="row-head">No screening on this date</p>
+                <div class="boxes">
+                    <input type="submit" value="NA" class="box">
+                </div>
+                
+            <?php }}else{?>
                 <div class="table-row">
                 <p class="row-head">No screening on this date</p>
                 <div class="boxes">

@@ -462,6 +462,8 @@ p.star {
     cursor: pointer;
     margin-right: 15px;
     margin-bottom: 15px;
+    padding-left: 10px;
+
 }
 
 .box:hover {
@@ -549,4 +551,8 @@ p.star {
     background-color: #fbcc97;
     color: black;
     transition: 0.3s;
+}
+
+.footersections input[type="text"] {
+    width: 249px;
 }
