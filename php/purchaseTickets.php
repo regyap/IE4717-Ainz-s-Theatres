@@ -49,6 +49,6 @@ ini_set('display_errors', 1);
 
 
      $conn->close();
-     header("Location:../success.html");
+     header("Location:../success.php");
 
 ?>
