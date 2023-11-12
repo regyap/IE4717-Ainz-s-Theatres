@@ -9,6 +9,7 @@
   <script>
     
   </script>
+  <script src="js/global.js"></script>
   <?php
     session_start();
     if(isset($_SESSION["login"])){

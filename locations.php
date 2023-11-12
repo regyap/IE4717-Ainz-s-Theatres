@@ -11,6 +11,7 @@
       location.href = 'timingOfLocations.php?locationId='+index;
       }
   </script>
+  <script src="js/global.js"></script>
 
   <?php
         $conn=mysqli_connect("localhost","root","" ,"IE4717_ainzs_theatres");

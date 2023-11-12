@@ -9,6 +9,7 @@
   <script>
     
   </script>
+  <script src="js/global.js"></script>
   <?php
       session_start();
       if(isset($_SESSION["login"])){
@@ -51,7 +52,7 @@
   <body>
   <nav class="navbar">
     <?php
-      session_start();
+      // session_start();
       if(isset($_SESSION['login'])=="IsIn"){
         if(isset($_SESSION['username'])){
         $username = $_SESSION['username'];

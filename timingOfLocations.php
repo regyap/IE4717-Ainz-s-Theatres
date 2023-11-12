@@ -96,6 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 </script>
+<script src="js/global.js"></script>
 
 <?php  
 

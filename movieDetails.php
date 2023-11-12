@@ -9,7 +9,9 @@
     <!-- <link rel="stylesheet" type="text/css" href="css/test2.css"> -->
 
 </head>
+<script src="js/global.js"></script>
 <script>
+   
 //    var today = new Date();
 //    var dd = String(today.getDate()).padStart(2, '0');
 //    const month = today.toLocaleString('default', { month: 'long' })/January is 0!

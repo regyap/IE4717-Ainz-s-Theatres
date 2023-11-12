@@ -23,6 +23,7 @@
         }
         }
     </script>
+    <script src="js/global.js"></script>
 
     <body>
     <nav class="navbar">

@@ -29,6 +29,7 @@
       }
     }
   </script>
+  <script src="js/global.js"></script>
 
   <?php
 
