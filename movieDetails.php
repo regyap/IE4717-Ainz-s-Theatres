@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const separator = currentURI.includes("?") ? "&" : "?";
 
         // Construct the URL with the clicked date
-        const url = `${currentURI}${separator}clickedDate=${encodeURIComponent(clickedDate)}`;
+        const url = `${currentURI}${separator}clickedDate=${encodeURIComponent(clickedDate)}#carou`;
 
         // Navigate to the new URL
         window.location.href = url;

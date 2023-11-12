@@ -309,7 +309,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="table-content">
         <?php
         //  if(!is_null($locationsdata) && $locationsdata instanceof mysqli_result && mysqli_num_rows($locationsdata) > 0){
-        if(isset($moviedata)){
+            if(!is_null($moviedata) && $moviedata instanceof mysqli_result && mysqli_num_rows($moviedata) > 0){
         while($row2=mysqli_fetch_assoc($moviedata)){ ?>
             <div class="table-row">
                 <p class="row-head"><?php echo $row2["title"]?></p>
@@ -317,22 +317,33 @@ document.addEventListener("DOMContentLoaded", function () {
                     <?php 
                        
                         $clickedDate = $_GET['clickedDate'];
+                        
                         $sql_select_time="
                         SELECT id, TIME_FORMAT(timing, '%H:%i') as timeatloc 
                         FROM screening WHERE locationId=".$row2["id"]." AND DATE(timing) = '".$clickedDate."';";
                         $datedata = $conn->query($sql_select_time);
 
                         while($row3=mysqli_fetch_assoc($datedata)){ 
+                            if($row3["timeatloc"]!=null){
                             // echo $row3["timing"];
                     ?>
                                 <input value="<?php echo $row3["timeatloc"]?>" id="iwantko" class="box" onclick="selectTiming('<?php echo $row3['id'] ?>');">
                     <?php
-                        }
-                    ?>
+                        }else if($row3->num_rows < 1){  ?>
+
+                    <div class="table-row">
+                <p class="row-head">No screening on this date</p>
+                <div class="boxes">
+                    <input type="submit" value="NA" class="box">
+                </div>
+                            
+                  
+                       <?php }        ?>
+            
                   
                 </div>
             </div>
-            <?php }}else{?>
+            <?php }}}else{?>
                 <div class="table-row">
                 <p class="row-head">No screening on this date</p>
                 <div class="boxes">
