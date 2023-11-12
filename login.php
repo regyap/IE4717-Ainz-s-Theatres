@@ -13,7 +13,8 @@
         const emailInput = document.getElementById("emailInput").value;
         console.log(emailInput)
         const resultMessage = document.getElementById("resultMessage");
-        const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        // const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+$/;
         console.log("Pattern test result:", pattern.test(emailInput));
 
         if (pattern.test(emailInput)) {
@@ -23,6 +24,17 @@
             resultMessage.innerHTML = "Email is not valid";
         }
         }
+       
+    function validateForm() {
+        if (validateEmail()) {
+            return true; // Proceed with form submission
+        } else {
+            // Set a parameter indicating the failure status
+            window.location.href = "login.php?login=fail";
+            return false; // Prevent form submission
+        }
+    }
+
     </script>
     <?php
 
@@ -130,7 +142,7 @@
                         //     }
                         // }
                         ?>
-                    <input type="submit" name="submit" value="login">
+                    <input type="submit" name="submit" value="login" onsubmit="return validateEmail();">
                 </form><br>
                 <p>
                     Don't have an account? <br />
