@@ -113,10 +113,9 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
     // for movie from locationid
-    $sql_select_location="SELECT distinct(movie.title),location.id  
+    $sql_select_location="SELECT distinct(movie.title), screening.movieId, screening.locationId  
     FROM screening 
-    LEFT JOIN movie ON movie.id = screening.movieId 
-    LEFT JOIN location ON location.id = screening.locationId 
+    LEFT JOIN movie ON movie.id = screening.movieId
     WHERE screening.locationId = ".$locationId." AND DATE(screening.timing) = '".$clickedDate."';";
    
     $moviedata = $conn->query($sql_select_location);
@@ -131,6 +130,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if(isset($_GET['fb_location'])){
         $fb_location = intval($_GET['fb_location']);
+        }
+
+        $conn=mysqli_connect("localhost","root","" ,"IE4717_ainzs_theatres");
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
         }
 
         $sql_select="SELECT * FROM movie where (releaseDate<=DATE_ADD(CURDATE(), INTERVAL 7 DAY)) AND (releaseDate>=DATE_ADD(CURDATE(), INTERVAL -30 DAY))";
@@ -297,10 +301,10 @@ document.addEventListener("DOMContentLoaded", function () {
         <!-- <form action="movieDetails.php" method="get"> -->
         <section class="locationandtimetablesection">
         <div class="locationandtimetable">
-        <!-- <div class="table-heading">
-            <h1 class="theatre">Theatres</h1>
+        <div class="table-heading">
+            <h1 class="theatre">Movies</h1>
             <h1 class="time">Timing</h1>
-        </div> -->
+        </div>
         <div class="table-content">
         <?php
         //  if(!is_null($locationsdata) && $locationsdata instanceof mysqli_result && mysqli_num_rows($locationsdata) > 0){
@@ -311,32 +315,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 <p class="row-head"><?php echo $row2["title"]?></p>
                 <div class="boxes">
                     <?php 
-                       
                         $clickedDate = $_GET['clickedDate'];
-                        
                         $sql_select_time="
                         SELECT id, TIME_FORMAT(timing, '%H:%i') as timeatloc 
-                        FROM screening WHERE locationId=".$row2["id"]." AND DATE(timing) = '".$clickedDate."';";
+                        FROM screening WHERE movieId=".$row2["movieId"]."  AND locationId=".$row2["locationId"]." AND DATE(timing) = '".$clickedDate."';";
                         $datedata = $conn->query($sql_select_time);
 
                         while($row3=mysqli_fetch_assoc($datedata)){ 
-                            if($row3["timeatloc"]!=null){
+                            // if($row3["timeatloc"]!=null){
                             // echo $row3["timing"];
                     ?>
                                 <input value="<?php echo $row3["timeatloc"]?>" id="iwantko" class="box" onclick="selectTiming('<?php echo $row3['id'] ?>');">
                     <?php
-                        }else if($row3->num_rows < 1){  ?>
-
-                    <div class="table-row">
-                <p class="row-head">No screening on this date</p>
-                <div class="boxes">
-                    <input type="submit" value="NA" class="box">
-                </div>
-                            
-                  
-                       <?php }        ?>
-            
-                  
+                        }
+                    ?>
                 </div>
             </div>
             <?php }}}else{?>
@@ -345,13 +337,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="boxes">
                     <input type="submit" value="NA" class="box">
                 </div>
-                
-            <?php }}else{?>
-                <div class="table-row">
-                <p class="row-head">No screening on this date</p>
-                <div class="boxes">
-                    <input type="submit" value="NA" class="box">
-                </div>
+             
                 
             <?php }?>
             <!-- <div class="table-row">
