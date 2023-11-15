@@ -61,7 +61,7 @@
           die("Connection failed: " . $conn->connect_error);
         }
 
-        $sql_select="SELECT id, title FROM movie where releaseDate<=DATE_ADD(CURDATE(), INTERVAL -7 DAY)";
+        $sql_select="SELECT * FROM movie where (releaseDate<=DATE_ADD(CURDATE(), INTERVAL 7 DAY)) AND (releaseDate>=DATE_ADD(CURDATE(), INTERVAL -30 DAY))";
         
         $fb_movieList = $conn->query($sql_select);
         $fb_locationList = null;
@@ -69,18 +69,18 @@
 
         if(isset($_GET['fb_movie'])&&isset($_GET['fb_movie'])){
         if($fb_movie!=0 && $fb_location==0){
-          $sql_select="SELECT DISTINCT L.* FROM location as L JOIN screening as S ON L.id=S.locationId where S.movieId=".$fb_movie." AND S.timing>DATE_ADD(CURDATE(), INTERVAL -7 DAY)";
+          $sql_select="SELECT DISTINCT L.* FROM location as L JOIN screening as S ON L.id=S.locationId where S.movieId=".$fb_movie." AND S.timing<DATE_ADD(CURDATE(), INTERVAL 7 DAY) AND (S.timing>CURDATE())";
           $fb_locationList = $conn->query($sql_select);
         }else if($fb_movie!=0 && $fb_location!=0){
-          $sql_select="SELECT DISTINCT L.* FROM location as L JOIN screening as S ON L.id=S.locationId where S.movieId=".$fb_movie." AND S.timing>DATE_ADD(CURDATE(), INTERVAL -7 DAY)";
+          $sql_select="SELECT DISTINCT L.* FROM location as L JOIN screening as S ON L.id=S.locationId where S.movieId=".$fb_movie." AND S.timing<DATE_ADD(CURDATE(), INTERVAL 7 DAY) AND (S.timing>CURDATE())";
           $fb_locationList = $conn->query($sql_select);
-          $sql_select="SELECT DISTINCT id, DAYNAME(timing) as dayName, DAY(timing) as day, MONTHNAME(timing) as monthName, HOUR(timing) as hour, MINUTE(timing) as minute FROM screening where movieId=".$fb_movie." AND locationId=".$fb_location." AND timing>DATE_ADD(CURDATE(), INTERVAL -7 DAY)";
+          $sql_select="SELECT DISTINCT id, DAYNAME(timing) as dayName, DAY(timing) as day, MONTHNAME(timing) as monthName, HOUR(timing) as hour, MINUTE(timing) as minute FROM screening where movieId=".$fb_movie." AND locationId=".$fb_location." AND timing<DATE_ADD(CURDATE(), INTERVAL 7 DAY) AND (timing>CURDATE())";
           $fb_screeningList = $conn->query($sql_select);
         }
       }
       //  FAST BOOKING END -------------------------------
 
-        $sql_select="SELECT id, title FROM movie where releaseDate<=DATE_ADD(CURDATE(), INTERVAL -7 DAY)";
+      $sql_select="SELECT * FROM movie where (releaseDate<=DATE_ADD(CURDATE(), INTERVAL 7 DAY)) AND (releaseDate>=DATE_ADD(CURDATE(), INTERVAL -30 DAY))";
         $movieFilter = $conn->query($sql_select);
 
         $sql_select="SELECT id, name FROM location";
@@ -92,24 +92,27 @@
           $locationId = intval($_GET['location']);
 
         if($movieId!=0 && $locationId==0){
-          $sql_select="SELECT * FROM movie where id=".$movieId." AND (releaseDate<=DATE_ADD(CURDATE(), INTERVAL -7 DAY))";
+          // select specific movie that is released the past month OR will be released in next 7 days
+          $sql_select="SELECT * FROM movie where id=".$movieId." AND (releaseDate<=DATE_ADD(CURDATE(), INTERVAL 7 DAY)) AND (releaseDate>=DATE_ADD(CURDATE(), INTERVAL -30 DAY))";
           $nowShowing = $conn->query($sql_select);
         }else if($movieId==0 && $locationId!=0){
-          $sql_select="SELECT DISTINCT M.* FROM movie as M JOIN screening as S ON M.id=S.movieId where S.locationId=".$locationId." AND S.timing>DATE_ADD(CURDATE(), INTERVAL -7 DAY) AND (releaseDate<=DATE_ADD(CURDATE(), INTERVAL -7 DAY))";
+          // select movies that has a screening at specific location that screening timing is within today and next 7 days
+          $sql_select="SELECT DISTINCT M.* FROM movie as M JOIN screening as S ON M.id=S.movieId where S.locationId=".$locationId." AND S.timing<DATE_ADD(CURDATE(), INTERVAL 7 DAY) AND (S.timing>CURDATE())";
           $nowShowing = $conn->query($sql_select);
         }else if($movieId!=0 && $locationId!=0){
-          $sql_select="SELECT DISTINCT M.* FROM movie as M JOIN screening as S ON M.id=S.movieId where M.id=".$movieId." AND S.locationId=".$locationId." AND S.timing>DATE_ADD(CURDATE(), INTERVAL -7 DAY) AND (releaseDate<=DATE_ADD(CURDATE(), INTERVAL -7 DAY))";
+          // select specific movie that has a screening at specific location that screening timing is within today and next 7 days
+          $sql_select="SELECT DISTINCT M.* FROM movie as M JOIN screening as S ON M.id=S.movieId where M.id=".$movieId." AND S.locationId=".$locationId." AND S.timing<DATE_ADD(CURDATE(), INTERVAL 7 DAY) AND (S.timing>CURDATE())";
           $nowShowing = $conn->query($sql_select);
         }else{
-          $sql_select="SELECT * FROM movie where releaseDate<=DATE_ADD(CURDATE(), INTERVAL -7 DAY)";
+          $sql_select="SELECT * FROM movie where (releaseDate<=DATE_ADD(CURDATE(), INTERVAL 7 DAY)) AND (releaseDate>=DATE_ADD(CURDATE(), INTERVAL -30 DAY))";
           $nowShowing = $conn->query($sql_select);
         }
       }else{
-        $sql_select="SELECT * FROM movie where releaseDate<=DATE_ADD(CURDATE(), INTERVAL -7 DAY)";
+        $sql_select="SELECT * FROM movie where (releaseDate<=DATE_ADD(CURDATE(), INTERVAL 7 DAY)) AND (releaseDate>=DATE_ADD(CURDATE(), INTERVAL -30 DAY))";
           $nowShowing = $conn->query($sql_select);
       }
         
-        $sql_select="SELECT * FROM movie where releaseDate>=DATE_ADD(CURDATE(), INTERVAL -7 DAY)";
+        $sql_select="SELECT * FROM movie where releaseDate>DATE_ADD(CURDATE(), INTERVAL 7 DAY)";
         $comingSoon = $conn->query($sql_select);
 
         $conn->close();
