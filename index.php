@@ -157,53 +157,39 @@
 
   <section class="slideshow">
     <div class="slideshow-container">
-
       <div class="mySlides fade">
         <div class="numbertext">1 / 3</div>
         <img src="image/oppenheimer.webp" alt="slide1">
-
-
-        <!-- <div id="slide1"></div> -->
-
       </div>
 
       <div class="mySlides fade">
         <div class="numbertext">2 / 3</div>
         <img src="image/five-nights-at-freddys-banner.webp" alt="slide2">
-
-        <!--                    <div id="slide2"></div>-->
-
       </div>
 
       <div class="mySlides fade">
         <div class="numbertext">3 / 3</div>
         <img src="image/creationOfTheGods-banner.jpeg" alt="slide3">
-        <!--                    <div id="slide3"></div>-->
-
       </div>
 
       <div id="spacebetweenbuttons">
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
       </div>
-
     </div>
 
 
   </section>
   <section>
     <div class="audience">
-      <!-- <img src="./image/seats.jpeg"> -->
     </div>
   </section>
 
-  <!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
   <section class="tabSection">
     <!-- Tab links -->
     <div class="tab">
       <button class="tablinks" onclick="openCity(event, 'nowShowingSection')" id="defaultOpen">NOW SHOWING</button>
       <button class="tablinks" onclick="openCity(event, 'Paris')">COMING SOON</button>
-      <!-- <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button> -->
     </div>
 
     <!-- Tab content -->
@@ -454,17 +440,12 @@
   function showSlides(n) {
     var i;
     var slides = document.getElementsByClassName("mySlides");
-    // var dots = document.getElementsByClassName("dot");
     if (n > slides.length) { slideIndex = 1 }
     if (n < 1) { slideIndex = slides.length }
     for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
     }
-    // for (i = 0; i < dots.length; i++) {
-    //   dots[i].className = dots[i].className.replace(" active", "");
-    // }
     slides[slideIndex - 1].style.display = "block";
-    // dots[slideIndex - 1].className += " active";
   }
 
 
@@ -492,21 +473,6 @@
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
   }
-
-// // Close the dropdown menu if the user clicks outside of it
-// window.onclick = function(event) {
-//   if (!event.target.matches('.dropbtn')) {
-//     var dropdowns = document.getElementsByClassName("dropdown-content");
-//     var i;
-//     for (i = 0; i < dropdowns.length; i++) {
-//       var openDropdown = dropdowns[i];
-//       if (openDropdown.classList.contains('show')) {
-//         openDropdown.classList.remove('show');
-//       }
-//     }
-//   }
-// }
-
 
 </script>
 

@@ -9,7 +9,7 @@ html {
   color: white;
 }
 
-#content{
+#content {
   display: flex;
   flex-direction: column;
   width: fit-content;
@@ -17,34 +17,34 @@ html {
   margin-right: auto;
 }
 
-.bookingDetails{
+.bookingDetails {
   width: fit-content;
 }
-.bookingDetails div{
+.bookingDetails div {
   padding: 2px;
 }
-.bookingDetails .location{
+.bookingDetails .location {
   font-family: Aoboshi One;
 }
-.bookingDetails .location img{
+.bookingDetails .location img {
   height: 16px;
   width: 16px;
 }
-.bookingDetails .location span{
+.bookingDetails .location span {
   padding: 3px;
   text-align: center;
 }
-.bookingDetails .movie{
+.bookingDetails .movie {
   color: #fbcc97;
   font-size: 14px;
 }
-.bookingDetails .movie .discretion{
+.bookingDetails .movie .discretion {
   border: 0.3px solid #fbcc97;
   padding: 1px;
   font-size: 10px;
 }
 
-.title{
+.title {
   text-align: center;
   font-family: Aoboshi One;
   font-size: 36px;
@@ -94,29 +94,29 @@ ol {
   flex-wrap: nowrap;
   justify-content: flex-start;
 }
-.seat input[type="checkbox"]{
+.seat input[type="checkbox"] {
   opacity: 0;
   width: 30px;
   height: 30px;
 }
-.seat:hover{
-  background-image: url('../image/seat_white.png');
+.seat:hover {
+  background-image: url("../image/seat_white.png");
   background-repeat: no-repeat;
   background-size: contain;
   transition: 0.5s;
 }
-.seat:has(input[type="checkbox"]:checked){
-  background-image: url('../image/seat_white.png');
+.seat:has(input[type="checkbox"]:checked) {
+  background-image: url("../image/seat_white.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
-.seat:has(input[type="checkbox"]:disabled){
-  background-image: url('../image/seat_grey.png');
+.seat:has(input[type="checkbox"]:disabled) {
+  background-image: url("../image/seat_grey.png");
   background-repeat: no-repeat;
   background-size: contain;
 }
 .seat {
-  background-image: url('../image/seat_orange.png');
+  background-image: url("../image/seat_orange.png");
   background-repeat: no-repeat;
   background-size: contain;
   width: 25px;
@@ -137,7 +137,7 @@ ol {
   }
 }
 
-.screen{
+.screen {
   border-top: 1px solid #fbcc97;
   text-align: center;
   width: 80%;
@@ -147,24 +147,24 @@ ol {
   margin-top: 40px;
 }
 
-.legend div{
+.legend div {
   margin: 1px;
   display: flex;
   flex-direction: row;
 }
-.legend .box1{
+.legend .box1 {
   height: 10px;
   width: 10px;
   background-color: #fbcc97;
   margin-right: 7px;
 }
-.legend .box2{
+.legend .box2 {
   height: 10px;
   width: 10px;
   background-color: #717171;
   margin-right: 7px;
 }
-.legend .box3{
+.legend .box3 {
   height: 10px;
   width: 10px;
   background-color: white;
@@ -183,7 +183,7 @@ ol {
   margin-right: auto;
   width: fit-content;
 }
-.proceedBtn input{
+.proceedBtn input {
   text-align: center;
   border: 1px solid #fbcc97;
   color: #fbcc97;
@@ -195,7 +195,7 @@ ol {
   padding-right: 22px;
   cursor: pointer;
 }
-.proceedBtn input:hover{
+.proceedBtn input:hover {
   text-align: center;
   border: 1px solid #fbcc97;
   color: black;

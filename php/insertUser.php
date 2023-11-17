@@ -41,9 +41,4 @@ ini_set('display_errors', 1);
 
      }
 
-    //  echo "<script>alert('You are SUCCESSFULLY registered!')</script>";
-
-    //  $conn->close();
-    //  header("Location:../login.php");
-
 ?>

@@ -1,558 +1,434 @@
 .moviedetailpagecss {
-    background-color: #121212;
-    height: auto;
-    width: auto;
+  background-color: #121212;
+  height: auto;
+  width: auto;
 
-    font-family: Montserrat;
-    color: white;
+  font-family: Montserrat;
+  color: white;
 }
 
 .moviedetails {
-
-    margin-left: 150px;
+  margin-left: 150px;
 }
 
 .moviedetails h1 {
-    color: #FFF;
-    font-family: Montserrat;
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .discretion {
-    border: 0.3px solid #fbcc97;
-    padding: 1px;
-    font-size: 10px;
-    background-color: black;
-    color: #fbcc97;
+  border: 0.3px solid #fbcc97;
+  padding: 1px;
+  font-size: 10px;
+  background-color: black;
+  color: #fbcc97;
 }
 
 .moviecontentandposter {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 20px;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .moviecontentandposter img {
-    width: 300px;
-    height: 400px;
-    object-fit: cover;
-    border: 1px solid #fbcc97;
-
-
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  border: 1px solid #fbcc97;
 }
 
 .allcontent {
-    display: flex;
-    flex-direction: row;
-
-
+  display: flex;
+  flex-direction: row;
 }
 
 table {
-    width: 39%;
-
-
+  width: 39%;
 }
 
-
-
 .table-row .heading {
-    width: 30%;
-    vertical-align: top;
-    padding-top: 17px;
-    color: #FBCC97;
-
+  width: 30%;
+  vertical-align: top;
+  padding-top: 17px;
+  color: #fbcc97;
 }
 
 .table-row .content {
-    width: 70%;
-    vertical-align: top;
-
+  width: 70%;
+  vertical-align: top;
 }
 
 .flextableanddiv {
-    display: flex;
-    flex-direction: row;
-
+  display: flex;
+  flex-direction: row;
 }
 
 .movieinfo {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: start;
-    margin-left: 45px;
-
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+  margin-left: 45px;
 }
 
 .movieinfoparts {
-    display: flex;
-    flex-direction: column;
-    color: #FBCC97;
-    width: 200px;
+  display: flex;
+  flex-direction: column;
+  color: #fbcc97;
+  width: 200px;
 }
 
 .movieinfoparts2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    width: 35%;
-
-
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 35%;
 }
 
 .moviecontent {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
 
+  margin-bottom: 20px;
+  margin-left: 120px;
 
-    margin-bottom: 20px;
-    margin-left: 120px;
-
-
-
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .moviecontent .synopsis {
-    margin-right: 150px;
-    margin-left: -120px;
+  margin-right: 150px;
+  margin-left: -120px;
 }
 
 .moviecontent h3 {
-    color: #FBCC97;
-    font-family: Montserrat;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  color: #fbcc97;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 /* carou */
 p span {
-
-    margin: 0 5px;
-    cursor: pointer;
-    color: #555;
-    width: 30px;
-    height: 30px;
-    display: inline-block;
-    line-height: 19px;
-    text-align: center;
-    border-radius: 3px;
+  margin: 0 5px;
+  cursor: pointer;
+  color: #555;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  line-height: 19px;
+  text-align: center;
+  border-radius: 3px;
 }
 
 p span:hover {
-    background: #222;
-    color: white;
+  background: #222;
+  color: white;
 }
 
 .arrowkey {
-    cursor: pointer;
-    color: #555;
-    /* width: 30px;
-    height: 30px; */
-    display: inline-block;
-    line-height: 19px;
-    text-align: center;
-    padding: 10px;
-
+  cursor: pointer;
+  color: #555;
+  display: inline-block;
+  line-height: 19px;
+  text-align: center;
+  padding: 10px;
 }
 
 .flexflex {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 
-    margin-right: 120px;
-    margin-left: 120px;
+  margin-right: 120px;
+  margin-left: 120px;
 }
 
 .flexflex .flexarrow {
-    display: flex;
-    flex-direction: row;
-    /* width: 33%; */
-
+  display: flex;
+  flex-direction: row;
 }
 
 #leftarrow {
-    padding-left: 320px;
-    padding-right: 40px;
-    /* align-content: end; */
+  padding-left: 320px;
+  padding-right: 40px;
 }
 
 #rightarrow {
-    padding-right: 320px;
-    padding-left: 40px;
+  padding-right: 320px;
+  padding-left: 40px;
 }
 
 #carou {
-    width: 70%;
-    height: 150px;
-    /*background: red;*/
-    margin: auto;
-    display: flex;
-    align-items: center;
-    overflow-x: auto;
+  width: 70%;
+  height: 150px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
 }
 
 #carou::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 #carou .product {
-    min-width: 24%;
-    height: 90%;
-    /* background: whitesmoke; */
-    margin: 0 20px 0 0;
-    /* border-radius: 20px; */
-    position: relative;
-    left: 0;
-    transition: 0.5s;
-    margin-left: 25px;
-
+  min-width: 24%;
+  height: 90%;
+  margin: 0 20px 0 0;
+  position: relative;
+  left: 0;
+  transition: 0.5s;
+  margin-left: 25px;
 }
 
 .time h1 {
-    /* display: flex; */
-    /* flex-direction: row;
-    justify-content: center;
-    align-items: center; */
-    text-align: center;
-    margin-left: 65%;
-    margin-right: auto;
-    /* background: red; */
+  text-align: center;
+  margin-left: 65%;
+  margin-right: auto;
 }
 
 .flexflex .product .dateandtime {
-    width: 85%;
-    height: 78%;
-    border: 1px solid rgba(255, 255, 255, 0.38);
-    background: #000;
-    margin: 0 20px 0 0;
-    color: rgba(255, 255, 255, 0.38);
-    /* border: 1px solid #fbcc97; */
-    cursor: pointer;
+  width: 85%;
+  height: 78%;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  background: #000;
+  margin: 0 20px 0 0;
+  color: rgba(255, 255, 255, 0.38);
+  cursor: pointer;
 
-    padding-left: auto;
-    padding-right: auto;
-    vertical-align: middle;
-    text-align: center;
-    text-align: center;
-    /* Center horizontally */
-    line-height: 100px;
-    /* Equal to the container height */
-
-
-
+  padding-left: auto;
+  padding-right: auto;
+  vertical-align: middle;
+  text-align: center;
+  text-align: center;
+  /* Center horizontally */
+  line-height: 100px;
+  /* Equal to the container height */
 }
 
 .flexflex .product .dateandtime:hover {
-    /* background-color: #fbcc97; */
-    border: 1px solid white;
-    color: white;
-    transition: 0.3s;
-    /* border: 1px solid #121212; */
+  border: 1px solid white;
+  color: white;
+  transition: 0.3s;
 }
 
 .flexflex picture {
-    width: 100%;
-    height: 70%;
-    padding: 20px;
-    /*background: green;*/
-    display: flex;
-    overflow: hidden;
-    margin-bottom: 20px;
+  width: 100%;
+  height: 70%;
+  padding: 20px;
+  display: flex;
+  overflow: hidden;
+  margin-bottom: 20px;
 }
 
 .flexflex picture img {
-    width: 100%;
+  width: 100%;
 }
 
 .flexflex .detail,
 .flexflex .button {
-    width: 90%;
-    /*background: red;*/
-    margin: auto;
-    padding: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 50px;
-    font-size: 20px;
-    color: #444;
+  width: 90%;
+  margin: auto;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  font-size: 20px;
+  color: #444;
 }
 
 .flexflex small {
-    color: #555;
+  color: #555;
 }
 
 .flexflex a {
-    text-decoration: none;
-    padding: 6px 14px;
-    font-size: 15px;
-    margin: 5px 0 0 20px;
-    display: inline-block;
-    background: #6773ff;
-    color: white;
+  text-decoration: none;
+  padding: 6px 14px;
+  font-size: 15px;
+  margin: 5px 0 0 20px;
+  display: inline-block;
+  background: #6773ff;
+  color: white;
 }
 
 p.star {
-    margin: 5px auto;
-    width: 65%;
-    font-size: 25px;
-    color: #808080;
+  margin: 5px auto;
+  width: 65%;
+  font-size: 25px;
+  color: #808080;
 }
 
 @media (max-width: 768px) {
-    .text h1 {
-        font-size: 35px;
-    }
+  .text h1 {
+    font-size: 35px;
+  }
 
-    .text p {
-        width: 90%;
-    }
+  .text p {
+    width: 90%;
+  }
 
-    .flexflex header h1 {
-        font-size: 25px;
-    }
+  .flexflex header h1 {
+    font-size: 25px;
+  }
 
-    .flexflex header p span {
-        font-size: 30px;
-    }
+  .flexflex header p span {
+    font-size: 30px;
+  }
 
-    .flexflex #carou .product {
-        min-width: 49%;
-        margin: 0 10px 0 0;
-    }
+  .flexflex #carou .product {
+    min-width: 49%;
+    margin: 0 10px 0 0;
+  }
 
-    .detail,
-    .button {
-        font-size: 16px;
-    }
+  .detail,
+  .button {
+    font-size: 16px;
+  }
 
-    .flexflex a {
-        padding: 6px 10px;
-    }
+  .flexflex a {
+    padding: 6px 10px;
+  }
 
-    .flexflex .product .dateandtime {
-        width: 100%;
-        height: 78%;
-        border: 1px solid rgba(255, 255, 255, 0.38);
-        background: #000;
-        margin: 0 20px 0 0;
-
-
-
-    }
+  .flexflex .product .dateandtime {
+    width: 100%;
+    height: 78%;
+    border: 1px solid rgba(255, 255, 255, 0.38);
+    background: #000;
+    margin: 0 20px 0 0;
+  }
 }
-
 
 /* locationandtime */
 
 .locationandtimetablesection {
-    background-color: #121212;
-    height: auto;
-    width: auto;
-    font-family: Montserrat;
-    color: white;
-    margin-left: 26%;
-    margin-right: 50%;
+  background-color: #121212;
+  height: auto;
+  width: auto;
+  font-family: Montserrat;
+  color: white;
+  margin-left: 26%;
+  margin-right: 50%;
 }
 
 /* location and time table (LATT)*/
 
 .locationandtimetable {
-    display: flex;
-    flex-direction: column;
-    background-color: black;
-    /* CHANGE SIZE OF TIME TABLE HERE */
-    width: 810px;
-    color: #FBCC97;
-
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  /* CHANGE SIZE OF TIME TABLE HERE */
+  width: 810px;
+  color: #fbcc97;
 }
 
 /* LATT header*/
 .table-heading {
-    display: flex;
-    flex-direction: row;
-    border-bottom: 2px solid white;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 2px solid white;
 }
 
 .table-heading h1 {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .theatre {
-    width: 30%;
-    padding-left: 30px;
+  width: 30%;
+  padding-left: 30px;
 }
 
 .time {
-    width: 70%;
-    align-items: start;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
+  width: 70%;
+  align-items: start;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
 
-    padding-left: 10px;
+  padding-left: 10px;
 }
 
 /* LATT content */
 .table-row {
-    display: flex;
-    flex-direction: row;
-    padding: 10px 0;
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0;
 
-    border-bottom: 1px solid #121212;
-    padding-left: 10px;
+  border-bottom: 1px solid #121212;
+  padding-left: 10px;
 
-    /* color: #DFB587; */
-    font-family: Montserrat;
-    font-size: 14px;
-    font-style: normal;
-    /* font-weight: 400; */
-    line-height: normal;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  line-height: normal;
 
-    padding-right: 10px;
-
-
+  padding-right: 10px;
 }
 
 .row-head {
-    width: 30%;
-    margin: 0;
-    vertical-align: top;
+  width: 30%;
+  margin: 0;
+  vertical-align: top;
 
-    padding-left: 0px;
-    font-size: 14px;
-    padding-bottom: 0;
-    padding-top: 10px;
-
-
-
-
-
-
-
+  padding-left: 0px;
+  font-size: 14px;
+  padding-bottom: 0;
+  padding-top: 10px;
 }
 
 .boxes {
-    width: 70%;
-    /* padding-top: 22px; */
-    padding-bottom: 0;
-    padding-top: 10px;
-
+  width: 70%;
+  padding-bottom: 0;
+  padding-top: 10px;
 }
 
 .box {
-    border: 1px solid #fbcc97;
-    width: 74px;
-    height: 34px;
-    background-color: black;
-    color: #fbcc97;
-    font-size: 14px;
-    cursor: pointer;
-    margin-right: 15px;
-    margin-bottom: 15px;
-    padding-left: 10px;
-
+  border: 1px solid #fbcc97;
+  width: 74px;
+  height: 34px;
+  background-color: black;
+  color: #fbcc97;
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  padding-left: 10px;
 }
 
 .box:hover {
-    background-color: #fbcc97;
-    color: black;
-    transition: 0.3s;
+  background-color: #fbcc97;
+  color: black;
+  transition: 0.3s;
 }
-
-/* --FIN LATT css-- */
-/* .tablestart {
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    background-color: black;
-
-
-}
-
-.tablestart .headercolors {
-    color: #FBCC97;
-    padding: 20px;
-    border-bottom: 1px solid white;
-
-
-
-}
-
-.tablestart td {
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.tablestart .location {
-    width: 30%;
-    text-align: left;
-    vertical-align: top;
-    padding-left: 20px;
-
-    color: #FBCC97;
-
-}
-
-.tablestart .time {
-
-    width: 93%;
-    text-align: start;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-
-
-}
-
-
-
-
-.boxes {
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-content: start;
-    flex-wrap: wrap;
-    text-align: start;
-
-    /* justify-content: space-between; */
-
-
-/* } */
 
 .box {
-
-    border: 1px solid #fbcc97;
-    width: 60px;
-    height: 24px;
-    background-color: black;
-    color: #fbcc97;
-    font-size: 14px;
-    cursor: pointer;
-    margin-right: 15px;
-    margin-bottom: 15px;
-
+  border: 1px solid #fbcc97;
+  width: 60px;
+  height: 24px;
+  background-color: black;
+  color: #fbcc97;
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 15px;
+  margin-bottom: 15px;
 }
 
 .box:hover {
-    background-color: #fbcc97;
-    color: black;
-    transition: 0.3s;
+  background-color: #fbcc97;
+  color: black;
+  transition: 0.3s;
 }
 
 .footersections input[type="text"] {
-    width: 249px;
+  width: 249px;
 }

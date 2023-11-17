@@ -13,7 +13,6 @@
         const emailInput = document.getElementById("emailInput").value;
         console.log(emailInput)
         const resultMessage = document.getElementById("resultMessage");
-        // const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+$/;
         console.log("Pattern test result:", pattern.test(emailInput));
 
@@ -135,13 +134,6 @@
                             if ($_GET['status']=='fail')
                                 echo "Invalid email or password,try again";
                         }
-                        // if(isset($_SESSION['notsignedinfromcontact'])){
-
-                        //     if($_SESSION['notsignedinfromcontact']==true){
-                        //         echo "Sign in before you feedback";
-                        //         //                unset($_SESSION['notsignedinfromcontact']);
-                        //     }
-                        // }
                         ?>
                     <input type="submit" name="submit" value="login" onsubmit="return validateEmail();">
                 </form><br>

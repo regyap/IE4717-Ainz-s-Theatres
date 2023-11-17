@@ -6,14 +6,11 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/movieDetails.css" />
-    <!-- <link rel="stylesheet" type="text/css" href="css/test2.css"> -->
 
 </head>
 <script src="js/global.js"></script>
 <script>
-//    var today = new Date();
-//    var dd = String(today.getDate()).padStart(2, '0');
-//    const month = today.toLocaleString('default', { month: 'long' })/January is 0!
+
 document.addEventListener("DOMContentLoaded", function () {
     //Get the current date
     const currentDate = new Date();
@@ -197,34 +194,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <section class="moviedetailpagecss">
 
-
-
-
-
-         
         </section>
 
-     
-   
-
-
-
-         
-
-
- 
-     
         <section>
             <div class="time">
                 <h1>Choose Time</h1>
             </div>
-
-
-
-
-
-
-
 
             <article class="flexflex">
 
@@ -237,11 +212,8 @@ document.addEventListener("DOMContentLoaded", function () {
                                 d="M0.646446 3.64645C0.451183 3.84171 0.451183 4.15829 0.646446 4.35355L3.82843 7.53553C4.02369 7.7308 4.34027 7.7308 4.53553 7.53553C4.7308 7.34027 4.7308 7.02369 4.53553 6.82843L1.70711 4L4.53553 1.17157C4.7308 0.976311 4.7308 0.659728 4.53553 0.464466C4.34027 0.269204 4.02369 0.269204 3.82843 0.464466L0.646446 3.64645ZM43 3.5H1V4.5H43V3.5Z"
                                 fill="#FBCC97" />
                         </svg>
-
-
                     </p>
                 </section>
-
               
                 <section class="flexarrow" id="carou">
                     <div class="product">
@@ -322,8 +294,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         $datedata = $conn->query($sql_select_time);
 
                         while($row3=mysqli_fetch_assoc($datedata)){ 
-                            // if($row3["timeatloc"]!=null){
-                            // echo $row3["timing"];
                     ?>
                                 <input value="<?php echo $row3["timeatloc"]?>" id="iwantko" class="box" onclick="selectTiming('<?php echo $row3['id'] ?>');">
                     <?php
@@ -340,53 +310,10 @@ document.addEventListener("DOMContentLoaded", function () {
              
                 
             <?php }?>
-            <!-- <div class="table-row">
-                <p class="row-head">Location 2</p>
-                <div class="boxes">
-                    <input type="submit" value="11.25" class="box">                   
-                </div>
-            </div>
-            <div class="table-row">
-                <p class="row-head">Location 3</p>
-                <div class="boxes">
-                    <input type="submit" value="11.25" class="box">
-                </div>
-            </div>
-            <div class="table-row">
-                <p class="row-head">Location 9</p>
-                <div class="boxes">
-                    <input type="submit" value="11.25" class="box">
-                    <input type="submit" value="11.25" class="box">
-                    <input type="submit" value="11.25" class="box">
-                    <input type="submit" value="11.25" class="box">
-                    <input type="submit" value="11.25" class="box">
-          
-                    <input type="submit" value="11.25" class="box">
-                    <input type="submit" value="11.25" class="box">
-                    <input type="submit" value="11.25" class="box">
-                </div>
-            </div>
-            <div class="table-row">
-                <p class="row-head">Location 10</p>
-                <div class="boxes">
-                    <input type="submit" value="11.25" class="box">
-                    <input type="submit" value="11.25" class="box">
-                    <input type="submit" value="11.25" class="box">
-                </div>
-            </div>
-        </div> -->
     </div>
     </section>
-            <!-- </form> -->
-   
-
     <section class="comment">
-
-
     </section>
-
-
-
 
     <footer>
     <div class="footers">

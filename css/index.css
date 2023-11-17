@@ -21,8 +21,6 @@ img {
   transform: translateX(-50%);
   margin-left: auto;
   margin-right: auto;
-
-
 }
 
 .slideshow-container img {
@@ -138,7 +136,6 @@ img {
 }
 
 @media only screen and (max-width: 300px) {
-
   .prev,
   .next,
   .text {
@@ -150,14 +147,12 @@ img {
 .audience {
   margin-top: 560px;
   background-image: url(../image/redseat.jpg);
-  /* background-position: 0 70%; */
   background-size: auto;
   height: 200px;
   width: auto;
 }
 
 .tabSection {
-  /* margin-top: 570px; */
   margin-top: 10px;
 
   color: white;
@@ -174,7 +169,6 @@ img {
   overflow: hidden;
   border-bottom: 1px solid #fbcc97;
   color: white;
-  /* background-color: #f1f1f1; */
 
   margin-left: auto;
   margin-right: auto;
@@ -209,13 +203,11 @@ img {
 
 /* Style the tab content */
 .tabcontent {
-  /* display: none; */
   padding: 6px 12px;
   margin-left: auto;
   margin-right: auto;
 
   color: white;
-  /* border: 1px solid #FBCC97; */
   border-top: none;
 
   height: fit-content;
@@ -254,7 +246,6 @@ img {
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
-  /* margin-left: 10px; */
   margin-right: 10px;
   border-radius: 5px;
   outline: none;
@@ -281,7 +272,6 @@ img {
   width: 80vw;
   padding-right: 100px;
   height: auto;
-
 }
 
 .movie {
@@ -317,8 +307,6 @@ img {
   border: 1px solid #fbcc97;
   border-top: none;
   height: 120px;
-
-
 }
 
 .movieInfo p {
@@ -346,7 +334,6 @@ img {
   background-size: cover;
   background-position: 50%;
   background-attachment: fixed;
-  /* filter: brightness(10%); */
   height: 80vh;
   width: auto;
 
@@ -371,7 +358,8 @@ img {
   height: 72vh;
 }
 
-.aboutus .bathimg {}
+.aboutus .bathimg {
+}
 
 .aboutuscontent {
   display: flex;
@@ -422,7 +410,6 @@ img {
 .cafeandbarcontent p,
 h1 {
   padding-top: 130px;
-  /* margin-left: -100px; */
 }
 
 .cafeandbarcontent p {
@@ -442,7 +429,6 @@ h1 {
   background-size: cover;
   background-position: 90%;
   background-attachment: fixed;
-  /* filter: brightness(10%); */
   height: 80vh;
   width: auto;
 

@@ -6,15 +6,11 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/movieDetails.css" />
-    <!-- <link rel="stylesheet" type="text/css" href="css/test2.css"> -->
 
 </head>
 <script src="js/global.js"></script>
 <script>
    
-//    var today = new Date();
-//    var dd = String(today.getDate()).padStart(2, '0');
-//    const month = today.toLocaleString('default', { month: 'long' })/January is 0!
 document.addEventListener("DOMContentLoaded", function () {
     //Get the current date
     const currentDate = new Date();
@@ -124,14 +120,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         $locationsdata = $conn->query($sql_select_dates);
 
-        // get distinct time from distinct loc
-        // $sql_select_time="
-        // SELECT DISTINCT(name), TIME_FORMAT(timing, '%H:%i') as timeatloc, timing 
-        // FROM screening 
-        // LEFT JOIN location ON location.id = screening.locationId 
-        // WHERE screening.movieId = ".$movieID." AND DATE(timing) = '".$clickedDate."';";
-
-        // $datedata = $conn->query($sql_select_time);
     }
     
     if(isset($_GET['movieID'])){
@@ -142,14 +130,6 @@ document.addEventListener("DOMContentLoaded", function () {
         die("Connection failed: " . $conn->connect_error);
       }
    
-    // $sql_select="select * 
-    // from movie 
-    // left join screening ON movie.id = screening.movieId
-    // left join location on location.id = screening.locationId
-    // left join review on movie.id = review.movieId
-    // where screening.movieId = '$movieID'
-    // LIMIT 1
-    // ;";
  //   for movie details
     $sql_select="SELECT movie.title, movie.image, movie.duration, movie.viewerDiscretion, movie.viewerDiscretionDescription, movie.sypnosis, movie.director, movie.cast, movie.releaseDate, movie.genre, screening.id, screening.timing
     FROM movie 
@@ -431,7 +411,6 @@ $firstIteration  = true;
         }
         // close bracket for first interation and while loop
 
-        // while($row=mysqli_fetch_assoc($alldata))
         ?>
 
      
@@ -559,51 +538,10 @@ $firstIteration  = true;
                 </div>
                 
             <?php }?>
-            <!-- <div class="table-row">
-                <p class="row-head">Location 2</p>
-                <div class="boxes">
-                    <input type="submit" value="11.25" class="box">                   
-                </div>
-            </div>
-            <div class="table-row">
-                <p class="row-head">Location 3</p>
-                <div class="boxes">
-                    <input type="submit" value="11.25" class="box">
-                </div>
-            </div>
-            <div class="table-row">
-                <p class="row-head">Location 9</p>
-                <div class="boxes">
-                    <input type="submit" value="11.25" class="box">
-                    <input type="submit" value="11.25" class="box">
-                    <input type="submit" value="11.25" class="box">
-                    <input type="submit" value="11.25" class="box">
-                    <input type="submit" value="11.25" class="box">
-          
-                    <input type="submit" value="11.25" class="box">
-                    <input type="submit" value="11.25" class="box">
-                    <input type="submit" value="11.25" class="box">
-                </div>
-            </div>
-            <div class="table-row">
-                <p class="row-head">Location 10</p>
-                <div class="boxes">
-                    <input type="submit" value="11.25" class="box">
-                    <input type="submit" value="11.25" class="box">
-                    <input type="submit" value="11.25" class="box">
-                </div>
-            </div>
-        </div> -->
     </div>
     </section>
-            <!-- </form> -->
-   
-
     <section class="comment">
-
-
     </section>
-
     <?php
 
 } 

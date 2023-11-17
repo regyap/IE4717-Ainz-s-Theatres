@@ -15,7 +15,7 @@
         function signup_validate()
         {
               var emailInput = document.getElementById("email").value;
-              var pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+              var pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+$/;
 
               if (!pattern.test(emailInput)) {
                 alert("Email is invalid. Please re-enter");

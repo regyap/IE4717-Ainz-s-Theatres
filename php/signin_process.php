@@ -19,7 +19,6 @@ if (isset($_POST['submit'])) {
 
     if ($result->num_rows == 1) {
         session_start();
-        // $_SESSION['login'] = 'IsIn';
 
         while ($row = mysqli_fetch_assoc($result)) {
             

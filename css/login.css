@@ -1,152 +1,115 @@
-/* input:focus ~ .floating-label,
-input:not(:focus):valid ~ .floating-label {
-top: 8px;
-bottom: 10px;
-left: 20px;
-font-size: 11px;
-opacity: 1;
-}
-
-.inputText {
-font-size: 14px;
-width: 200px;
-height: 35px;
-}
-
-.floating-label {
-position: absolute;
-pointer-events: none;
-left: 20px;
-top: 18px;
-transition: 0.2s ease all;
-}
-
-h1 {
-color: blue;
-} */
-
 .boxbg {
-    background-image: url(../image/360_F_614024027_m0rO7dfjVQYR66p9Juxpddrh8qLcUlcO.jpg);
-    background-attachment: fixed;
-    /* background-position: 0.5% 70%; */
-    background-size: cover;
-    background-position: cover;
-    background-repeat: no-repeat;
-    background-color: #121212;
-    height: 72vh;
+  background-image: url(../image/360_F_614024027_m0rO7dfjVQYR66p9Juxpddrh8qLcUlcO.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: cover;
+  background-repeat: no-repeat;
+  background-color: #121212;
+  height: 72vh;
 }
 
 .box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    background: #121212;
-    padding: 40px;
-    box-sizing: border-box;
-    /* border: 1px solid #FBCC97; */
-    filter: drop-shadow(0px 0px 1px white);
-    font-family: Montserrat;
-    font-size: 14px;
-    color: #FBCC97;
-    background-color: black;
-    margin-top: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background: #121212;
+  padding: 40px;
+  box-sizing: border-box;
+  filter: drop-shadow(0px 0px 1px white);
+  font-family: Montserrat;
+  font-size: 14px;
+  color: #fbcc97;
+  background-color: black;
+  margin-top: 60px;
 }
 
 .box h2,
 h1 {
-    margin: 0 0 40px;
-    padding: 0;
-    text-transform: uppercase;
-    color: #FBCC97;
-    text-align: center;
-    font-family: Aoboshi One;
+  margin: 0 0 40px;
+  padding: 0;
+  text-transform: uppercase;
+  color: #fbcc97;
+  text-align: center;
+  font-family: Aoboshi One;
 }
 
 .box input {
-    padding: 10px 0;
-    margin-bottom: 30px;
-    width: 100%;
-    box-sizing: none;
-    outline: none;
-    border: none;
-    border: 1px solid #121212;
-    border-bottom: 2px solid #FBCC97;
-    background: #121212;
-    color: #FBCC97;
-    font-family: Montserrat;
-
+  padding: 10px 0;
+  margin-bottom: 30px;
+  width: 100%;
+  box-sizing: none;
+  outline: none;
+  border: none;
+  border: 1px solid #121212;
+  border-bottom: 2px solid #fbcc97;
+  background: #121212;
+  color: #fbcc97;
+  font-family: Montserrat;
 }
 
 .box input[type="submit"] {
-    border-bottom: none;
-    cursor: pointer;
-    background: black;
+  border-bottom: none;
+  cursor: pointer;
+  background: black;
 
-    margin-bottom: 0;
-    text-transform: uppercase;
-    font-family: Montserrat;
-    font-size: 14px;
-    border: 2px solid #FBCC97;
-    color: #FBCC97;
-
+  margin-bottom: 0;
+  text-transform: uppercase;
+  font-family: Montserrat;
+  font-size: 14px;
+  border: 2px solid #fbcc97;
+  color: #fbcc97;
 }
 
 .box input[type="submit"]:hover {
-
-    background: #FBCC97;
-    transition: 0.5s;
-    border: 2px solid #FBCC97;
-    color: black;
-    filter: drop-shadow(0px 0px 1px white);
-
+  background: #fbcc97;
+  transition: 0.5s;
+  border: 2px solid #fbcc97;
+  color: black;
+  filter: drop-shadow(0px 0px 1px white);
 }
 
 .box form div {
-    position: relative;
-
+  position: relative;
 }
 
 .box form div label {
-    position: absolute;
-    top: 10px;
-    left: 0;
-    color: white;
-    transition: 0.5s;
-    pointer-events: none;
-    /* padding-left: 10px; */
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: white;
+  transition: 0.5s;
+  pointer-events: none;
 }
 
-.box input:focus~label,
-.box input:valid~label {
-    top: -16px;
-    left: 0;
-    color: rgb(166, 155, 155);
-    font-size: 12px;
-    font-weight: bold;
-
+.box input:focus ~ label,
+.box input:valid ~ label {
+  top: -16px;
+  left: 0;
+  color: rgb(166, 155, 155);
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .box input:focus,
 .box input:valid {
-    border-bottom: 2px solid #FBCC97;
-    filter: drop-shadow(0px 0px 2px white);
-
+  border-bottom: 2px solid #fbcc97;
+  filter: drop-shadow(0px 0px 2px white);
 }
 
 .box #profileimg img {
-    width: 50px;
-    position: relative;
-    left: 130px;
+  width: 50px;
+  position: relative;
+  left: 130px;
 }
 
 .box p {
-    font-size: 14px;
-    color: #FBCC97;
+  font-size: 14px;
+  color: #fbcc97;
 }
 
 .box a {
-    font-size: 14px;
-    color: white;
+  font-size: 14px;
+  color: white;
 }

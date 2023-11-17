@@ -21,21 +21,22 @@
   width: 90%;
 }
 
-#section1, #section2, #section3{
+#section1,
+#section2,
+#section3 {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
   padding: 20px;
 }
 
-#section1 .amountInfo, #section2 .userPaymentDetails{
-    width: 100%;
+#section1 .amountInfo,
+#section2 .userPaymentDetails {
+  width: 100%;
 }
-#section1 .amountInfo tr,td{
-    padding: 16px;
-}
-#section1 .amountInfo td div{
-    /* padding-bottom: 2px; */
+#section1 .amountInfo tr,
+td {
+  padding: 16px;
 }
 #section1 .amountInfo .row1 img {
   width: 140px;
@@ -44,92 +45,93 @@
   border: 1px solid #fbcc97;
 }
 
-#discretion{
-    border: 1px solid white;
-    height: fit-content;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-right: 6px;
-    font-size: 10px;
-    padding: 1px;
+#discretion {
+  border: 1px solid white;
+  height: fit-content;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 6px;
+  font-size: 10px;
+  padding: 1px;
 }
-#movieTitle{
-    font-size: 36px;
+#movieTitle {
+  font-size: 36px;
 }
-#section1 .amountInfo .movie{
-    display: flex;
-    flex-direction: row;
+#section1 .amountInfo .movie {
+  display: flex;
+  flex-direction: row;
 }
-.row1 .col2 div{
-    margin-top: 12px;
-    margin-bottom: 12px;
-}
-
-.col1{
-    color: #fbcc97;
-    text-align: right;
-    
-    width: 140px;
-}
-.row2 .col1,.row3 .col1{
-    vertical-align: text-top;
-}
-.col2{
-    text-align: left;
-    padding-left: 42px;
-}
-.col3{
-    text-align: left;
-    vertical-align: text-top;
+.row1 .col2 div {
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 
-.amtLBL{
-    color: #5A5A5A;
+.col1 {
+  color: #fbcc97;
+  text-align: right;
+
+  width: 140px;
 }
-.horizontalLine{
-    height: fit-content;
-    padding-bottom: 0px;
+.row2 .col1,
+.row3 .col1 {
+  vertical-align: text-top;
 }
-.amtLabelRow td{
-    height: fit-content;
-    padding-top: 0px;
-    padding-bottom: 0px;
+.col2 {
+  text-align: left;
+  padding-left: 42px;
+}
+.col3 {
+  text-align: left;
+  vertical-align: text-top;
 }
 
-#section2 .userPaymentDetails{
-    color: #fbcc97;
+.amtLBL {
+  color: #5a5a5a;
 }
-#section2 .userPaymentDetails .subLabel{
-    text-align: right;
+.horizontalLine {
+  height: fit-content;
+  padding-bottom: 0px;
 }
-#section2 .userPaymentDetails .label{
-    text-align: right;
-    vertical-align: top;
-    width: 25%;
+.amtLabelRow td {
+  height: fit-content;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
-#section2 .userPaymentDetails .textbox input{
-    width: 70%;
+
+#section2 .userPaymentDetails {
+  color: #fbcc97;
 }
-#section3 .button{
-    width: 30%;
-    min-width: 160px;
-    padding: 6px;
-    font-size: 12px;
-    margin: 4px;
-    cursor: pointer;
+#section2 .userPaymentDetails .subLabel {
+  text-align: right;
 }
-#section3 button{
-    background-color: black;
-    color: #fbcc97;
-    border: 1px solid #fbcc97;
+#section2 .userPaymentDetails .label {
+  text-align: right;
+  vertical-align: top;
+  width: 25%;
 }
-#section3 input{
-    background-color: #fbcc97;
-    color: black;
-    border: 1px solid #fbcc97;
+#section2 .userPaymentDetails .textbox input {
+  width: 70%;
 }
-#section3 .buttonsContainer{
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
+#section3 .button {
+  width: 30%;
+  min-width: 160px;
+  padding: 6px;
+  font-size: 12px;
+  margin: 4px;
+  cursor: pointer;
+}
+#section3 button {
+  background-color: black;
+  color: #fbcc97;
+  border: 1px solid #fbcc97;
+}
+#section3 input {
+  background-color: #fbcc97;
+  color: black;
+  border: 1px solid #fbcc97;
+}
+#section3 .buttonsContainer {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }

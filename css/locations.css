@@ -8,7 +8,6 @@ body {
 #content {
   display: flex;
   flex-direction: row;
-  /* justify-content: space-between; */
   flex-wrap: wrap;
   width: 75%;
   margin-top: 30px;
@@ -24,15 +23,14 @@ body {
   padding: 12px;
 }
 
-#content a{
-    text-decoration: none;
-    color: white;
+#content a {
+  text-decoration: none;
+  color: white;
 }
 
 .locationCard {
   display: flex;
   flex-direction: column;
-  /* border: 1px solid #fbcc97; */
   width: 230px;
   margin: 20px;
   background-color: black;
@@ -51,30 +49,30 @@ body {
 .address {
   margin-bottom: 42px;
 }
-.showtimesBTN{
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid #fbcc97;
-    width: 80%;
-    text-align: center;
-    height: fit-content;
-    padding: 4px;
-    color: black;
-    background-color: #fbcc97;
+.showtimesBTN {
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #fbcc97;
+  width: 80%;
+  text-align: center;
+  height: fit-content;
+  padding: 4px;
+  color: black;
+  background-color: #fbcc97;
 }
-.locationCard:hover{
-    color: black;
-    background-color: #fbcc97;
-    transition: 0.5s;
+.locationCard:hover {
+  color: black;
+  background-color: #fbcc97;
+  transition: 0.5s;
 }
-.locationCard:hover .name{
-    color: black;
-    transition: 0.5s;
+.locationCard:hover .name {
+  color: black;
+  transition: 0.5s;
 }
-.locationCard:hover .showtimesBTN{
-    color: #fbcc97;
-    background-color: black;
-    transition: 0.5s;
+.locationCard:hover .showtimesBTN {
+  color: #fbcc97;
+  background-color: black;
+  transition: 0.5s;
 }
 
 .locationCard img {
