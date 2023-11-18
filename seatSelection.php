@@ -34,16 +34,11 @@
     }
 
     function disableSeats(bookedSeatsList){
-      // console.log(bookedSeatsList);
-
       let seatInputs = document.querySelectorAll('input[name="seatInput"]');
-      // console.log(seatInputs);
       seatInputs.forEach((seatInput) => {
         if(bookedSeatsList.includes(seatInput.value)){
-            // console.log("disable");
             seatInput.disabled = true;
           }else{
-            // console.log("NO disable");
             seatInput.setAttribute("onclick", "selectSeat();");
           }
       });
@@ -680,8 +675,8 @@
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       // Convert PHP array to JavaScript array
-    var bookedSeatsList = <?php echo json_encode($bookedSeatsList); ?>;
-    disableSeats(bookedSeatsList);
+      var bookedSeatsList = <?php echo json_encode($bookedSeatsList); ?>;
+      disableSeats(bookedSeatsList);
     })
   </script>
 </html>
